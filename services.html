@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<header>
+    <div id="personal-info">
+        <span id="name">
+            <img src="./identity.png">
+            <h1>Nome Cognome</h1>
+        </span>
+        <span id="adress">
+            <img src="./gps.png">
+            <h2>Città</h2>
+        </span>
+    </div>
+    <a href="./index.html" id="logo_container">
+        <img src="./logo.png" >
+    </a>
+    <div id="about">
+        <span id="email">
+            <img src="./email.jpg">
+            <h2><a href="mailto:nome.cognome@domain.net"> nome.cognome@domain.it</a></h2>
+        </span>
+        <span id="telephone">
+            <img src="./telephone.png">
+            <h2>+3933333333333</h2>
+        </span>
+    </div>
+</header>
+<body>
+    <div id="pictures">
+        <span class="wedding picture_element not-index-page ">
+            <img class="pin" src="./pin.png">
+            <h2 class="wedding">Matrimoni</h2>
+            <span class="service-price" id="weddingPrice">
+                <h3>Price estimation: <br>100€-500€</h3>
+            </span>
+            <img id="weddingPic" class="wedding service-pic" src="./matrimonio.jpg" alt="my creations">
+        </span>
+        <span class="graduation picture_element not-index-page">
+            <img class="pin" src="./pin.png">
+            <h2 class="graduation">Lauree</h2>
+            <span id="graduationPrice" class="service-price">
+                <h3>Price estimation: <br>100€-500€</h3>
+            </span>
+            <img id="graduationPic" class="graduation service-pic" src="./graduation.jpg" alt="my services">
+        </span>
+        <span class="booking picture_element not-index-page  " >
+            <img class="pin" src="./pin.png">
+            <h2 class="booking">Booking</h2>
+            <span id="bookingPrice" class="service-price">
+                <h3>Price estimation: <br>100€-500€</h3>
+            </span>
+            <img id="bookingPic" class="booking service-pic" src="./booking.jpg" alt="my creations">
+        </span>
+        <span class="company picture_element not-index-page ">
+            <img class="pin" src="./pin.png">
+            <h2 class="company">Per aziende</h2>
+            <span id="companyPrice" class="service-price">
+                <h3>Price estimation: <br>100€-500€</h3>
+            </span>
+            <img id="companyPic" class="company service-pic" src="company.jpg" alt="my services">
+        </span>
+    </div>
+    
+</body>
+</html>
+<script>
+    function showServicePrice(e, pic, price){   
+            document.getElementById(pic).style.opacity="0.2"
+            document.getElementById(price).style.fontWeight="bold"
+            setTimeout(() => {
+                document.getElementById(pic).style.opacity="1"
+            }, 8000);
+    }
+    document.getElementsByClassName("wedding")[0].addEventListener("click", (e) => {showServicePrice(e, "weddingPic", "weddingPrice")})
+    document.getElementsByClassName("graduation")[0].addEventListener("click", (e) => {showServicePrice(e, "graduationPic", "graduationPrice")})
+    document.getElementsByClassName("booking")[0].addEventListener("click", (e) => {showServicePrice(e, "bookingPic", "bookingPrice")})
+    document.getElementsByClassName("company")[0].addEventListener("click", (e) => {showServicePrice(e, "companyPic", "companyPrice")})
+
+
+</script>
