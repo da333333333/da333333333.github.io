@@ -230,11 +230,11 @@
 
       // zoom on cart img----------------------------------------------------------------------------
       for (let i = 0; i < document.getElementsByClassName("cartImg").length; i++) {
-            document.getElementsByClassName("cartImg")[i].addEventListener("keydown", (e) => {
+            document.getElementsByClassName("cartImg")[i].addEventListener("mousedown", (e) => {
                   document.getElementById(e.target.id).style.transform = "scale(2)";
-                  setTimeout(() => {
+                 /* setTimeout(() => {
                         document.getElementById(e.target.id).style.transform = "scale(1)";
-                  }, 4000)
+                  }, 4000)*/
             })
       }
 
