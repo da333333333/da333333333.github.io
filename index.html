@@ -231,14 +231,20 @@ f
       // zoom on cart img----------------------------------------------------------------------------
       const cartImages = document.getElementsByClassName("cartImg");
 
-      
 for (let i = 0; i < cartImages.length; i++) {
-    cartImages[i].addEventListener("mousedown", (e) => {
+    const cartImg = cartImages[i];
+    const originalWidth = cartImg.style.width;
+
+    cartImg.addEventListener("mousedown", (e) => {
         const target = e.target;
-        target.style.transform = "scale(1.3)";
-        
+        const description = target.parentNode.querySelector('h3');
+
+        target.style.width = "100%";
+        description.style.display = "none";
+
         target.addEventListener("mouseup", function handleMouseUp() {
-            target.style.transform = "scale(1)";
+            description.style.display = "block";
+            target.style.width = originalWidth;
             target.removeEventListener("mouseup", handleMouseUp);
         });
     });
