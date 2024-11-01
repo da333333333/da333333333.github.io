@@ -230,8 +230,8 @@
 
       // zoom on cart img----------------------------------------------------------------------------
       for (let i = 0; i < document.getElementsByClassName("cartImg").length; i++) {
-            document.getElementsByClassName("cartImg")[i].addEventListener("click", (e) => {
-                  document.getElementById(e.target.id).style.transform = "scale(1.25)";
+            document.getElementsByClassName("cartImg")[i].addEventListener("keydown", (e) => {
+                  document.getElementById(e.target.id).style.transform = "scale(2)";
                   setTimeout(() => {
                         document.getElementById(e.target.id).style.transform = "scale(1)";
                   }, 4000)
