@@ -229,14 +229,18 @@
 
 
       // zoom on cart img----------------------------------------------------------------------------
-      for (let i = 0; i < document.getElementsByClassName("cartImg").length; i++) {
-            document.getElementsByClassName("cartImg")[i].addEventListener("mousedown", (e) => {
-                  document.getElementById(e.target.id).style.transform = "scale(2)";
-                  document.getElementsByClassName("cartImg")[i].addEventListener("mouseup", (e) => {
-                  document.getElementById(e.target.id).style.transform = "scale(1)";
-                  
-            })
-      }
+      
+for (let i = 0; i < cartImages.length; i++) {
+    cartImages[i].addEventListener("mousedown", (e) => {
+        const target = e.target;
+        target.style.transform = "scale(2)";
+        
+        target.addEventListener("mouseup", function handleMouseUp() {
+            target.style.transform = "scale(1)";
+            target.removeEventListener("mouseup", handleMouseUp);
+        });
+    });
+}
 
 
 
