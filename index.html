@@ -249,6 +249,12 @@ for (let i = 0; i < cartImages.length; i++) {
               target.style.position="relative"
             target.removeEventListener("mouseup", handleMouseUp);
         });
+                  target.addEventListener("mousemove", function handleMouseUp() {
+            //description.style.display = "block";
+            target.style.width = originalWidth;
+              target.style.position="relative"
+            target.removeEventListener("mouseup", handleMouseUp);
+        });
     });
 }}
 
