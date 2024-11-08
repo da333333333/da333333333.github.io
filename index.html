@@ -230,7 +230,7 @@
 
       // zoom on cart img----------------------------------------------------------------------------
       const cartImages = document.getElementsByClassName("cartImg");
-
+if(window.innerWidth>1300){
 for (let i = 0; i < cartImages.length; i++) {
     const cartImg = cartImages[i];
     const originalWidth = cartImg.style.width;
@@ -250,7 +250,7 @@ for (let i = 0; i < cartImages.length; i++) {
             target.removeEventListener("mouseup", handleMouseUp);
         });
     });
-}
+}}
 
 
 
