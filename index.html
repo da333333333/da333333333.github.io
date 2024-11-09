@@ -244,6 +244,7 @@
       let originalEcommerceDescription = document.getElementById("ecommerceDescription").innerHTML
       let originalPhotographerDescription = document.getElementById("photographerDescription").innerHTML
       let originalTictactoeDescription = document.getElementById("tictactoeDescription").innerHTML
+      let originalShoppingListDescription = document.getElementById("shoppingListDescription").innerHTML
 
 
       // zoom on cart img----------------------------------------------------------------------------
@@ -282,6 +283,11 @@ for (let i = 0; i < cartImages.length; i++) {
 
       // change cart database------------------------------------------------------------------------
       let allCardsInfo = {
+            shoppingListSite: {
+                  'description': [originalShoppingListDescription, "The shopping list", "The user can select a color or enable 'automatic mode', which automatically chooses an appropriate color based on the item category if possible.", "The user can save an item considered a good deal by also adding a brief description", "The user can leave a message on the sticky note present in each group shopping list, read it, or modify it.", "There is a calculator available for the user" ],
+                  'src': ['./media/shoppingList/shoppingList.gif', './media/shoppingList/shoppingList.png', './media/shoppingList/shoppingListColors.png', './media/shoppingList/shoppingListSave.png', './media/shoppingList/shoppingListMessage.png', './media/shoppingList/shoppingListCalc.png'],
+                  'alt': ['video site', 'site desktop version', 'site mobile version']
+            },
             travelSite: {
                   'description': [originalTravelDescription, "Desktop version", 'Mobile version'],
                   'src': ['./media/travel/travelsite.gif', './media/travel/desktop.png', './media/travel/mobile.png'],
