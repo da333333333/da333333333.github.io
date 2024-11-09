@@ -242,42 +242,37 @@
 
       // zoom on cart img----------------------------------------------------------------------------
  
-
 const cartImages = document.getElementsByClassName("cartImg");
-if(window.innerWidth>1300){
-for (let i = 0; i < cartImages.length; i++) {
-    const cartImg = cartImages[i];
-    const originalWidth = cartImg.style.width;
+if (window.innerWidth > 1300) {
+    for (let i = 0; i < cartImages.length; i++) {
+        const cartImg = cartImages[i];
+        const originalWidth = cartImg.style.width
+        const originalPosition = getComputedStyle(cartImg).position; 
+        const originalZIndex = getComputedStyle(cartImg).zIndex; 
 
-    cartImg.addEventListener("mousedown", (e) => {
-        const target = e.target;
-        //const description = target.parentNode.querySelector('h3');
-          target.style.position="fixed"
-          target.style.top="10px"
-          target.style.left="5%"
+        cartImg.addEventListener("mousedown", (e) => {
+            const target = e.target;
+            target.style.position = "fixed";
+            target.style.top = "10px";
+            target.style.left = "5%";
+            target.style.width = "90%";
+            target.style.maxHeight = "90%";
+            target.style.zIndex = "1";
 
-        target.style.width = "90%";
-         target.style.maxHeight = "90%";
-          target.style.zIndex = "1";
-       // description.style.display = "none";
-
-        target.addEventListener("mouseup", function handleMouseUp() {
-            //description.style.display = "block";
-            target.style.width = originalWidth;
-              target.style.position="relative"
-              target.style.zIndex = "0";
-            target.removeEventListener("mouseup", handleMouseUp);
+            const handleMouseUp = function() {
+                target.style.width = originalWidth
+                target.style.position = originalPosition
+                target.style.zIndex = originalZIndex;
+                target.removeEventListener("mouseup", handleMouseUp);
+                target.removeEventListener("mousemove", handleMouseMove);
+            };
+            const handleMouseMove = function() {
+            };
+            target.addEventListener("mouseup", handleMouseUp);
+            target.addEventListener("mousemove", handleMouseMove);
         });
-                  target.addEventListener("mousemove", function handleMouseUp() {
-            //description.style.display = "block";
-            target.style.width = originalWidth;
-              target.style.position="relative"
-                        target.style.zIndex = "0";
-            target.removeEventListener("mouseup", handleMouseUp);
-        });
-    });
-}}
-
+    }
+}
 
 
       // change cart database------------------------------------------------------------------------
