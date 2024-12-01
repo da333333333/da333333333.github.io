@@ -88,7 +88,7 @@
                 </ul>
             </section>
             <section class="marketSubSects" id="goldSect">
-                <img style="height:60px;" src="./assets/money.png" alt="tesoro">
+                <img style="height:80px;" src="./assets/money.png" alt="tesoro">
                 <h3 id="myMoney">600</h3>
             </section>
         </section>
@@ -416,14 +416,15 @@
     }
 
     function printScreenAssistantMessage(message) {
-        if(myScreenAssistant.textContent!=message){
-        myScreenAssistant.style.backgroundColor="green"
-        myScreenAssistant.innerHTML = message
-        setTimeout(() => {
-            myScreenAssistant.style.backgroundColor="rgba(0, 0, 0, 0.521)"
-            
-        }, 200);
-    }}
+        if (myScreenAssistant.textContent != message) {
+            myScreenAssistant.style.backgroundColor = "green"
+            myScreenAssistant.innerHTML = message
+            setTimeout(() => {
+                myScreenAssistant.style.backgroundColor = "rgba(0, 0, 0, 0.521)"
+
+            }, 200);
+        }
+    }
 
     function infoObj(obj) {
         let objName = (obj.src.split("assets/")[1].split(".png")[0])
@@ -1848,6 +1849,10 @@
 
     #magazzinoSect {
         height: 25vh;
+        display: flex;
+        height: 100px;
+        margin: 10px 0;
+
     }
 
     .horizontal5Ship {
