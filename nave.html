@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Guerra navale</h1>
+
+
+    <div id="marketDiv">
+        <span id="mercatoSpan">
+            <span style="display: flex;">
+                <h2 style="padding-right: 20px;">Mercato</h2>
+                <button id="hideMercato">Nascondi</button>
+            </span>
+        </span>
+        <section id="mercatoSect">
+
+            <section class="marketSubSects">
+                <h3>Navi</h3>
+                <ul>
+                    <li id="ship2Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 2</span> <span class="coinSpan">150 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="ship3Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 3</span> <span class="coinSpan">200 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="ship4Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 4</span> <span class="coinSpan">250 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+
+                </ul>
+            </section>
+
+            <section class="marketSubSects">
+                <h3>Equipaggiamento di difesa</h3>
+                <ul>
+                    <li id="airDefenseMarket">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Contraerea</span> <span class="coinSpan">200 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="jammerMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Jammer</span> <span class="coinSpan">150 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="marketSubSects">
+                <h3>Equipaggiamento d'attacco</h3>
+                <ul>
+
+                    <li id="atomicMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile Nucleare</span> <span class="coinSpan">200
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="advancedMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile avanzato</span> <span class="coinSpan">150
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="alliedMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile alleato</span> <span class="coinSpan">100
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                </ul>
+            </section>
+            <section class="marketSubSects" id="goldSect">
+                <img style="height:120px;" src="./assets/money.png" alt="tesoro">
+                <h3 id="myMoney">600</h3>
+            </section>
+        </section>
+    </div>
+
+    </div>
+
+    <div id="matchDiv">
+        <section id="magazzinoSect">
+            <span style="display: flex;     justify-content: center; margin-bottom: 2vh;">
+                <h2 style="padding-right: 20px;">Magazzino</h2>
+                <button id="endMarketBtn">Chiudi mercato</button>
+            </span>
+
+            <ul id="myArmyList">
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png"
+                        alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2a">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png"
+                        alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2b">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible  vertical3Ship" src="./assets/ship3vert.png"
+                        alt="ship3vert">
+                    <img class="myArmyImg draggableElement horizontal3Ship" src="./assets/ship3.png" alt="ship3">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical4Ship" src="./assets/ship4vert.png"
+                        alt="ship4vert">
+                    <img class="myArmyImg draggableElement horizontal4Ship" src="./assets/ship4.png" alt="ship4">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical5Ship" src="./assets/ship5vert.png"
+                        alt="ship5vert">
+                    <img class="myArmyImg draggableElement horizontal5Ship" src="./assets/ship5.png" alt="ship5">
+                </li>
+                <li>
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/airDefense2.png" alt="air defense">
+                </li>
+                <li>
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicBomb.png" alt="atomic bomb">
+                </li>
+                <li>
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/jammer.png" alt="jammer">
+                </li>
+                <li>
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/alliedMissile.png" alt="allied missile">
+                </li>
+            </ul>
+
+        </section>
+        <section id="gridsSect">
+            <span class="gridSpan">
+                <span class="activeTurn" id="myGridSpan">
+                    <h2 class="gridTitle">Le tue posizioni</h2>
+                    <button id="readyBtn">Pronto!</button>
+                </span>
+                <img class="positionsImg" id="myPositionsImg" src="./assets/grid.png" alt="grid">
+                <span id="myXAxisSpan">
+                    <span class="spanLetterAxis">A</span>
+                    <span class="spanLetterAxis">B</span>
+                    <span class="spanLetterAxis">C</span>
+                    <span class="spanLetterAxis">D</span>
+                    <span class="spanLetterAxis">E</span>
+                    <span class="spanLetterAxis">F</span>
+                    <span class="spanLetterAxis">G</span>
+                    <span class="spanLetterAxis">H</span>
+                    <span class="spanLetterAxis">I</span>
+                    <span class="spanLetterAxis">L</span>
+                </span>
+                <span id="myYAxisSpan">
+                    <span class="spanLetterAxis">1</span>
+                    <span class="spanLetterAxis">2</span>
+                    <span class="spanLetterAxis">3</span>
+                    <span class="spanLetterAxis">4</span>
+                    <span class="spanLetterAxis">5</span>
+                    <span class="spanLetterAxis">6</span>
+                    <span class="spanLetterAxis">7</span>
+                    <span class="spanLetterAxis">8</span>
+                    <span class="spanLetterAxis">9</span>
+                    <span class="spanLetterAxis">10</span>
+                </span>
+            </span>
+            <span class="gridSpan">
+                <h2 class="gridTitle">Le posizioni nemiche</h2>
+                <img class="positionsImg" id="opponentPositionsImg" src="./assets/grid.png" alt="grid">
+                <span id="XAxisSpanAdv">
+                    <span class="spanLetterAxis">A</span>
+                    <span class="spanLetterAxis">B</span>
+                    <span class="spanLetterAxis">C</span>
+                    <span class="spanLetterAxis">D</span>
+                    <span class="spanLetterAxis">E</span>
+                    <span class="spanLetterAxis">F</span>
+                    <span class="spanLetterAxis">G</span>
+                    <span class="spanLetterAxis">H</span>
+                    <span class="spanLetterAxis">I</span>
+                    <span class="spanLetterAxis">L</span>
+                </span>
+                <span id="YAxisSpanAdv">
+                    <span class="spanLetterAxis">1</span>
+                    <span class="spanLetterAxis">2</span>
+                    <span class="spanLetterAxis">3</span>
+                    <span class="spanLetterAxis">4</span>
+                    <span class="spanLetterAxis">5</span>
+                    <span class="spanLetterAxis">6</span>
+                    <span class="spanLetterAxis">7</span>
+                    <span class="spanLetterAxis">8</span>
+                    <span class="spanLetterAxis">9</span>
+                    <span class="spanLetterAxis">10</span>
+                </span>
+            </span>
+        </section>
+        <section>
+            <p id="myScreenAssistant"></p>
+        </section>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let myPositionsImgLeft
+    let myPositionsImgTop
+    let opponentPositionsImgLeft
+    let opponentPositionsImgTop
+    let gridStep
+    let calculateClickedCell
+    let shipsPositionsCells = []
+    let takenCellArray = []
+    let freeCell = true
+
+    let plusBtnArray = document.getElementsByClassName("plusBtn")
+    let minusBtnArray = document.getElementsByClassName("minusBtn")
+
+    function buyNewArticle(id) {
+        if (!stopMarket) {
+            let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
+            if (newMyMoney < 0) {
+                alert("Non hai abbastanza monete")
+            }
+            else {
+                myArmyList.innerHTML += articlesInventory[id].li
+                makeShipsTurnable()
+                // makeMagazzinoDraggable()
+                myMoney.innerText = newMyMoney
+            }
+        }
+        else {
+            alert("Il mercato è ormai chiuso")
+        }
+    }
+
+    function sellArticle(id) {
+        if (!stopMarket) {
+            let arrayThisArticle = document.getElementsByClassName(id)
+            if (arrayThisArticle.length > 0) {
+                arrayThisArticle[arrayThisArticle.length - 1].remove()
+                myMoney.innerText = parseInt(myMoney.textContent) + articlesInventory[id].price
+                for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
+                    let thisShip = document.getElementsByClassName("turnObjImg")[i]
+                    thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
+                }
+                makeShipsTurnable()
+                //makeMagazzinoDraggable()
+            }
+            else {
+                alert("Puoi vendere solo gli articoli che hai comprato")
+            }
+        }
+        else {
+            alert("Il mercato è ormai chiuso")
+        }
+    }
+
+
+    function activateMarket() {
+        for (let i = 0; i < plusBtnArray.length; i++) {
+            plusBtnArray[i].addEventListener("click", () => { buyNewArticle(plusBtnArray[i].parentNode.id.split("Market")[0]) })
+            minusBtnArray[i].addEventListener("click", () => { sellArticle(minusBtnArray[i].parentNode.id.split("Market")[0]) })
+        }
+    }
+    activateMarket()
+    function amIReady() {
+        let allMyArticles = document.getElementsByClassName("draggableElement");
+        for (let i = 0; i < allMyArticles.length; i++) {
+            if (allMyArticles[i].style.position !== "absolute" && !allMyArticles[i].classList.contains("not_visible")) {
+                alert("Qualcosa non è ancora stato posizionato. Forse si tratta di " + allMyArticles[i].src.split("assets/")[1].split(".png")[0]);
+                return;
+            }
+        }
+        let myNotDraggablesArtsArray = document.getElementsByClassName("not_draggable")
+        let allNotDraggableElements = []
+        for (let i = 0; i < myNotDraggablesArtsArray.length; i++) {
+            let newNotDraggableElement = {
+                type: myNotDraggablesArtsArray[i].src.split("assets/")[1].split(".png")[0],
+                direction: "special",
+                length: "special",
+                height: "special",
+                positions: ["special"]
+            }
+            allNotDraggableElements.push(newNotDraggableElement)
+
+        }
+        console.log(takenCellArray)
+        console.log(allArticlesPositions.concat(allNotDraggableElements))
+    }
+
+    readyBtn.addEventListener("click", amIReady)
+
+
+
+
+
+    const articlesInventory = {
+        ship2: {
+            price: 150,
+            li: `<li class="ship2">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png" alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2a">
+                </li>`
+        },
+        ship3: {
+            price: 200,
+            li: `<li class="ship3">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible  vertical3Ship" src="./assets/ship3vert.png" alt="ship3vert">
+                    <img class="myArmyImg draggableElement horizontal3Ship" src="./assets/ship3.png" alt="ship3">
+                </li>`
+        },
+        ship4: {
+            price: 250,
+            li: `<li class="ship4">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical4Ship" src="./assets/ship4vert.png" alt="ship4vert">
+                    <img class="myArmyImg draggableElement horizontal4Ship" src="./assets/ship4.png" alt="ship4">
+                </li>`
+        },
+        airDefense: {
+            price: 200,
+            li: `<li class="airDefense">
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/airDefense2.png" alt="air defense">
+                </li>`
+        },
+        jammer: {
+            price: 150,
+            li: `<li class="jammer">
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/jammer.png" alt="jammer">
+                </li>`
+        },
+        atomicMissile: {
+            price: 200,
+            li: `<li class="atomicMissile">
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicMissile.png" alt="atomic missile">
+                </li>`
+        },
+        advancedMissile: {
+            price: 150,
+            li: `<li class="advancedMissile">
+                    <img class="myArmyImg  not_draggable armyObj" src="./assets/advancedMissile.png" alt="advanced missile">
+                </li>`
+        },
+        alliedMissile: {
+            price: 100,
+            li: `<li class="alliedMissile">
+                    <img class="myArmyImg not_draggable  armyObj" src="./assets/alliedMissile.png" alt="allied missile">
+                </li>`
+        }
+    };
+
+
+    function calculateBombsPositions() {
+        myPositionsImgLeft = myPositionsImg.getBoundingClientRect().left + window.scrollX
+        myPositionsImgTop = myPositionsImg.getBoundingClientRect().top + window.scrollY
+        opponentPositionsImgLeft = opponentPositionsImg.getBoundingClientRect().left + window.scrollX;
+        opponentPositionsImgTop = opponentPositionsImg.getBoundingClientRect().top + window.scrollY
+        gridStep = 300 / 10
+    }
+
+    function turnThisShip(ship) {
+        let verticalShip = ship.parentNode.childNodes[3];
+        let horizontalShip = ship.parentNode.childNodes[5];
+        let wasVerticalShipNotVisible = verticalShip.classList.contains("not_visible");
+        let wasHorizontalShipNotVisible = horizontalShip.classList.contains("not_visible");
+
+        if (wasHorizontalShipNotVisible) {
+            horizontalShip.classList.remove("not_visible")
+        }
+        if (wasVerticalShipNotVisible) {
+            verticalShip.classList.remove("not_visible")
+        }
+
+        if (wasHorizontalShipNotVisible) {
+            verticalShip.classList.add("not_visible")
+        } else if (wasVerticalShipNotVisible) {
+            horizontalShip.classList.add("not_visible")
+        }
+    }
+    function makeShipsTurnable() {
+        for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
+            let thisShip = document.getElementsByClassName("turnObjImg")[i]
+            thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
+        }
+    }
+
+    function calculateAxisPositions() {
+        myXAxisSpan.style.top = (myPositionsImgTop - 30) + "px"
+        myXAxisSpan.style.left = (myPositionsImgLeft) + "px"
+        XAxisSpanAdv.style.top = (opponentPositionsImgTop - 30) + "px"
+        XAxisSpanAdv.style.left = (opponentPositionsImgLeft) + "px"
+
+        myYAxisSpan.style.top = (myPositionsImgTop) + "px"
+        myYAxisSpan.style.left = (myPositionsImgLeft - 30) + "px"
+        YAxisSpanAdv.style.top = (opponentPositionsImgTop) + "px"
+        YAxisSpanAdv.style.left = (opponentPositionsImgLeft - 30) + "px"
+    }
+
+    function printScreenAssistantMessage(message) {
+        if(myScreenAssistant.textContent!=message){
+        myScreenAssistant.style.backgroundColor="green"
+        myScreenAssistant.innerHTML = message
+        setTimeout(() => {
+            myScreenAssistant.style.backgroundColor="rgba(0, 0, 0, 0.521)"
+            
+        }, 200);
+    }}
+
+    function infoObj(obj) {
+        let objName = (obj.src.split("assets/")[1].split(".png")[0])
+        console.log(objName)
+        if (objName == "ship2" || objName == "ship2vert") {
+            printScreenAssistantMessage("Questa è una nave da 2 celle")
+
+        }
+        if (objName == "ship3" || objName == "ship3vert") {
+            printScreenAssistantMessage("Questa è una nave da 3 celle")
+        }
+        if (objName == "ship4" || objName == "ship4vert") {
+            printScreenAssistantMessage("Questa è una nave da 4 celle")
+        }
+        if (objName == "ship5" || objName == "ship5vert") {
+            printScreenAssistantMessage("Questa è una nave da 5 celle")
+        }
+        if (objName == "airDefense2") {
+            printScreenAssistantMessage("Questa è una difesa aerea che bla bla bla bla bla asasasasasas")
+        }
+        if (objName == "atomicBomb") {
+            printScreenAssistantMessage("Questa è una bomba atomica che bla bla bla bla bla asasasasasas")
+        }
+        if (objName == "jammer") {
+            printScreenAssistantMessage("Questa è un jammer che bla bla bla bla bla asasasasasas")
+        }
+        if (objName == "alliedMissile") {
+            printScreenAssistantMessage("Questa è un missile alleato che bla bla bla bla bla asasasasasas")
+        }
+
+
+    }
+
+    function infoObjHandler(event) {
+        infoObj(event.target);
+    }
+
+    function marketSubSectHandler() {
+        printScreenAssistantMessage("Questo è il mercato e ti permetterà di comprare e vendere oggetti, se hai abbastanza monete.");
+    }
+
+    function opponentPositionHandler() {
+        printScreenAssistantMessage("Questa è la griglia nemica che dovrai attaccare.");
+    }
+
+    function myPositionHandler() {
+        printScreenAssistantMessage("Questa è la tua griglia. Quando vuoi, chiudi il mercato e inizia a posizionare gli elementi.");
+    }
+
+    function openMarketScreenMsgs() {
+        if (!stopMarket) {
+            let myArmyImgArray = document.getElementsByClassName("myArmyImg");
+            let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
+
+            for (let i = 0; i < myArmyImgArray.length; i++) {
+                myArmyImgArray[i].addEventListener("click", infoObjHandler);
+            }
+            for (let i = 0; i < marketSubSectsArray.length; i++) {
+                marketSubSectsArray[i].addEventListener("click", marketSubSectHandler);
+            }
+            opponentPositionsImg.addEventListener("click", opponentPositionHandler);
+            myPositionsImg.addEventListener("click", myPositionHandler);
+        }
+    }
+
+    function removeListenerMsgOpenMarket() {
+        let myArmyImgArray = document.getElementsByClassName("myArmyImg");
+        let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
+
+        for (let i = 0; i < myArmyImgArray.length; i++) {
+            myArmyImgArray[i].removeEventListener("click", infoObjHandler);
+        }
+        for (let i = 0; i < marketSubSectsArray.length; i++) {
+            marketSubSectsArray[i].removeEventListener("click", marketSubSectHandler);
+        }
+
+        opponentPositionsImg.removeEventListener("click", opponentPositionHandler);
+        myPositionsImg.removeEventListener("click", myPositionHandler);
+    }
+
+
+    function setScreenAssistantPosition() {
+        myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
+        printScreenAssistantMessage("Benvenuto,<br> In questo momento, se clicchi su un oggetto, cercherò di darti delle informazioni.")
+    }
+
+    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
+    // window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions() })
+    window.addEventListener("load", makeShipsTurnable)
+
+    function logCoordinates(event, grid) {
+        var xClick = event.clientX + window.scrollX;
+        var yClick = event.clientY + window.scrollY;
+        if (grid == "opponentGrid") { //to calculate y
+            if (yClick < (gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "A"
+            }
+            else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "B"
+            }
+            else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "C"
+            }
+            else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "D"
+            }
+            else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "E"
+            }
+            else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "F"
+            }
+            else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "G"
+            }
+            else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "H"
+            }
+            else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "I"
+            }
+            else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "L"
+            }
+        }
+
+        if (grid == "opponentGrid") { //to calculate x
+            if (xClick < (gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "1"
+                circleBombAnimation()
+            }
+            else if (xClick < (2 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "2"
+                circleBombAnimation()
+            }
+            else if (xClick < (3 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "3"
+                circleBombAnimation()
+            }
+            else if (xClick < (4 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "4"
+                circleBombAnimation()
+            }
+            else if (xClick < (5 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "5"
+                circleBombAnimation()
+            }
+            else if (xClick < (6 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "6"
+                circleBombAnimation()
+            }
+            else if (xClick < (7 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "7"
+                circleBombAnimation()
+            }
+            else if (xClick < (8 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "8"
+                circleBombAnimation()
+            }
+            else if (xClick < (9 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "9"
+                circleBombAnimation()
+            }
+            else if (xClick < (10 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "10"
+                circleBombAnimation()
+            }
+        }
+
+        function circleBombAnimation() {
+            let yBombed = calculateClickedCell.slice(1)
+            let xBombed = calculateClickedCell[0]
+            let theoreticalXBombed //for bombing animation purpose
+            let theoreticalYBombed //for bombing animation purpose
+            switch (xBombed) {
+                case "A":
+                    theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "B":
+                    theoreticalYBombed = gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "C":
+                    theoreticalYBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "D":
+                    theoreticalYBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "E":
+                    theoreticalYBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgTop;
+                    break;
+                case "F":
+                    theoreticalYBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "G":
+                    theoreticalYBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "H":
+                    theoreticalYBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "I":
+                    theoreticalYBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "L":
+                    theoreticalYBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                default:
+                    alert("Valore di xBombed non valido: " + xBombed);
+            }
+            switch (yBombed) {
+                case "1":
+                    theoreticalXBombed = gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "2":
+                    theoreticalXBombed = gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "3":
+                    theoreticalXBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "4":
+                    theoreticalXBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "5":
+                    theoreticalXBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "6":
+                    theoreticalXBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "7":
+                    theoreticalXBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "8":
+                    theoreticalXBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "9":
+                    theoreticalXBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "10":
+                    theoreticalXBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                default:
+                    Alert("Valore di yBombed non valido: " + yBombed);
+            }
+
+
+
+            const circleBomb = document.createElement('div');
+            circleBomb.style.width = '30px';
+            circleBomb.style.height = '30px';
+            circleBomb.style.backgroundColor = 'black';
+            circleBomb.style.borderRadius = '50%';
+            circleBomb.style.position = 'absolute';
+            circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+            circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+
+
+
+            circleBomb.id = "circleBomb"
+            document.body.appendChild(circleBomb);
+            circleBomb.className = "imBombingAnimation"
+
+        }
+    }
+
+
+
+
+    let draggableElement;
+
+    function makeMagazzinoDraggable() {
+        draggableElementArray = document.getElementsByClassName("draggableElement");
+        console.log(draggableElementArray)
+        for (let i = 0; i < draggableElementArray.length; i++) {
+            //if(myArmyImgArray[i].style.position==""){
+            let draggedYet = false
+            draggableElementArray[i].addEventListener("mousedown", function (e) {
+
+                if (!draggedYet) { dragFunction(i, e) }
+                draggedYet = true
+
+            });
+            //  }
+        }
+    }
+
+
+
+    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {
+        let checkAgain = false
+        if (elementToDragLeft < (myPositionsImgLeft + 30)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = myPositionsImgLeft + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in A
+                    newShipTakenPositions.x = "A"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in A
+                    newShipTakenPositions.x = "A"
+                }
+
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 60)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 30) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in B
+                    newShipTakenPositions.x = "B"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in B
+                    newShipTakenPositions.x = "B"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 90)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 60) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in C
+                    newShipTakenPositions.x = "C"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in C
+                    newShipTakenPositions.x = "C"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 120)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 90) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in D
+                    newShipTakenPositions.x = "D"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in D
+                    newShipTakenPositions.x = "D"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 150)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 120) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in E
+                    newShipTakenPositions.x = "E"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in E
+                    newShipTakenPositions.x = "E"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 180)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 150) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in F
+                    newShipTakenPositions.x = "F"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in F
+                    newShipTakenPositions.x = "F"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 210)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 180) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in G
+                    newShipTakenPositions.x = "G"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in G
+                    newShipTakenPositions.x = "G"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 240)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 210) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in H
+                    newShipTakenPositions.x = "H"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in H
+                    newShipTakenPositions.x = "H"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 270)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 240) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in I
+                    newShipTakenPositions.x = "I"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in I
+                    newShipTakenPositions.x = "I"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 300 + onMouseUptolerance)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 270) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in L
+                    newShipTakenPositions.x = "L"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in L
+                    newShipTakenPositions.x = "L"
+                }
+            }
+        }
+
+
+
+    }
+    function restartDrag(event) {
+        if (freeCell == false) {
+            dragFunction(lastDraggedElementIndex, event);
+            freeCell = true
+            document.removeEventListener("mousemove", restartDrag)
+        }
+    }
+
+
+
+    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {
+        let checkAgain = false
+        if (elementToDragTop < (myPositionsImgTop + 30)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 1
+                    newShipTakenPositions.y = "1"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 1
+                    newShipTakenPositions.y = "1"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+
+
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 60)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 30 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 2
+                    newShipTakenPositions.y = "2"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 2
+                    newShipTakenPositions.y = "2"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 90)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 60 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 3
+                    newShipTakenPositions.y = "3"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 3
+                    newShipTakenPositions.y = "3"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 120)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 90 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 4
+                    newShipTakenPositions.y = "4"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 4
+                    newShipTakenPositions.y = "4"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 150)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 120 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 5
+                    newShipTakenPositions.y = "5"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 5
+                    newShipTakenPositions.y = "5"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 180)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 150 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 6
+                    newShipTakenPositions.y = "6"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+
+
+
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 6
+                    newShipTakenPositions.y = "6"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 210)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 180 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 7
+                    newShipTakenPositions.y = "7"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 7
+                    newShipTakenPositions.y = "7"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 240)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 210 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 8
+                    newShipTakenPositions.y = "8"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 8
+                    newShipTakenPositions.y = "8"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 270)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 240 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 9
+                    newShipTakenPositions.y = "9"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 9
+                    newShipTakenPositions.y = "9"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 270 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 10
+                    newShipTakenPositions.y = "10"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 10
+                    newShipTakenPositions.y = "10"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                                restartDrag(event)
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    let allArticlesPositions = []
+
+    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {
+        let objHorizontalCells = elementToDrag.width / 30
+        let objVerticalCells = elementToDrag.height / 30
+        let type
+        let newShipTakenPositions
+
+
+        if (objHorizontalCells == 1 && objVerticalCells == 1) { //not a ship
+            type = elementToDrag.src.split("assets/")[1].split(".png")[0]
+            newShipTakenPositions = {
+                type: type,
+                direction: "horizontal",
+                length: objHorizontalCells,
+                height: objVerticalCells,
+                positions: []
+            }
+        }
+        else if (objHorizontalCells > objVerticalCells) { //Horizontal ship
+            type = objHorizontalCells + " cells ship"
+            newShipTakenPositions = {
+                type: type,
+                direction: "horizontal",
+                length: objHorizontalCells,
+                height: objVerticalCells,
+                positions: []
+            }
+
+
+        }
+        else if (objHorizontalCells < objVerticalCells) { //Vertical ship
+            type = objVerticalCells + " cells ship"
+            newShipTakenPositions = {
+                type: type,
+                direction: "vertical",
+                length: objVerticalCells,
+                height: objHorizontalCells,
+                positions: []
+            }
+        }
+        allArticlesPositions.push(newShipTakenPositions)
+
+        calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+        calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+    }
+    let turnObjImgArray = "notDoneYet"
+    let lastDraggedElementIndex
+
+    function dragFunction(elementIndex, event) {
+
+        const elementToDrag = draggableElementArray[elementIndex];
+        elementToDrag.style.position = "absolute";
+
+
+        if (turnObjImgArray == "notDoneYet") {
+            turnObjImgArray = document.getElementsByClassName("turnObjImg")
+            for (let i = 0; i < turnObjImgArray.length; i++) {
+                turnObjImgArray[i].style.display = 'none';
+            }
+        }
+        let offsetX = event.clientX - elementToDrag.getBoundingClientRect().left;
+        let offsetY = event.clientY - elementToDrag.getBoundingClientRect().top - window.scrollY;
+        let isDragging = true;
+        lastDraggedElementIndex = elementIndex
+        function onMouseMove(event) {
+            if (isDragging) {
+                elementToDrag.style.left = event.clientX - offsetX + 'px';
+                elementToDrag.style.top = event.clientY - offsetY + 'px';
+            }
+        }
+        function onMouseUp() {
+            let elementToDragLeft = parseFloat(elementToDrag.style.left)
+            let elementToDragTop = parseFloat(elementToDrag.style.top)
+            let elementToDragWidth = elementToDrag.offsetWidth
+            let elementToDragHeight = elementToDrag.offsetHeight
+            let elementToDragRight = elementToDragLeft + elementToDragWidth
+            let elementToDragBottom = elementToDragTop + elementToDragHeight
+            let onMouseUptolerance = 10
+            if (elementToDragLeft > (myPositionsImgLeft - onMouseUptolerance) && elementToDragRight < (myPositionsImgLeft + 300 + onMouseUptolerance) && elementToDragTop > myPositionsImgTop - onMouseUptolerance && elementToDragBottom < (myPositionsImgTop + 300 + onMouseUptolerance)) {
+                isDragging = false; //aggiungere la consizione "se la cella è libera"
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, elementToDragWidth, onMouseUptolerance, elementToDragRight, elementToDragBottom)
+            }
+        }
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+        document.addEventListener('mousemove', restartDrag);
+
+        event.preventDefault();
+    }
+
+    function hideOrShowMercato() {
+        if (mercatoSect.style.display == "" || mercatoSect.style.display == "block") {
+            mercatoSect.style.display = "none"
+        }
+        else if (mercatoSect.style.display == "none") {
+            mercatoSect.style.display = "block"
+            if (stopMarket) {
+                document.getElementsByClassName("marketSubSects")[0].style.backgroundColor = "#ff00008f"
+                document.getElementsByClassName("marketSubSects")[1].style.backgroundColor = "#ff00008f"
+                document.getElementsByClassName("marketSubSects")[2].style.backgroundColor = "#ff00008f"
+                document.getElementsByClassName("marketSubSects")[3].style.backgroundColor = "#ff00008f"
+            }
+        }
+    }
+
+    hideMercato.addEventListener("click", hideOrShowMercato)
+
+
+    let stopMarket = false
+
+    endMarketBtn.addEventListener("click", () => {
+        makeMagazzinoDraggable();
+        endMarketBtn.style.display = "none";
+        stopMarket = true;
+        hideOrShowMercato();
+        removeListenerMsgOpenMarket()
+        printScreenAssistantMessage("Hai chiuso il mercato: il gioco inizia. Buona fortuna!")
+    })
+
+    opponentPositionsImg.addEventListener('click', (event) => logCoordinates(event, "opponentGrid"))
+    myPositionsImg.addEventListener('click', (event) => logCoordinates(event, "myGrid"))
+
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+    * {
+        font-family: "Atma", system-ui;
+    }
+
+    @keyframes imBombingAnimationKeyframes {
+        0% {
+            background-color: black;
+
+
+        }
+
+        20% {
+            background-color: rgb(66, 45, 46);
+            box-shadow: 0px 0px 10px 6px rgb(255, 170, 0)
+        }
+
+        50% {
+            background-color: red;
+            box-shadow: 0px 0px 20px 26px rgb(255, 170, 0)
+        }
+
+        100% {
+            background-color: rgb(89, 89, 89);
+        }
+    }
+
+    .imBombingAnimation {
+        animation: imBombingAnimationKeyframes 1.6s forwards;
+    }
+
+
+
+    .coin {
+        width: 30px;
+    }
+
+
+    #myArmyList {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        height: 160px;
+    }
+
+    #myArmyList>li {
+        width: auto;
+        margin: 0 5px
+    }
+
+    #goldSect {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    button {
+        background-color: grey;
+    }
+
+    #gridsSect {
+        display: flex;
+        justify-content: space-around;
+        height: 45vh;
+    }
+
+    .positionsImg {
+        height: 300px;
+    }
+
+    #myPositionsImg,
+    #myScreenAssistant {
+        box-shadow: 1px -1px 20px 8px green
+    }
+
+    #myScreenAssistant {
+        height: 20vh;
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.521);
+        font-size: larger;
+        color: rgb(0, 255, 0);
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .turnObjImg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .coinSpan {
+        display: flex;
+    }
+
+    #opponentPositionsImg {
+        box-shadow: 1px -1px 20px 8px #ff0000ad
+    }
+
+    #myGridSpan {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gridTitle {
+        margin-bottom: 30px
+    }
+
+    .gridSpan {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .activeTurn {
+        border-radius: 20px;
+        box-shadow: 0px 0px 30px 30px blue;
+    }
+
+    .armyObj {
+        width: 30px;
+        height: 30px;
+    }
+
+    .horizontal2Ship {
+        width: 60px;
+        height: 30px;
+
+    }
+
+    button {
+        background-color: #00d0ff
+    }
+
+    .horizontal3Ship {
+        width: 90px;
+        height: 30px;
+    }
+
+    .horizontal4Ship {
+        width: 120px;
+        height: 30px;
+    }
+
+    .articleNameSpan {
+        width: 50%;
+        display: flex;
+    }
+
+    #magazzinoSect {
+        height: 25vh;
+    }
+
+    .horizontal5Ship {
+        width: 150px;
+        height: 30px;
+    }
+
+    .vertical4Ship {
+        width: 30px;
+        height: 120px;
+    }
+
+    .vertical3Ship {
+        width: 30px;
+        height: 90px;
+    }
+
+    #readyBtn {
+        height: 52px;
+    }
+
+    .vertical2Ship {
+        width: 30px;
+        height: 60px;
+    }
+
+    .vertical5Ship {
+        width: 30px;
+        height: 150px;
+    }
+
+    .not_visible {
+        display: none;
+    }
+
+
+
+    body {
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+
+    .myArmyImg {
+        box-shadow: 3px -3px 1px 2px #00000061;
+    }
+
+    h1 {
+        height: 5vh;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+        text-shadow: 1px -1px 2px #00a8ff;
+        margin: 0
+    }
+
+    .spanLetterAxis {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mercatoSpan {
+        position: absolute;
+        top: 30vh;
+        width: 12%;
+        left: 44%;
+    }
+
+
+    #mercatoSect {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20%;
+        top: 35vh;
+        height: 60vh;
+        justify-content: space-evenly;
+        left: 40%
+    }
+
+
+
+    #mercatoSect>section {
+        width: 100%;
+        padding: 010px;
+        border-radius: 20px;
+        box-shadow: inset -1px -1px 20px 6px rgba(0, 0, 0, 0.5);
+        background-color: grey;
+    }
+
+    li {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .grid {
+        height: 300px;
+        height: 300px;
+        border: solid grey;
+    }
+
+    #mercatoSect section {
+        margin: 2px 0
+    }
+
+    #mercatoSect button {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border-radius: 5px
+    }
+
+    .minusBtn {
+        background-color: grey;
+    }
+
+    .plusBtn {
+        background-color: rgb(86, 86, 255);
+    }
+
+    #tab {
+        height: 100px;
+    }
+
+
+
+    #matchDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+
+    #marketDiv {
+        width: 80px;
+        background-color: #0058b0;
+    }
+
+    #myXAxisSpan,
+    #XAxisSpanAdv {
+        width: 300px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        background-color: rgba(128, 128, 128, 0.419);
+        color: greenyellow;
+        font-weight: 400;
+    }
+
+    #myYAxisSpan,
+    #YAxisSpanAdv {
+        background-color: rgba(128, 128, 128, 0.419);
+
+        width: 30px;
+        height: 300px;
+        font-weight: 400;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #myXaxisSpan,
+    #myYAxisSpan {
+        color: greenyellow;
+    }
+
+    #YAxisSpanAdv,
+    #XAxisSpanAdv {
+        color: #ff4e2f
+    }
+</style>
