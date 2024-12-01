@@ -433,29 +433,32 @@
         let objName = (obj.src.split("assets/")[1].split(".png")[0])
         console.log(objName)
         if (objName == "ship2" || objName == "ship2vert") {
-            printScreenAssistantMessage("Questa è una nave da 2 celle")
+            printScreenAssistantMessage("Questa è una nave da 2 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
 
         }
         if (objName == "ship3" || objName == "ship3vert") {
-            printScreenAssistantMessage("Questa è una nave da 3 celle")
+            printScreenAssistantMessage("Questa è una nave da 3 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
         }
         if (objName == "ship4" || objName == "ship4vert") {
-            printScreenAssistantMessage("Questa è una nave da 4 celle")
+            printScreenAssistantMessage("Questa è una nave da 4 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
         }
         if (objName == "ship5" || objName == "ship5vert") {
-            printScreenAssistantMessage("Questa è una nave da 5 celle")
+            printScreenAssistantMessage("Questa è una nave da 5 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
         }
         if (objName == "airDefense2") {
-            printScreenAssistantMessage("Questa è una difesa aerea che bla bla bla bla bla asasasasasas")
+            printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle).")
         }
         if (objName == "atomicBomb") {
-            printScreenAssistantMessage("Questa è una bomba atomica che bla bla bla bla bla asasasasasas")
+            printScreenAssistantMessage("Questo missile renderà inutilizzabile una porzione della mappa dell'avversario (2x2 celle) per tutta la guerra. Non va posizionato.")
         }
         if (objName == "jammer") {
-            printScreenAssistantMessage("Questa è un jammer che bla bla bla bla bla asasasasasas")
+            printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
         }
         if (objName == "alliedMissile") {
-            printScreenAssistantMessage("Questa è un missile alleato che bla bla bla bla bla asasasasasas")
+            printScreenAssistantMessage("Questa è un missile alleato che verrà lanciato autonomamente sulla mappa nemica. Non inciderà sul tuo turno. Non va posizionato.")
+        }
+        if (objName == "advancedMissile") {
+            printScreenAssistantMessage("Questa è un missile avanzato che non può essere deviato o neutralizzato. Non va posizionato.")
         }
 
 
