@@ -241,6 +241,7 @@
             else {
                 myArmyList.innerHTML += articlesInventory[id].li
                 makeShipsTurnable()
+                openMarketScreenMsgs()
                 // makeMagazzinoDraggable()
                 myMoney.innerText = newMyMoney
             }
@@ -261,6 +262,8 @@
                     thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
                 }
                 makeShipsTurnable()
+                openMarketScreenMsgs()
+
                 //makeMagazzinoDraggable()
             }
             else {
