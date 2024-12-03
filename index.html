@@ -2,757 +2,2238 @@
 <html lang="en">
 
 <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="description" content="encyclopedia informatic homepage courses lessons easy ">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="style.css">
-      <title>Davide - Web Developer - Portfolio </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-      <header>
-            <h1>My achievements</h1>
-      </header>
-      <span id="searchBar">
-            <input id="searchBarInput" type="text" placeholder="React, frontend..">
-            <img src="./assets/lens.png" id="lensIcon" alt="search lens icon">
-            <img src="./assets/quit.jpg" id="quitIcon" alt="quit search icon">
-      </span>
-      <div id="allProjects">
+    <h1>Guerra navale</h1>
 
 
+    <div id="marketDiv">
+        <span id="mercatoSpan">
+            <span style="display: flex;">
+                <h2 style="padding-right: 20px;">Mercato</h2>
+                <button id="endMarketBtn">Chiudi mercato</button>
 
+            </span>
+        </span>
+        <section id="mercatoSect">
 
-            <span id="guitaristCard" class="projectContainers frontend">
-                  <h2>Personal site of a guitarist</h2>
-                  <span class="internalProjectContainers">
-                        <img id="guitaristImg" src="./media/guitarist/guitarsitesite.gif" alt="'video site"
-                              class="cartImg">
-                        <h3 id="guitaristDescription">
-                              I created a responsive personal website for a guitarist.<br>
-                              I created animations and graphic effects using <strong>HTML</strong> and
-                              <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="guitaristBtn">Learn more...</button>
-            </span>
-            <span id="CVCard" class="projectContainers frontend">
-                  <h2>Interactive online CV</h2>
-                  <span class="internalProjectContainers">
-                        <img id="CVImg" src="./media/CV/CVsite.gif" alt="'video site" class="cartImg">
-                        <h3 id="CVDescription">
-                             I developed a responsive site to showcase an interactive CV <br>
-                              Visitors can interact with the web page to download both the diploma and the CV in PDF format.<br>
-                              I used <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="CVBtn">Learn more...</button>
-            </span>
-            <span id="restoCard" class="projectContainers frontend">
-                  <h2>Mockup of a restaurant site </h2>
-                  <span class="internalProjectContainers">
-                        <img id="restoImg" src="./media/resto/restosite.gif" alt="'video site" class="cartImg">
-                        <h3 id="restoDescription">
-                              I integrated mockups of a restaurant site (including graphic effects and animations) using
-                              <strong>HTML</strong> and <strong>CSS</strong>.<br>
-                              Specifically, I worked on the mobile version (mobile-first) and ensured the desktop version is also responsive.<br>
-                              I used <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="restoBtn">Learn more...</button>
-            </span>
-            <span id="panthereCard" class="projectContainers frontend">
-                  <h2>Optimization of a photography site</h2>
-                  <span class="internalProjectContainers">
-                        <img id="panthereImg" src="./media/panthere/home.png" alt="'video site" class="cartImg">
-                        <h3 id="panthereDescription">I reviewed and improved the <strong>accessibility</strong>,
-                              <strong>natural referencing</strong> and the <strong>performance</strong> of a
-                              photography website. I also produced a SEO report and I made recommendations.
-                              I used <strong>Lighthouse</strong>, <strong>WAVE</strong> the <strong>W3C
-                                    validator</strong> for <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="panthereBtn">Learn more...</button>
-            </span>
-            <span id="photographerCard" class="projectContainers frontend">
-                  <h2>Showcase website of a photographer</h2>
-                  <span class="internalProjectContainers">
-                        <img id="photographerImg" src="./media/photo/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="photographerDescription">
-                             I created a responsive showcase site to present the work of a photographer<br>
-                              I created graphic effects and animations using <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="photographerBtn">Learn more...</button>
-            </span>
-            <span id="travelCard" class=" projectContainers frontend">
-                  <h2 class="">mockups of a travel site</h2>
-                  <span class="internalProjectContainers ">
-                        <img id="travelImg" src="./media/travel/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="travelDescription">
-                             I integrated mockups for a travel site, reproducing them as faithfully as possible.<br>
-                              Specifically, I worked on the mobile and desktop versions, ensuring the responsiveness of the site.<br>
-                              I used <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="travelBtn">Learn more...</button>
-            </span>
-            <span id="trekkingCard" class="projectContainers frontend">
-                  <h2>Showcase site of a trekking club</h2>
-                  <span class="internalProjectContainers">
-                        <img id="trekkingImg" src="./media/trekking/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="trekkingDescription">
-                              I created a responsive showcase website to present a trekking group.<br>
-                              I created graphics effects and animations using <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="trekkingBtn">Learn more...</button>
-            </span>
+            <section class="marketSubSects">
+                <h3>Navi</h3>
+                <ul>
+                    <li id="ship2Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 2</span><img src="./assets/info.png" alt="info nave da 2"
+                            class="infoIconMarket"> <span class="coinSpan">150 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="ship3Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 3</span><img src="./assets/info.png" alt="info nave da 3"
+                            class="infoIconMarket"> <span class="coinSpan">200 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="ship4Market">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Nave da 4</span><img src="./assets/info.png" alt="info nave da 4"
+                            class="infoIconMarket"> <span class="coinSpan">250 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
 
-            <span id="kanapCard" class="projectContainers frontend">
-                  <h2>Frontend of a ecommerce website</h2>
-                  <span class="internalProjectContainers">
-                        <img id="kanapImg" src="./media/div/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="kanapDescription">
-                              I created the <strong>frontend</strong> of an e-commerce site. <br>
-                              I used <strong>JavaScript</strong> to interact with the visitors, to send
-                              <strong>requests</strong> to the backend and handle the <strong>response</strong> received.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="kanapBtn">Learn more...</button>
-            </span>
-            <span id="piqCard" class="projectContainers backend">
-                  <h2>Backend of a restaurant review site</h2>
-                  <span class="internalProjectContainers">
-                        <img id="piqImg" src="./media/piq/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="piqDescription">
-                              I created the backend of a restaurant review site. <br>
-                              I created a <strong>NoSQL</strong> database using <strong>MongoDB</strong>
-                              and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>,
-                              <strong>bcrypt</strong>, <strong>body-parser</strong>, <strong>mongoose</strong>,
-                              <strong>jsonwebtoken</strong>, <strong>dotenv</strong>, <strong>multer</strong> and
-                              <strong>mongoose-unique-validator</strong>
-                              to manage and secure incoming requests from the frontend, to
-                              communicate with MongoDB and to send responses to the frontend.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="piqBtn">Learn more...</button>
-            </span>
-            <span id="tictactoeCard" class="projectContainers fullstack">
-                  <h2>Tic Tac Toe multiplayer</h2>
-                  <span class="internalProjectContainers">
-                        <img id="tictactoeImg" src="./media/tictactoe/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="tictactoeDescription">
-                              I developed a multiplayer tic-tac-toe, integrated a basic chat system and published it.<br>
-                              <strong>Backend</strong> side, I created a <strong>NoSQL</strong> database using <strong>MongoDB</strong>
-                              and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>,
-                              <strong>express-rate-limit</strong>, <strong>mongoose</strong> and
-                              <strong>dotenv</strong>.<br>
-                               <strong>Frontend</strong>side, I used <strong>JavaScript</strong>,
-                              <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="tictactoeBtn">Learn more...</button>
-            </span>
-            <span id="socialCard" class="projectContainers fullstack">
-                  <h2>Enterprise social network</h2>
-                  <span class="internalProjectContainers">
-                        <img id="socialImg" src="./media/social/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="socialDescription">
-                              I developed a basic enterprise social network.
-                              <strong>Backend</strong> side, I created a <strong>NoSQL</strong> database using <strong>MongoDB</strong>
-                              and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>,
-                              <strong>bcrypt</strong>, <strong>body-parser</strong>, <strong>mongoose</strong>,
-                              <strong>jsonwebtoken</strong>, <strong>dotenv</strong>, <strong>multer</strong>,
-                              <strong>mongosh</strong>, <strong>auth</strong>, <strong>path</strong>,
-                              <strong>parse</strong>and
-                              <strong>mongoose-unique-validator</strong>.<br>
-                              <strong>Frontend</strong>side, I used <strong>React</strong>,
-                              <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="socialBtn">Learn more...</button>
-            </span>
-            <span id="ecommerceCard" class="projectContainers fullstack">
-                  <h2>Ecommerce website </h2>
-                  <span class="internalProjectContainers">
-                        <img id="ecommerceImg" src="./media/ecommerce/screen.png" alt="'video site" class="cartImg">
-                        <h3 id="ecommerceDescription">
-                              I developed an e-commerce site. <br>
-                              <strong>Backend</strong> side, I created a <strong>NoSQL</strong> database using <strong>MongoDB</strong>
-                              and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>,
-                              <strong>bcrypt</strong>, <strong>body-parser</strong>, <strong>helmet</strong>,
-                              <strong>express-rate-limit</strong>, <strong>mongoose</strong>,
-                              <strong>jsonwebtoken</strong>, <strong>dotenv</strong>, <strong>multer</strong>,
-                              <strong>mongosh</strong>, <strong>auth</strong>, <strong>path</strong>,
-                              <strong>parse</strong> and
-                              <strong>mongoose-unique-validator</strong>.<br>
-                              <strong>Frontend</strong>side, I used <strong>React</strong>,
-                              <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="ecommerceBtn">Learn more...</button>
-            </span>
-                       <span id="shoppingListCard" class="projectContainers fullstack">
-                  <h2>Interactive shopping list </h2>
-                  <span class="internalProjectContainers">
-                        <img id="shoppingListImg" src="./media/shoppingList/shoppingList.png" alt="'video site" class="cartImg">
-                        <h3 id="shoppingListDescription">
-                              I developed an interactive shopping list. <br>
-                              Users can create a group shopping list where everyone can add items in their preferred color, 
-                              remove them, use a calculator, or utilize a feature to calculate in real-time the total cost of the items they are
-                              purchasing as they are removed from the list. Users can also save interesting items locally.
-                              <strong>Backend</strong> side, I created a <strong>NoSQL</strong> database using <strong>MongoDB</strong>
-                              and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>, 
-                              <strong>helmet</strong>, <strong>mongoose</strong>, <strong>dotenv</strong>, <strong>path</strong>.<br>
-                              <strong>Frontend</strong>side, I used <strong>JavaScript</strong>,
-                              <strong>HTML</strong> and <strong>CSS</strong>.
-                        </h3>
-                  </span>
-                  <button class="changeCardBtn" id="shoppingListBtn">Learn more...</button>
+                </ul>
+            </section>
+
+            <section class="marketSubSects">
+                <h3>Equipaggiamento di difesa</h3>
+                <ul>
+                    <li id="airDefenseMarket">
+                        <button class="minusBtn">-</button>
+                        <span class="articleNameSpan">Contraerea</span><img src="./assets/info.png"
+                            alt="info contraerea" class="infoIconMarket"> <span class="coinSpan">200 <img class="coin"
+                                alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="jammerMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Jammer</span><img src="./assets/info.png" alt="info jammer"
+                            class="infoIconMarket"> <span class="coinSpan">150 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="marketSubSects">
+                <h3>Equipaggiamento d'attacco</h3>
+                <ul>
+
+                    <li id="atomicMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile Nucleare</span><img src="./assets/info.png"
+                            alt="info missile nucleare" class="infoIconMarket"> <span class="coinSpan">200
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="advancedMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile avanzato</span> <img src="./assets/info.png"
+                            alt="info missile avanzato" class="infoIconMarket"> <span class="coinSpan">150
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                    <li id="alliedMissileMarket">
+                        <button class="minusBtn">-</button>
+                        <span class=" articleNameSpan">Missile alleato</span> <img src="./assets/info.png"
+                            alt="info missile alleato" class="infoIconMarket"> <span class="coinSpan">100
+                            <img class="coin" alt="coin" src="./assets/coin.png"></span>
+                        <button class="plusBtn">+</button>
+                    </li>
+                </ul>
+            </section>
+            <section class="marketSubSects" id="goldSect">
+                <img src="./assets/info.png" alt="info forziere" class="infoIconMarket">
+                <img style="height:80px;" src="./assets/money.png" alt="tesoro">
+                <h3 id="myMoney">600</h3>
+            </section>
+        </section>
+    </div>
+
+    </div>
+
+    <div id="matchDiv">
+        <section id="magazzinoSect">
+            <span
+                style="display: flex;     align-items: flex-start;    justify-content: flex-start; margin-bottom: 2vh;">
+                <h2 style="padding:0 10px;">Magazzino</h2>
             </span>
 
+            <ul id="myArmyList">
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png"
+                        alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2a">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png"
+                        alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2b">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible  vertical3Ship" src="./assets/ship3vert.png"
+                        alt="ship3vert">
+                    <img class="myArmyImg draggableElement horizontal3Ship" src="./assets/ship3.png" alt="ship3">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical4Ship" src="./assets/ship4vert.png"
+                        alt="ship4vert">
+                    <img class="myArmyImg draggableElement horizontal4Ship" src="./assets/ship4.png" alt="ship4">
+                </li>
+                <li>
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical5Ship" src="./assets/ship5vert.png"
+                        alt="ship5vert">
+                    <img class="myArmyImg draggableElement horizontal5Ship" src="./assets/ship5.png" alt="ship5">
+                </li>
+                <li>
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/airDefense2.png" alt="air defense">
+                </li>
+                <li>
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicBomb.png" alt="atomic bomb">
+                </li>
+                <li>
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/jammer.png" alt="jammer">
+                </li>
+                <li>
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/alliedMissile.png" alt="allied missile">
+                </li>
+            </ul>
 
-
-      </div>
-      <footer>
-            <a id="upwork" href="https://www.upwork.com/freelancers/~0185a1e7ec4744b177">Upwork</a>
-      </footer>
+        </section>
+        <section id="gridsSect">
+            <span class="gridSpan">
+                <span class="activeTurn" id="myGridSpan">
+                    <h2 class="gridTitle">Le tue posizioni</h2>
+                    <button id="readyBtn">Pronto!</button>
+                </span>
+                <img class="positionsImg" id="myPositionsImg" src="./assets/grid.png" alt="grid">
+                <span id="myXAxisSpan">
+                    <span class="spanLetterAxis">A</span>
+                    <span class="spanLetterAxis">B</span>
+                    <span class="spanLetterAxis">C</span>
+                    <span class="spanLetterAxis">D</span>
+                    <span class="spanLetterAxis">E</span>
+                    <span class="spanLetterAxis">F</span>
+                    <span class="spanLetterAxis">G</span>
+                    <span class="spanLetterAxis">H</span>
+                    <span class="spanLetterAxis">I</span>
+                    <span class="spanLetterAxis">L</span>
+                </span>
+                <span id="myYAxisSpan">
+                    <span class="spanLetterAxis">1</span>
+                    <span class="spanLetterAxis">2</span>
+                    <span class="spanLetterAxis">3</span>
+                    <span class="spanLetterAxis">4</span>
+                    <span class="spanLetterAxis">5</span>
+                    <span class="spanLetterAxis">6</span>
+                    <span class="spanLetterAxis">7</span>
+                    <span class="spanLetterAxis">8</span>
+                    <span class="spanLetterAxis">9</span>
+                    <span class="spanLetterAxis">10</span>
+                </span>
+            </span>
+            <span class="gridSpan">
+                <h2 class="gridTitle">Le posizioni nemiche</h2>
+                <img class="positionsImg" id="opponentPositionsImg" src="./assets/grid.png" alt="grid">
+                <span id="XAxisSpanAdv">
+                    <span class="spanLetterAxis">A</span>
+                    <span class="spanLetterAxis">B</span>
+                    <span class="spanLetterAxis">C</span>
+                    <span class="spanLetterAxis">D</span>
+                    <span class="spanLetterAxis">E</span>
+                    <span class="spanLetterAxis">F</span>
+                    <span class="spanLetterAxis">G</span>
+                    <span class="spanLetterAxis">H</span>
+                    <span class="spanLetterAxis">I</span>
+                    <span class="spanLetterAxis">L</span>
+                </span>
+                <span id="YAxisSpanAdv">
+                    <span class="spanLetterAxis">1</span>
+                    <span class="spanLetterAxis">2</span>
+                    <span class="spanLetterAxis">3</span>
+                    <span class="spanLetterAxis">4</span>
+                    <span class="spanLetterAxis">5</span>
+                    <span class="spanLetterAxis">6</span>
+                    <span class="spanLetterAxis">7</span>
+                    <span class="spanLetterAxis">8</span>
+                    <span class="spanLetterAxis">9</span>
+                    <span class="spanLetterAxis">10</span>
+                </span>
+            </span>
+        </section>
+        <section>
+            <p id="myScreenAssistant"></p>
+        </section>
+    </div>
 </body>
 
 </html>
 
 <script>
+    let myPositionsImgLeft
+    let myPositionsImgTop
+    let opponentPositionsImgLeft
+    let opponentPositionsImgTop
+    let gridStep
+    let calculateClickedCell
+    let shipsPositionsCells = []
+    let takenCellArray = []
+    let freeCell = true
 
-      let originalTravelDescription = document.getElementById("travelDescription").innerHTML
-      let originalRestoDescription = document.getElementById("restoDescription").innerHTML
-      let originalTrekkingDescription = document.getElementById("trekkingDescription").innerHTML
-      let originalGuitaristDescription = document.getElementById("guitaristDescription").innerHTML
-      let originalPanthereDescription = document.getElementById("panthereDescription").innerHTML
-      let originalSocialDescription = document.getElementById("socialDescription").innerHTML
-      let originalPiqDescription = document.getElementById("piqDescription").innerHTML
-      let originalKanapDescription = document.getElementById("kanapDescription").innerHTML
-      let originalCVDescription = document.getElementById("CVDescription").innerHTML
-      let originalEcommerceDescription = document.getElementById("ecommerceDescription").innerHTML
-      let originalPhotographerDescription = document.getElementById("photographerDescription").innerHTML
-      let originalTictactoeDescription = document.getElementById("tictactoeDescription").innerHTML
-      let originalShoppingListDescription = document.getElementById("shoppingListDescription").innerHTML
+    let plusBtnArray = document.getElementsByClassName("plusBtn")
+    let minusBtnArray = document.getElementsByClassName("minusBtn")
 
 
-      // zoom on cart img----------------------------------------------------------------------------
- 
-const cartImages = document.getElementsByClassName("cartImg");
-if (window.innerWidth > 1300) {
-    for (let i = 0; i < cartImages.length; i++) {
-        const cartImg = cartImages[i];
-        const originalWidth = cartImg.style.width
-        const originalPosition = getComputedStyle(cartImg).position; 
-        const originalZIndex = getComputedStyle(cartImg).zIndex; 
 
-        cartImg.addEventListener("mousedown", (e) => {
-            const target = e.target;
-            target.style.position = "fixed";
-            target.style.top = "10px";
-            target.style.left = "5%";
-            target.style.width = "90%";
-            target.style.maxHeight = "90%";
-            target.style.zIndex = "1";
+    let infoIconsArray = document.getElementsByClassName("infoIconMarket")
 
-            const handleMouseUp = function() {
-                target.style.width = originalWidth
-                target.style.position = originalPosition
-                target.style.zIndex = originalZIndex;
-                target.removeEventListener("mouseup", handleMouseUp);
-                target.removeEventListener("mousemove", handleMouseMove);
-            };
-            const handleMouseMove = function() {
-            };
-            target.addEventListener("mouseup", handleMouseUp);
-            target.addEventListener("mousemove", handleMouseMove);
-        });
+    function infoMarketMsg() {
+        for (let i = 0; i < infoIconsArray.length; i++) {
+            let infoVal = infoIconsArray[i].alt.split("info ")[1]
+            switch (infoVal) {
+                case "nave da 2":
+
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è una semplice nave da 2 celle.")
+                        e.stopPropagation()
+                    }
+                    )
+                    break;
+                case "nave da 3":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+
+                        printScreenAssistantMessage("Questa è una semplice nave da 3 celle.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "nave da 4":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è una semplice nave da 4 celle.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+
+                case "contraerea":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle)")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "jammer":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile nucleare":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questo missile renderà inutilizzabile una porzione della mappa dell'avversario (2x2 celle) per tutta la guerra. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile avanzato":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un missile avanzato che non può essere deviato o neutralizzato. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile alleato":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un missile alleato che verrà lanciato autonomamente sulla mappa nemica. Non inciderà sul tuo turno. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "forziere":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è il tuo forziere. Qui puoi vedere le tue monete, spendibili nel mercato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+
+                default:
+                    console.log("there is a problem?")
+                    break;
+            }
+
+        }
+
     }
-}
 
 
-      // change cart database------------------------------------------------------------------------
-      let allCardsInfo = {
-            shoppingListSite: {
-                  'description': [originalShoppingListDescription, "The shopping list", "The user can select a color or enable 'automatic mode', which automatically chooses an appropriate color based on the item category if possible.", "The user can save an item considered a good deal by also adding a brief description", "The user can leave a message on the sticky note present in each group shopping list, read it, or modify it.", "There is a calculator available for the user" ],
-                  'src': ['./media/shoppingList/shoppingList.gif', './media/shoppingList/shoppingList.png', './media/shoppingList/shoppingListColors.png', './media/shoppingList/shoppingListSave.png', './media/shoppingList/shoppingListMessage.png', './media/shoppingList/shoppingListCalc.png'],
-                  'alt': ['video shopping list website', 'site mobile version', 'how to select a color', 'how to save an item', 'how to send or read a message','where to find the calculator' ]
-            },
-            travelSite: {
-                  'description': [originalTravelDescription, "Desktop version", 'Mobile version'],
-                  'src': ['./media/travel/travelsite.gif', './media/travel/desktop.png', './media/travel/mobile.png'],
-                  'alt': ['video travel website', 'site desktop version', 'site mobile version']
-            },
-            restoSite: {
-                  'description': [originalRestoDescription, "Homepage desktop version", 'Page "restaurant" mobile version', "Mobile version"],
-                  'src': ['./media/resto/restosite.gif', './media/resto/computer.png', './media/resto/desktopf.png', './media/resto/mobile.png'],
-                  'alt': ['video restaurant website', 'homepage desktop version', 'page restaurant mobile version', 'site mobile version']
-            },
-            photographerSite: {
-                  'description': [originalPhotographerDescription, "Homepage desktop version", 'Page "services" desktop version', 'Page "créations" desktop version', "Mobile version"],
-                  'src': ['./media/photo/photosite.gif', './media/photo/home.png', './media/photo/services.png', './media/photo/creations.png', './media/photo/mobile.png'],
-                  'alt': ['video photographer website', "homepage desktop version", 'page services desktop version', 'page créations desktop version', 'site mobile version']
-            },
-            guitaristSite: {
-                  'description': [originalGuitaristDescription, 'Homepage desktop version', 'Page "dates" desktop version', 'Mobile version'],
-                  'src': ['./media/guitarist/guitarsitesite.gif', './media/guitarist/home.png', './media/guitarist/dates.png', './media/guitarist/mobile.png'],
-                  'alt': ['video guitarist website', "homepage desktop version", 'page dates desktop version', 'site mobile version']
 
-            },
-            CVSite: {
-                  'description': [originalCVDescription, "Desktop version"],
-                  'src': ['./media/CV/CVsite.gif', './media/CV/cv.png'],
-                  'alt': ['video resume website', 'site desktop version']
-            },
-            trekkingSite: {
-                  'description': [originalTrekkingDescription, "Homepage desktop version", 'Page "le groupe" desktop version', 'Page "nous contacter" desktop version', 'Page "devenir membre" desktop version', 'Page "photos" desktop version', "Mobile version"],
-                  'src': ['./media/trekking/trekkingsite.gif', './media/trekking/home.png', './media/trekking/about.png', './media/trekking/contact.png', './media/trekking/member.png', './media/trekking/pictures.png', './media/trekking/Mobile.png'],
-                  'alt': ['video trekking website', "homepage desktop version", 'page le groupe desktop version', 'page nous contacter desktop version', 'page devenir membre desktop version', 'page photos desktop version', "mobile version"]
-            },
-            panthereSite: {
-                  'description': [originalPanthereDescription, "Homepage, before-after", 'Page "nous contacter" before-after'],
-                  'src': ['./media/panthere/lapantheresite.gif', './media/panthere/home.png', './media/panthere/pag2.png'],
-                  'alt': ['video Panthere website', "homepage, before-after Lighthouse", 'page nous contacter, before-after Lighthouse']
-            },
-            piqSite: {
-                  'description': [originalPiqDescription, 'Page "login"', 'Homepage', 'Page "produit"; to see a specific sauce', 'Page "add sauce"; to add/create a new sauce'],
-                  'src': ['./media/piq/piqasite.gif', './media/piq/login.png', './media/piq/home.png', './media/piq/product.png', './media/piq/addsauce.png'],
-                  'alt': ['video Piquante website', 'page login', 'homepage', 'page produit', 'page add sauce']
-            },
-            kanapSite: {
-                  'description': [originalKanapDescription, "Homepage", 'Product detail page', "Shopping cart page", 'Confirmation page that show a confirmation number, sent by the backend'],
-                  'src': ['./media/div/divsite.gif', './media/div/home.png', './media/div/product.png', './media/div/cart.png', './media/div/confirmation.png'],
-                  'alt': ['video Kanap site', "homepage", 'page product', "page shopping-cart", 'page confirmation']
-            },
-            socialSite: {
-                  'description': [originalSocialDescription, 'Page "login"', "Homepage; we can see others users posts and we can like or dislike them. If we do a post, we can edit it, delete or like/dislike it. "],
-                  'src': ['./media/social/socialsite.gif', './media/social/logindesktop.png', './media/social/homedesktop.png'],
-                  'alt': ['video social netword website', 'page login', "homepage"]
-            },
-            ecommerceSite: {
-                  'description': [originalEcommerceDescription, "We see the pages of the site as an anonymous user, i.e. a visitor not logged in. We have the possibility to create an account to log in or put some product in our shopping cart", "We see the pages of the site as a connected user. We can modify our account, eliminating it, logging out or using the shopping cart page ", "We see the pages as an administrator. We can sell a new product, stop to sell a product, we can see the quantity in the stock for every product and some statistics.", 'mobile version'],
-                  'src': ['./media/ecommerce/ecommerceSite.gif', './media/ecommerce/anony.jpg', './media/ecommerce/user.jpg', './media/ecommerce/admin.jpg', './media/ecommerce/mobile.jpg'],
-                  'alt': ['video ecommerce website', 'site as anonymous', 'site as logged', 'site as admin', 'site mobile version']
-            },
-            tictactoeSite: {
-                  'description': [originalTictactoeDescription, 'We can see that the left side player sent the message "This is my msg" to right side player'],
-                  'src': ['./media/tictactoe/tictactoeSite.gif', './media/tictactoe/chat.png'],
-                  'alt': ['video multiplayer tictactoe website', 'chat system'],
+
+
+    function buyNewArticle(id) {
+        if (!stopMarket) {
+            let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
+            if (newMyMoney < 0) {
+                alert("Non hai abbastanza monete")
+                printScreenAssistantMessage("Non hai abbastanza monete per finalizzare questo acquisto.")
             }
-      }
-
-      //change card button
-      document.getElementById("travelBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("restoBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("trekkingBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("guitaristBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("panthereBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("socialBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("piqBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0), 0 })
-      document.getElementById("kanapBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("CVBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("ecommerceBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("photographerBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("tictactoeBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-      document.getElementById("shoppingListBtn").addEventListener("click", (e) => { changeCard(e.target.id, 0) })
-
-
-
-
-      function changeCard(clickedBtnId, n) {
-            if (clickedBtnId == "travelBtn") {
-                  travelSiteCardCounter = travelSiteCardCounter + 1 - n;
-                  if (travelSiteCardCounter == travelSiteCardCounterLimit) {
-                        travelSiteCardCounter = 0
-                  }
-                  document.getElementById("travelDescription").innerHTML = allCardsInfo.travelSite.description[travelSiteCardCounter]
-                  document.getElementById("travelImg").src = allCardsInfo.travelSite.src[travelSiteCardCounter]
-                  document.getElementById("travelImg").alt = allCardsInfo.travelSite.alt[travelSiteCardCounter]
-                  document.getElementById("travelCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("travelCard").classList.remove("rotate");
-                  }, "550")
+            else {
+                myArmyList.innerHTML += articlesInventory[id].li
+                makeShipsTurnable()
+                openMarketScreenMsgs()
+                // makeMagazzinoDraggable()
+                myMoney.innerText = newMyMoney
             }
-            else if (clickedBtnId == "restoBtn") {
-                  restoSiteCardCounter = restoSiteCardCounter + 1 - n;
-                  if (restoSiteCardCounter == restoSiteCardCounterLimit) {
-                        restoSiteCardCounter = 0
-                  }
-                  document.getElementById("restoDescription").innerHTML = allCardsInfo.restoSite.description[restoSiteCardCounter]
-                  document.getElementById("restoImg").src = allCardsInfo.restoSite.src[restoSiteCardCounter]
-                  document.getElementById("restoImg").alt = allCardsInfo.restoSite.alt[restoSiteCardCounter]
-                  document.getElementById("restoCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("restoCard").classList.remove("rotate");
-                  }, "550")
+        }
+        else {
+            alert("Il mercato è ormai chiuso")
+            printScreenAssistantMessage("Non è possibile riaprire il mercato ormai.")
+        }
+    }
+
+    function sellArticle(id) {
+        if (!stopMarket) {
+            let arrayThisArticle = document.getElementsByClassName(id)
+            if (arrayThisArticle.length > 0) {
+                arrayThisArticle[arrayThisArticle.length - 1].remove()
+                myMoney.innerText = parseInt(myMoney.textContent) + articlesInventory[id].price
+                for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
+                    let thisShip = document.getElementsByClassName("turnObjImg")[i]
+                    thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
+                }
+                makeShipsTurnable()
+                openMarketScreenMsgs()
+
+                //makeMagazzinoDraggable()
             }
-            else if (clickedBtnId == "panthereBtn") {
-                  panthereSiteCardCounter = panthereSiteCardCounter + 1 - n;
-                  if (panthereSiteCardCounter == panthereSiteCardCounterLimit) {
-                        panthereSiteCardCounter = 0
-                  }
-                  document.getElementById("panthereDescription").innerHTML = allCardsInfo.panthereSite.description[panthereSiteCardCounter]
-                  document.getElementById("panthereImg").src = allCardsInfo.panthereSite.src[panthereSiteCardCounter]
-                  document.getElementById("panthereImg").alt = allCardsInfo.panthereSite.alt[panthereSiteCardCounter]
-                  document.getElementById("panthereCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("panthereCard").classList.remove("rotate");
-                  }, "550")
+            else {
+                alert("Puoi vendere solo gli oggetti che hai comprato")
+                printScreenAssistantMessage("Non puoi vendere gli oggetti che costituiscono la squadra base.")
             }
-            else if (clickedBtnId == "kanapBtn") {
-                  kanapSiteCardCounter = kanapSiteCardCounter + 1 - n;
-                  if (kanapSiteCardCounter == kanapSiteCardCounterLimit) {
-                        kanapSiteCardCounter = 0
-                  }
-                  document.getElementById("kanapDescription").innerHTML = allCardsInfo.kanapSite.description[kanapSiteCardCounter]
-                  document.getElementById("kanapImg").src = allCardsInfo.kanapSite.src[kanapSiteCardCounter]
-                  document.getElementById("kanapImg").alt = allCardsInfo.kanapSite.alt[kanapSiteCardCounter]
-                  document.getElementById("kanapCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("kanapCard").classList.remove("rotate");
-                  }, "550")
+        }
+        else {
+            alert("Il mercato è ormai chiuso")
+            printScreenAssistantMessage("Non è possibile riaprire il mercato.")
+        }
+    }
+
+
+    function activateMarket() {
+        for (let i = 0; i < plusBtnArray.length; i++) {
+            plusBtnArray[i].addEventListener("click", () => { buyNewArticle(plusBtnArray[i].parentNode.id.split("Market")[0]) })
+            minusBtnArray[i].addEventListener("click", () => { sellArticle(minusBtnArray[i].parentNode.id.split("Market")[0]) })
+        }
+    }
+    activateMarket()
+    function amIReady() {
+        let allMyArticles = document.getElementsByClassName("draggableElement");
+        for (let i = 0; i < allMyArticles.length; i++) {
+            if (allMyArticles[i].style.position !== "absolute" && !allMyArticles[i].classList.contains("not_visible")) {
+                printScreenAssistantMessage("Qualcosa non è ancora stato posizionato. Forse si tratta di " + allMyArticles[i].src.split("assets/")[1].split(".png")[0]);
+                return;
             }
-            else if (clickedBtnId == "piqBtn") {
-                  piqSiteCardCounter = piqSiteCardCounter + 1 - n;
-                  if (piqSiteCardCounter == piqSiteCardCounterLimit) {
-                        piqSiteCardCounter = 0
-                  }
-                  document.getElementById("piqDescription").innerHTML = allCardsInfo.piqSite.description[piqSiteCardCounter]
-                  document.getElementById("piqImg").src = allCardsInfo.piqSite.src[piqSiteCardCounter]
-                  document.getElementById("piqImg").alt = allCardsInfo.piqSite.alt[piqSiteCardCounter]
-                  document.getElementById("piqCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("piqCard").classList.remove("rotate");
-                  }, "550")
+        }
+        let myNotDraggablesArtsArray = document.getElementsByClassName("not_draggable")
+        let allNotDraggableElements = []
+        for (let i = 0; i < myNotDraggablesArtsArray.length; i++) {
+            let newNotDraggableElement = {
+                type: myNotDraggablesArtsArray[i].src.split("assets/")[1].split(".png")[0],
+                direction: "special",
+                length: "special",
+                height: "special",
+                positions: ["special"]
             }
-            else if (clickedBtnId == "ecommerceBtn") {
-                  ecommerceSiteCounter = ecommerceSiteCounter + 1 - n;
-                  if (ecommerceSiteCounter == ecommerceSiteCounterLimit) {
-                        ecommerceSiteCounter = 0
-                  }
-                  document.getElementById("ecommerceDescription").innerHTML = allCardsInfo.ecommerceSite.description[ecommerceSiteCounter]
-                  document.getElementById("ecommerceImg").src = allCardsInfo.ecommerceSite.src[ecommerceSiteCounter]
-                  document.getElementById("ecommerceImg").alt = allCardsInfo.ecommerceSite.alt[ecommerceSiteCounter]
-                  document.getElementById("ecommerceCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("ecommerceCard").classList.remove("rotate");
-                  }, "550")
+            allNotDraggableElements.push(newNotDraggableElement)
+
+        }
+
+    }
+
+    readyBtn.addEventListener("click", amIReady)
+
+
+
+
+
+    const articlesInventory = {
+        ship2: {
+            price: 150,
+            li: `<li class="ship2">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical2Ship" src="./assets/ship2vert.png" alt="ship2vert">
+                    <img class="myArmyImg draggableElement horizontal2Ship" src="./assets/ship2.png" alt="ship2a">
+                </li>`
+        },
+        ship3: {
+            price: 200,
+            li: `<li class="ship3">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible  vertical3Ship" src="./assets/ship3vert.png" alt="ship3vert">
+                    <img class="myArmyImg draggableElement horizontal3Ship" src="./assets/ship3.png" alt="ship3">
+                </li>`
+        },
+        ship4: {
+            price: 250,
+            li: `<li class="ship4">
+                    <img src="./assets/turnObj.png" class="turnObjImg" alt="turnObj">
+                    <img class="myArmyImg draggableElement not_visible vertical4Ship" src="./assets/ship4vert.png" alt="ship4vert">
+                    <img class="myArmyImg draggableElement horizontal4Ship" src="./assets/ship4.png" alt="ship4">
+                </li>`
+        },
+        airDefense: {
+            price: 200,
+            li: `<li class="airDefense">
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/airDefense2.png" alt="air defense">
+                </li>`
+        },
+        jammer: {
+            price: 150,
+            li: `<li class="jammer">
+                    <img class="myArmyImg draggableElement armyObj" src="./assets/jammer.png" alt="jammer">
+                </li>`
+        },
+        atomicMissile: {
+            price: 200,
+            li: `<li class="atomicMissile">
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicMissile.png" alt="atomic missile">
+                </li>`
+        },
+        advancedMissile: {
+            price: 150,
+            li: `<li class="advancedMissile">
+                    <img class="myArmyImg  not_draggable armyObj" src="./assets/advancedMissile.png" alt="advanced missile">
+                </li>`
+        },
+        alliedMissile: {
+            price: 100,
+            li: `<li class="alliedMissile">
+                    <img class="myArmyImg not_draggable  armyObj" src="./assets/alliedMissile.png" alt="allied missile">
+                </li>`
+        }
+    };
+
+
+    function calculateBombsPositions() {
+        myPositionsImgLeft = myPositionsImg.getBoundingClientRect().left + window.scrollX
+        myPositionsImgTop = myPositionsImg.getBoundingClientRect().top + window.scrollY
+        opponentPositionsImgLeft = opponentPositionsImg.getBoundingClientRect().left + window.scrollX;
+        opponentPositionsImgTop = opponentPositionsImg.getBoundingClientRect().top + window.scrollY
+        gridStep = 300 / 10
+    }
+
+    function turnThisShip(ship) {
+        let verticalShip = ship.parentNode.childNodes[3];
+        let horizontalShip = ship.parentNode.childNodes[5];
+        let wasVerticalShipNotVisible = verticalShip.classList.contains("not_visible");
+        let wasHorizontalShipNotVisible = horizontalShip.classList.contains("not_visible");
+
+        if (wasHorizontalShipNotVisible) {
+            horizontalShip.classList.remove("not_visible")
+        }
+        if (wasVerticalShipNotVisible) {
+            verticalShip.classList.remove("not_visible")
+        }
+
+        if (wasHorizontalShipNotVisible) {
+            verticalShip.classList.add("not_visible")
+        } else if (wasVerticalShipNotVisible) {
+            horizontalShip.classList.add("not_visible")
+        }
+    }
+    function makeShipsTurnable() {
+        for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
+            let thisShip = document.getElementsByClassName("turnObjImg")[i]
+            thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
+        }
+    }
+
+    function calculateAxisPositions() {
+        myXAxisSpan.style.top = (myPositionsImgTop - 30) + "px"
+        myXAxisSpan.style.left = (myPositionsImgLeft) + "px"
+        XAxisSpanAdv.style.top = (opponentPositionsImgTop - 30) + "px"
+        XAxisSpanAdv.style.left = (opponentPositionsImgLeft) + "px"
+
+        myYAxisSpan.style.top = (myPositionsImgTop) + "px"
+        myYAxisSpan.style.left = (myPositionsImgLeft - 30) + "px"
+        YAxisSpanAdv.style.top = (opponentPositionsImgTop) + "px"
+        YAxisSpanAdv.style.left = (opponentPositionsImgLeft - 30) + "px"
+    }
+
+    function printScreenAssistantMessage(message) {
+        if (myScreenAssistant.textContent != message) {
+            myScreenAssistant.style.backgroundColor = "green"
+            myScreenAssistant.innerHTML = message
+            setTimeout(() => {
+                myScreenAssistant.style.backgroundColor = "rgba(0, 0, 0, 0.521)"
+
+            }, 200);
+        }
+    }
+
+    function infoObj(obj) {
+        let objName = (obj.src.split("assets/")[1].split(".png")[0])
+        console.log(objName)
+        if (objName == "ship2" || objName == "ship2vert") {
+            printScreenAssistantMessage("Questa è una nave da 2 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
+
+        }
+        if (objName == "ship3" || objName == "ship3vert") {
+            printScreenAssistantMessage("Questa è una nave da 3 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
+        }
+        if (objName == "ship4" || objName == "ship4vert") {
+            printScreenAssistantMessage("Questa è una nave da 4 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
+        }
+        if (objName == "ship5" || objName == "ship5vert") {
+            printScreenAssistantMessage("Questa è una nave da 5 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
+        }
+        if (objName == "airDefense2") {
+            printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle).")
+        }
+        if (objName == "atomicBomb") {
+            printScreenAssistantMessage("Questo missile renderà inutilizzabile una porzione della mappa dell'avversario (2x2 celle) per tutta la guerra. Non va posizionato.")
+        }
+        if (objName == "jammer") {
+            printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
+        }
+        if (objName == "alliedMissile") {
+            printScreenAssistantMessage("Questa è un missile alleato che verrà lanciato autonomamente sulla mappa nemica. Non inciderà sul tuo turno. Non va posizionato.")
+        }
+        if (objName == "advancedMissile") {
+            printScreenAssistantMessage("Questa è un missile avanzato che non può essere deviato o neutralizzato. Non va posizionato.")
+        }
+
+
+    }
+
+    function infoObjHandler(event) {
+        infoObj(event.target);
+    }
+
+    function marketSubSectHandler() {
+        printScreenAssistantMessage("Questo è il mercato: <br> potrai comprare e vendere oggetti, se hai abbastanza monete.");
+    }
+
+    function opponentPositionHandler() {
+        printScreenAssistantMessage("Questa è la griglia nemica che dovrai attaccare.");
+    }
+
+    function myPositionHandler() {
+        printScreenAssistantMessage("Questa è la tua griglia. Quando vuoi, chiudi il mercato e inizia a posizionare gli elementi.");
+    }
+
+    function openMarketScreenMsgs() {
+        if (!stopMarket) {
+            let myArmyImgArray = document.getElementsByClassName("myArmyImg");
+            let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
+
+            for (let i = 0; i < myArmyImgArray.length; i++) {
+                myArmyImgArray[i].addEventListener("click", infoObjHandler);
             }
-            else if (clickedBtnId == "trekkingBtn") {
-                  trekkingSiteCardCounter = trekkingSiteCardCounter + 1 - n;
-                  if (trekkingSiteCardCounter == trekkingSiteCardCounterLimit) {
-                        trekkingSiteCardCounter = 0
-                  }
-                  document.getElementById("trekkingDescription").innerHTML = allCardsInfo.trekkingSite.description[trekkingSiteCardCounter]
-                  document.getElementById("trekkingImg").src = allCardsInfo.trekkingSite.src[trekkingSiteCardCounter]
-                  document.getElementById("trekkingImg").alt = allCardsInfo.trekkingSite.alt[trekkingSiteCardCounter]
-                  document.getElementById("trekkingCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("trekkingCard").classList.remove("rotate");
-                  }, "550")
+            for (let i = 0; i < marketSubSectsArray.length; i++) {
+                marketSubSectsArray[i].addEventListener("click", marketSubSectHandler);
             }
-            else if (clickedBtnId == "guitaristBtn") {
-                  guitaristSiteCardCounter = guitaristSiteCardCounter + 1 - n;
-                  if (guitaristSiteCardCounter == guitaristSiteCardCounterLimit) {
-                        guitaristSiteCardCounter = 0
-                  }
-                  document.getElementById("guitaristDescription").innerHTML = allCardsInfo.guitaristSite.description[guitaristSiteCardCounter]
-                  document.getElementById("guitaristImg").src = allCardsInfo.guitaristSite.src[guitaristSiteCardCounter]
-                  document.getElementById("guitaristImg").alt = allCardsInfo.guitaristSite.alt[guitaristSiteCardCounter]
-                  document.getElementById("guitaristCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("guitaristCard").classList.remove("rotate");
-                  }, "550")
+            opponentPositionsImg.addEventListener("click", opponentPositionHandler);
+            myPositionsImg.addEventListener("click", myPositionHandler);
+        }
+    }
+
+    function removeListenerMsgOpenMarket() {
+        let myArmyImgArray = document.getElementsByClassName("myArmyImg");
+        let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
+
+        for (let i = 0; i < myArmyImgArray.length; i++) {
+            myArmyImgArray[i].removeEventListener("click", infoObjHandler);
+        }
+        for (let i = 0; i < marketSubSectsArray.length; i++) {
+            marketSubSectsArray[i].removeEventListener("click", marketSubSectHandler);
+        }
+
+        opponentPositionsImg.removeEventListener("click", opponentPositionHandler);
+        myPositionsImg.removeEventListener("click", myPositionHandler);
+    }
+
+
+    function setScreenAssistantPosition() {
+        myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
+        printScreenAssistantMessage("Benvenuto,<br> In questo momento, se clicchi su un oggetto, cercherò di darti delle informazioni.")
+
+    }
+
+    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
+    // window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions() })
+    // window.addEventListener("load", makeShipsTurnable)
+    //window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
+    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
+
+
+
+    function logCoordinates(event, grid) {
+        var xClick = event.clientX + window.scrollX;
+        var yClick = event.clientY + window.scrollY;
+        if (grid == "opponentGrid") { //to calculate y
+            if (yClick < (gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "A"
             }
-            else if (clickedBtnId == "photographerBtn") {
-                  photographerSiteCardCounter = photographerSiteCardCounter + 1 - n;
-                  if (photographerSiteCardCounter == photographerSiteCardCounterLimit) {
-                        photographerSiteCardCounter = 0
-                  }
-                  document.getElementById("photographerDescription").innerHTML = allCardsInfo.photographerSite.description[photographerSiteCardCounter]
-                  document.getElementById("photographerImg").src = allCardsInfo.photographerSite.src[photographerSiteCardCounter]
-                  document.getElementById("photographerImg").alt = allCardsInfo.photographerSite.alt[photographerSiteCardCounter]
-                  document.getElementById("photographerCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("photographerCard").classList.remove("rotate");
-                  }, "550")
+            else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "B"
             }
-            else if (clickedBtnId == "CVBtn") {
-                  CVSiteCardCounter = CVSiteCardCounter + 1 - n;
-                  if (CVSiteCardCounter == CVSiteCardCounterLimit) {
-                        CVSiteCardCounter = 0
-                  }
-                  document.getElementById("CVDescription").innerHTML = allCardsInfo.CVSite.description[CVSiteCardCounter]
-                  document.getElementById("CVImg").src = allCardsInfo.CVSite.src[CVSiteCardCounter]
-                  document.getElementById("CVImg").alt = allCardsInfo.CVSite.alt[CVSiteCardCounter]
-                  document.getElementById("CVCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("CVCard").classList.remove("rotate");
-                  }, "550")
+            else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "C"
             }
-            else if (clickedBtnId == "shoppingListBtn") {
-                  shoppingListSiteCardCounter = shoppingListSiteCardCounter + 1 - n;
-                  if (shoppingListSiteCardCounter == shoppingListSiteCardCounterLimit) {
-                        shoppingListSiteCardCounter = 0
-                  }
-                  document.getElementById("shoppingListDescription").innerHTML = allCardsInfo.shoppingListSite.description[shoppingListSiteCardCounter]
-                  document.getElementById("shoppingListImg").src = allCardsInfo.shoppingListSite.src[shoppingListSiteCardCounter]
-                  document.getElementById("shoppingListImg").alt = allCardsInfo.shoppingListSite.alt[shoppingListSiteCardCounter]
-                  document.getElementById("shoppingListCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("shoppingListCard").classList.remove("rotate");
-                  }, "550")
+            else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "D"
             }
-            else if (clickedBtnId == "socialBtn") {
-                  socialSiteCardCounter = socialSiteCardCounter + 1 - n;
-                  if (socialSiteCardCounter == socialSiteCardCounterLimit) {
-                        socialSiteCardCounter = 0
-                  }
-                  document.getElementById("socialDescription").innerHTML = allCardsInfo.socialSite.description[socialSiteCardCounter]
-                  document.getElementById("socialImg").src = allCardsInfo.socialSite.src[socialSiteCardCounter]
-                  document.getElementById("socialImg").alt = allCardsInfo.socialSite.alt[socialSiteCardCounter]
-                  document.getElementById("socialCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("socialCard").classList.remove("rotate");
-                  }, "550")
+            else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "E"
             }
-            else if (clickedBtnId == "tictactoeBtn") {
-                  tictactoeSiteCardCounter = tictactoeSiteCardCounter + 1 - n;
-                  if (tictactoeSiteCardCounter == tictactoeSiteCardCounterLimit) {
-                        tictactoeSiteCardCounter = 0
-                  }
-                  document.getElementById("tictactoeDescription").innerHTML = allCardsInfo.tictactoeSite.description[tictactoeSiteCardCounter]
-                  document.getElementById("tictactoeImg").src = allCardsInfo.tictactoeSite.src[tictactoeSiteCardCounter]
-                  document.getElementById("tictactoeImg").alt = allCardsInfo.tictactoeSite.alt[tictactoeSiteCardCounter]
-                  document.getElementById("tictactoeCard").classList.add("rotate");
-                  setTimeout(() => {
-                        document.getElementById("tictactoeCard").classList.remove("rotate");
-                  }, "550")
+            else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "F"
             }
-      }
+            else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "G"
+            }
+            else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "H"
+            }
+            else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "I"
+            }
+            else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell = "L"
+            }
+        }
+
+        if (grid == "opponentGrid") { //to calculate x
+            if (xClick < (gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "1"
+                circleBombAnimation()
+            }
+            else if (xClick < (2 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "2"
+                circleBombAnimation()
+            }
+            else if (xClick < (3 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "3"
+                circleBombAnimation()
+            }
+            else if (xClick < (4 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "4"
+                circleBombAnimation()
+            }
+            else if (xClick < (5 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "5"
+                circleBombAnimation()
+            }
+            else if (xClick < (6 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "6"
+                circleBombAnimation()
+            }
+            else if (xClick < (7 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "7"
+                circleBombAnimation()
+            }
+            else if (xClick < (8 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "8"
+                circleBombAnimation()
+            }
+            else if (xClick < (9 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "9"
+                circleBombAnimation()
+            }
+            else if (xClick < (10 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell += "10"
+                circleBombAnimation()
+            }
+        }
+
+        function circleBombAnimation() {
+            let yBombed = calculateClickedCell.slice(1)
+            let xBombed = calculateClickedCell[0]
+            let theoreticalXBombed //for bombing animation purpose
+            let theoreticalYBombed //for bombing animation purpose
+            switch (xBombed) {
+                case "A":
+                    theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "B":
+                    theoreticalYBombed = gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "C":
+                    theoreticalYBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "D":
+                    theoreticalYBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "E":
+                    theoreticalYBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgTop;
+                    break;
+                case "F":
+                    theoreticalYBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "G":
+                    theoreticalYBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "H":
+                    theoreticalYBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "I":
+                    theoreticalYBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                case "L":
+                    theoreticalYBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    break;
+                default:
+                    alert("Valore di xBombed non valido: " + xBombed);
+            }
+            switch (yBombed) {
+                case "1":
+                    theoreticalXBombed = gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "2":
+                    theoreticalXBombed = gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "3":
+                    theoreticalXBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "4":
+                    theoreticalXBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "5":
+                    theoreticalXBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "6":
+                    theoreticalXBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "7":
+                    theoreticalXBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "8":
+                    theoreticalXBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "9":
+                    theoreticalXBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                case "10":
+                    theoreticalXBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    break;
+                default:
+                    Alert("Valore di yBombed non valido: " + yBombed);
+            }
+
+
+
+            const circleBomb = document.createElement('div');
+            circleBomb.style.width = '30px';
+            circleBomb.style.height = '30px';
+            circleBomb.style.backgroundColor = 'black';
+            circleBomb.style.borderRadius = '50%';
+            circleBomb.style.position = 'absolute';
+            circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+            circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+
+
+
+            circleBomb.id = "circleBomb"
+            document.body.appendChild(circleBomb);
+            circleBomb.className = "imBombingAnimation"
+
+        }
+    }
 
 
 
 
+    let draggableElement;
+
+    function makeMagazzinoDraggable() {
+        draggableElementArray = document.getElementsByClassName("draggableElement");
+        console.log(draggableElementArray)
+        for (let i = 0; i < draggableElementArray.length; i++) {
+            //if(myArmyImgArray[i].style.position==""){
+            let draggedYet = false
+            draggableElementArray[i].addEventListener("mousedown", function (e) {
+
+                if (!draggedYet) { dragFunction(i, e) }
+                draggedYet = true
+
+            });
+            //  }
+        }
+    }
 
 
 
-      //change card: when all card's images.png has been shown , counter =0 to re-start the loop
+    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {
+        let checkAgain = false
+        if (elementToDragLeft < (myPositionsImgLeft + 30)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = myPositionsImgLeft + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in A
+                    newShipTakenPositions.x = "A"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in A
+                    newShipTakenPositions.x = "A"
+                }
+
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 60)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 30) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in B
+                    newShipTakenPositions.x = "B"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in B
+                    newShipTakenPositions.x = "B"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 90)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 60) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in C
+                    newShipTakenPositions.x = "C"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in C
+                    newShipTakenPositions.x = "C"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 120)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 90) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in D
+                    newShipTakenPositions.x = "D"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in D
+                    newShipTakenPositions.x = "D"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 150)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 120) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in E
+                    newShipTakenPositions.x = "E"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in E
+                    newShipTakenPositions.x = "E"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 180)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 150) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in F
+                    newShipTakenPositions.x = "F"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in F
+                    newShipTakenPositions.x = "F"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 210)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 180) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in G
+                    newShipTakenPositions.x = "G"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in G
+                    newShipTakenPositions.x = "G"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 240)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 210) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in H
+                    newShipTakenPositions.x = "H"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in H
+                    newShipTakenPositions.x = "H"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 270)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 240) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in I
+                    newShipTakenPositions.x = "I"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in I
+                    newShipTakenPositions.x = "I"
+                }
+            }
+        }
+
+        else if (elementToDragLeft < (myPositionsImgLeft + 300 + onMouseUptolerance)) {
+            while (elementToDragRight > (myPositionsImgLeft + 300)) {
+                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.left = (myPositionsImgLeft + 270) + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in L
+                    newShipTakenPositions.x = "L"
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in L
+                    newShipTakenPositions.x = "L"
+                }
+            }
+        }
 
 
-      let travelSiteCardCounter = 0
-      let travelSiteCardCounterLimit = allCardsInfo.travelSite.description.length
 
-      let restoSiteCardCounter = 0
-      let restoSiteCardCounterLimit = allCardsInfo.restoSite.description.length
-
-      let trekkingSiteCardCounter = 0
-      let trekkingSiteCardCounterLimit = allCardsInfo.trekkingSite.description.length
-
-      let guitaristSiteCardCounter = 0
-      let guitaristSiteCardCounterLimit = allCardsInfo.guitaristSite.description.length
-
-      let panthereSiteCardCounter = 0
-      let panthereSiteCardCounterLimit = allCardsInfo.panthereSite.description.length
-
-      let socialSiteCardCounter = 0
-      let socialSiteCardCounterLimit = allCardsInfo.socialSite.description.length
-
-      let piqSiteCardCounter = 0
-      let piqSiteCardCounterLimit = allCardsInfo.piqSite.description.length
-
-      let kanapSiteCardCounter = 0
-      let kanapSiteCardCounterLimit = allCardsInfo.kanapSite.description.length
-
-      let CVSiteCardCounter = 0
-      let CVSiteCardCounterLimit = allCardsInfo.CVSite.description.length
-
-      let ecommerceSiteCounter = 0
-      let ecommerceSiteCounterLimit = allCardsInfo.ecommerceSite.description.length
-
-      let photographerSiteCardCounter = 0
-      let photographerSiteCardCounterLimit = allCardsInfo.photographerSite.description.length
-
-      let tictactoeSiteCardCounter = 0
-      let tictactoeSiteCardCounterLimit = allCardsInfo.tictactoeSite.description.length
-
-        let shoppingListSiteCardCounter = 0
-      let shoppingListSiteCardCounterLimit = allCardsInfo.shoppingListSite.description.length
+    }
+    function restartDrag(event) {
+        if (freeCell == false) {
+            dragFunction(lastDraggedElementIndex, event);
+            freeCell = true
+            document.removeEventListener("mousemove", restartDrag)
+        }
+    }
 
 
 
+    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {
+        let checkAgain = false
+        if (elementToDragTop < (myPositionsImgTop + 30)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 1
+                    newShipTakenPositions.y = "1"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
 
-
-
-      //search function
-
-
-
-      let projectsTitles = document.getElementsByTagName("h2")
-      let projectDescription = document.getElementsByTagName("h3")
-
-      function searchFunction() {
-            let projectsToShow = []
-            let projectsTitlesIndex = []
-            let searchBarKeywords = document.getElementById("searchBarInput").value.split(" ")
-            for (let i = 0; i < projectsTitles.length; i++) {
-                  projectsTitlesIndex.push(i)
-                  for (let n = 0; n < searchBarKeywords.length; n++) {
-                        if (searchBarKeywords[n].length > 0 && (projectsTitles[i].textContent.toLocaleLowerCase().includes(searchBarKeywords[n].toLowerCase()) || projectDescription[i].textContent.toLocaleLowerCase().includes(searchBarKeywords[n].toLowerCase()))) {
-                              if (!projectsToShow.includes(i)) {
-                                    projectsToShow.push(i)
-                              }
                         }
-                  }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 1
+                    newShipTakenPositions.y = "1"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+
+
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
             }
-            for (let a = 0; a < projectsTitlesIndex.length; a++) {
-                  if (!projectsToShow.includes(projectsTitlesIndex[a])) {
-                        document.getElementsByClassName("projectContainers")[a].style.display = "none"
-                  }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 60)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
             }
-            document.getElementById("searchBarInput").style.background = "grey"
-            document.getElementById("quitIcon").style.display = "block"
-            document.getElementById("lensIcon").style.display = "none"
-            document.getElementById("searchBarInput").disabled = true;
-
-      }
-
-
-
-      function quitSearchFunction() {
-            document.getElementById("quitIcon").style.display = "none"
-            document.getElementById("lensIcon").style.display = "block"
-            document.getElementById("searchBarInput").disabled = false;
-            document.getElementById("searchBarInput").style.background = "white"
-            document.getElementById("searchBarInput").value = ""
-            for (let i = 0; i < document.getElementsByClassName("projectContainers").length; i++) {
-                  document.getElementsByClassName("projectContainers")[i].style.display = "block"
-
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
             }
-      }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 30 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 2
+                    newShipTakenPositions.y = "2"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
 
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
 
-      document.getElementById("lensIcon").addEventListener("click", searchFunction)
-      document.getElementById("searchBarInput").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                  searchFunction()
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 2
+                    newShipTakenPositions.y = "2"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
             }
-      })
-      document.getElementById("quitIcon").addEventListener("click", quitSearchFunction)
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // user scrolled; card is almost visible: if not done yet, screen.png become the gif video. 
-
-
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("photographerCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("trekkingCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("travelCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("piqCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("kanapCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("socialCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("ecommerceCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("tictactoeCard")) })
-      document.addEventListener("scroll", (e) => { isCardAlmostVisible(document.getElementById("shoppingListCard")) })
-
-      let photographerEventExecutedYet = false
-      let trekkingEventExecutedYet = false
-      let travelEventExecutedYet = false
-      let piqEventExecutedYet = false
-      let kanapEventExecutedYet = false
-      let socialEventExecutedYet = false
-      let ecommerceEventExecutedYet = false
-      let tictactoeEventExecutedYet = false
-      let shoppingListEventExecutedYet = false
-
-      function isCardAlmostVisible(card) {
-
-            const rect = card.getBoundingClientRect()
-            if (rect.top - window.innerHeight < 500) {
-                  if (card.id == "photographerCard" && photographerEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "trekkingCard" && trekkingEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "travelCard" && travelEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "piqCard" && piqEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "kanapCard" && kanapEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "socialCard" && socialEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "ecommerceCard" && ecommerceEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "tictactoeCard" && tictactoeEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "shoppingListCard" && shoppingListEventExecutedYet) {
-                        return
-                  }
-                  else if (card.id == "shoppingListCard") {
-                        shoppingListEventExecutedYet = true
-                        //   console.log("shoppingList video active")
-                  }
-                  else if (card.id == "photographerCard") {
-                        photographerEventExecutedYet = true
-                        //   console.log("photographer video active")
-                  }
-                  else if (card.id == "trekkingCard") {
-                        trekkingEventExecutedYet = true
-                        //   console.log("trek video active")
-                  }
-                  else if (card.id == "travelCard") {
-                        travelEventExecutedYet = true
-                        //   console.log("travel video active")
-                  }
-                  else if (card.id == "piqCard") {
-                        piqEventExecutedYet = true
-                        //  console.log("piq video active")
-                  }
-                  else if (card.id == "kanapCard") {
-                        kanapEventExecutedYet = true
-                        //  console.log("kanap video active")
-                  }
-                  else if (card.id == "socialCard") {
-                        socialEventExecutedYet = true
-                        //  console.log("social video active")
-                  }
-                  else if (card.id == "ecommerceCard") {
-                        ecommerceEventExecutedYet = true
-                        //  console.log("eco video active")
-                  }
-                  else if (card.id == "tictactoeCard") {
-                        tictactoeEventExecutedYet = true
-                        // console.log("tic video active")
-                  }
-
-                  changeCard(card.id.split("Card")[0].concat("Btn"), 1)
+        else if (elementToDragTop < (myPositionsImgTop + 90)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
             }
-      }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 60 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 3
+                    newShipTakenPositions.y = "3"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 3
+                    newShipTakenPositions.y = "3"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 120)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 90 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 4
+                    newShipTakenPositions.y = "4"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 4
+                    newShipTakenPositions.y = "4"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 150)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 120 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 5
+                    newShipTakenPositions.y = "5"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 5
+                    newShipTakenPositions.y = "5"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 180)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 150 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 6
+                    newShipTakenPositions.y = "6"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+
+
+
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 6
+                    newShipTakenPositions.y = "6"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 210)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 180 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 7
+                    newShipTakenPositions.y = "7"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 7
+                    newShipTakenPositions.y = "7"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 240)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 210 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 8
+                    newShipTakenPositions.y = "8"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 8
+                    newShipTakenPositions.y = "8"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+        else if (elementToDragTop < (myPositionsImgTop + 270)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 240 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 9
+                    newShipTakenPositions.y = "9"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 9
+                    newShipTakenPositions.y = "9"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance)) {
+            while (elementToDragBottom > (myPositionsImgTop + 300)) {
+                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
+                checkAgain = true
+            }
+            if (checkAgain) {
+                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            }
+            else if (!checkAgain) {
+                elementToDrag.style.top = myPositionsImgTop + 270 + "px"
+                elementToDrag.style.boxShadow = "none"
+                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 10
+                    newShipTakenPositions.y = "10"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                                freeCell = false
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
+                            }
+
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        }
+                        else {
+                            freeCell = false
+                            restartDrag(event)
+
+                        }
+                    }
+                }
+                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 10
+                    newShipTakenPositions.y = "10"
+                    if (newShipTakenPositions.x !== undefined) {
+                        newShipTakenPositions.positions = []
+                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                            let nextY = parseInt(newShipTakenPositions.y) + i
+                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                                freeCell = false
+                                restartDrag(event)
+                            }
+                            else {
+                                freeCell = true
+                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                            }
+                        }
+                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                        } else {
+                            freeCell = false
+                            restartDrag(event)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    let allArticlesPositions = []
+
+    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {
+        let objHorizontalCells = elementToDrag.width / 30
+        let objVerticalCells = elementToDrag.height / 30
+        let type
+        let newShipTakenPositions
+
+
+        if (objHorizontalCells == 1 && objVerticalCells == 1) { //not a ship
+            type = elementToDrag.src.split("assets/")[1].split(".png")[0]
+            newShipTakenPositions = {
+                type: type,
+                direction: "horizontal",
+                length: objHorizontalCells,
+                height: objVerticalCells,
+                positions: []
+            }
+        }
+        else if (objHorizontalCells > objVerticalCells) { //Horizontal ship
+            type = objHorizontalCells + " cells ship"
+            newShipTakenPositions = {
+                type: type,
+                direction: "horizontal",
+                length: objHorizontalCells,
+                height: objVerticalCells,
+                positions: []
+            }
+
+
+        }
+        else if (objHorizontalCells < objVerticalCells) { //Vertical ship
+            type = objVerticalCells + " cells ship"
+            newShipTakenPositions = {
+                type: type,
+                direction: "vertical",
+                length: objVerticalCells,
+                height: objHorizontalCells,
+                positions: []
+            }
+        }
+        allArticlesPositions.push(newShipTakenPositions)
+
+        calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
+        calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+    }
+    let turnObjImgArray = "notDoneYet"
+    let lastDraggedElementIndex
+
+    function dragFunction(elementIndex, event) {
+
+        const elementToDrag = draggableElementArray[elementIndex];
+        elementToDrag.style.position = "absolute";
+
+
+        if (turnObjImgArray == "notDoneYet") {
+            turnObjImgArray = document.getElementsByClassName("turnObjImg")
+            for (let i = 0; i < turnObjImgArray.length; i++) {
+                turnObjImgArray[i].style.display = 'none';
+            }
+        }
+        //let offsetX = event.clientX - elementToDrag.getBoundingClientRect().left;
+       // let offsetY = event.clientY - elementToDrag.getBoundingClientRect().top - window.scrollY;
+        let isDragging = true;
+        lastDraggedElementIndex = elementIndex
+        function onMouseMove(event) {
+            if (isDragging) {
+                elementToDrag.style.left = event.clientX + 'px';
+                elementToDrag.style.top = event.clientY + 'px';
+            }
+        }
+        function onMouseUp() {
+            let elementToDragLeft = parseFloat(elementToDrag.style.left)
+            let elementToDragTop = parseFloat(elementToDrag.style.top)
+            let elementToDragWidth = elementToDrag.offsetWidth
+            let elementToDragHeight = elementToDrag.offsetHeight
+            let elementToDragRight = elementToDragLeft + elementToDragWidth
+            let elementToDragBottom = elementToDragTop + elementToDragHeight
+            let onMouseUptolerance = 10
+            if (elementToDragLeft > (myPositionsImgLeft - onMouseUptolerance) && elementToDragRight < (myPositionsImgLeft + 300 + onMouseUptolerance) && elementToDragTop > myPositionsImgTop - onMouseUptolerance && elementToDragBottom < (myPositionsImgTop + 300 + onMouseUptolerance)) {
+                isDragging = false; //aggiungere la consizione "se la cella è libera"
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, elementToDragWidth, onMouseUptolerance, elementToDragRight, elementToDragBottom)
+            }
+        }
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+        document.addEventListener('mousemove', restartDrag);
+
+        event.preventDefault();
+    }
+
+    /* function hideOrShowMercato() {
+         if (mercatoSect.style.display == "" || mercatoSect.style.display == "block") {
+             mercatoSect.style.display = "none"
+         }
+         else if (mercatoSect.style.display == "none") {
+             mercatoSect.style.display = "block"
+             if (stopMarket) {
+                 document.getElementsByClassName("marketSubSects")[0].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[1].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[2].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[3].style.backgroundColor = "#ff00008f"
+             }
+         }
+     }
+ 
+     hideMercato.addEventListener("click", hideOrShowMercato)*/
+
+
+    let stopMarket = false
+
+    endMarketBtn.addEventListener("click", () => {
+        makeMagazzinoDraggable();
+        endMarketBtn.style.display = "none";
+        stopMarket = true;
+        document.getElementById("marketDiv").style.display = "none"
+        //hideOrShowMercato();
+        removeListenerMsgOpenMarket()
+        printScreenAssistantMessage("Ricorda che, dopo il trascinamento, la nave ricadrà nella cella ricoperta dalla sua estremità superiore sinistra. ")
+    })
+
+    opponentPositionsImg.addEventListener('click', (event) => logCoordinates(event, "opponentGrid"))
+    myPositionsImg.addEventListener('click', (event) => logCoordinates(event, "myGrid"))
+
 </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+    * {
+        font-family: "Atma", system-ui;
+    }
+
+    @keyframes imBombingAnimationKeyframes {
+        0% {
+            background-color: black;
+
+
+        }
+
+        20% {
+            background-color: rgb(66, 45, 46);
+            box-shadow: 0px 0px 10px 6px rgb(255, 170, 0)
+        }
+
+        50% {
+            background-color: red;
+            box-shadow: 0px 0px 20px 26px rgb(255, 170, 0)
+        }
+
+        100% {
+            background-color: rgb(89, 89, 89);
+        }
+    }
+
+    .imBombingAnimation {
+        animation: imBombingAnimationKeyframes 1.6s forwards;
+    }
+
+
+
+
+    .coin {
+        width: 30px;
+    }
+
+
+    #myArmyList {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+        height: 160px;
+    }
+
+    #myArmyList>li {
+        width: auto;
+        margin: 0 5px
+    }
+
+    #goldSect {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    button {
+        background-color: grey;
+    }
+
+    #gridsSect {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .positionsImg {
+        height: 300px;
+    }
+
+    #myPositionsImg,
+    #myScreenAssistant {
+        box-shadow: 1px -1px 20px 8px green
+    }
+
+    #myScreenAssistant {
+        height: 20vh;
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.521);
+        font-size: larger;
+        color: rgb(0, 255, 0);
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .turnObjImg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .coinSpan {
+        display: flex;
+    }
+
+    #opponentPositionsImg {
+        box-shadow: 1px -1px 20px 8px #ff0000ad
+    }
+
+    #myGridSpan {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gridTitle {
+        margin-bottom: 30px
+    }
+
+    .gridSpan {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .activeTurn {
+        border-radius: 20px;
+        box-shadow: 0px 0px 30px 30px blue;
+    }
+
+    .armyObj {
+        width: 30px;
+        height: 30px;
+    }
+
+    .horizontal2Ship {
+        width: 60px;
+        height: 30px;
+
+    }
+
+    button {
+        background-color: #00d0ff
+    }
+
+    .horizontal3Ship {
+        width: 90px;
+        height: 30px;
+    }
+
+    .horizontal4Ship {
+        width: 120px;
+        height: 30px;
+    }
+
+    .infoIconMarket {
+        width: 20px;
+        height: 20px;
+        align-self: center
+    }
+
+    .articleNameSpan {
+        width: 50%;
+        display: flex;
+    }
+
+    #magazzinoSect {
+        height: 25vh;
+        display: flex;
+        height: 100px;
+        margin: 10px 0;
+        background-color: rgba(255, 255, 255, 0.1);
+
+
+    }
+
+    .horizontal5Ship {
+        width: 150px;
+        height: 30px;
+    }
+
+    .vertical4Ship {
+        width: 30px;
+        height: 120px;
+    }
+
+    .vertical3Ship {
+        width: 30px;
+        height: 90px;
+    }
+
+    #readyBtn {
+        height: 52px;
+    }
+
+    .vertical2Ship {
+        width: 30px;
+        height: 60px;
+    }
+
+    .vertical5Ship {
+        width: 30px;
+        height: 150px;
+    }
+
+    .not_visible {
+        display: none;
+    }
+
+
+
+    body {
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(./assets/ship-158847_1280.png);
+        background-color: rgb(46, 40, 68);
+        /* background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;*/
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+
+    .myArmyImg {
+        box-shadow: 3px -3px 1px 2px #00000061;
+    }
+
+    h1 {
+        height: 5vh;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+        text-shadow: 1px -1px 2px #00a8ff;
+        margin: 0
+    }
+
+    .spanLetterAxis {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mercatoSpan {
+        position: absolute;
+        top: 25vh;
+        width: 12%;
+        left: 44%;
+    }
+
+
+    #mercatoSect {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20%;
+        top: 32vh;
+        height: 60vh;
+        justify-content: space-evenly;
+        left: 40%
+    }
+
+
+
+    #mercatoSect>section {
+        width: 100%;
+        padding: 010px;
+        border-radius: 20px;
+        box-shadow: inset -1px -1px 20px 6px rgba(0, 0, 0, 0.5);
+        background-color: grey;
+    }
+
+    li {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .grid {
+        height: 300px;
+        height: 300px;
+        border: solid grey;
+    }
+
+    #mercatoSect section {
+        margin: 2px 0
+    }
+
+    #mercatoSect button {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border-radius: 5px
+    }
+
+    .minusBtn {
+        background-color: grey;
+    }
+
+    .plusBtn {
+        background-color: rgb(86, 86, 255);
+    }
+
+    #tab {
+        height: 100px;
+    }
+
+
+
+    #matchDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+
+    #marketDiv {
+        width: 80px;
+        background-color: #0058b0;
+    }
+
+    #myXAxisSpan,
+    #XAxisSpanAdv {
+        width: 300px;
+        height: 30px;
+        position: absolute;
+        display: flex;
+        background-color: rgba(128, 128, 128, 0.419);
+        color: greenyellow;
+        font-weight: 400;
+    }
+
+    #myYAxisSpan,
+    #YAxisSpanAdv {
+        background-color: rgba(128, 128, 128, 0.419);
+
+        width: 30px;
+        height: 300px;
+        font-weight: 400;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #myXaxisSpan,
+    #myYAxisSpan {
+        color: greenyellow;
+    }
+
+    #YAxisSpanAdv,
+    #XAxisSpanAdv {
+        color: #ff4e2f
+    }
+
+    @media screen and (min-width: 3000px) and (max-width: 12800px) {
+        #gridsSect {
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #myPositionImg {
+            width: 300px;
+        }
+
+        .gridSpan {
+            width: 300px;
+        }
+
+        #mercatoSect {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            top: auto;
+            height: auto;
+            left: auto
+        }
+
+        #marketDiv {
+            width: auto;
+        }
+
+        #magazzinoSect {
+            height: auto;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.368);
+
+        }
+
+        #myArmyList {
+            flex-direction: column;
+            height: auto;
+        }
+
+        #myArmyList li {
+            height: 40px;
+        }
+
+
+    }
+</style>
