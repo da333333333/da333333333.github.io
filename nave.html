@@ -26,20 +26,23 @@
                 <ul>
                     <li id="ship2Market">
                         <button class="minusBtn">-</button>
-                        <span class="articleNameSpan">Nave da 2</span> <span class="coinSpan">150 <img class="coin"
-                                alt="coin" src="./assets/coin.png"></span>
+                        <span class="articleNameSpan">Nave da 2</span><img src="./assets/info.png" alt="info nave da 2"
+                            class="infoIconMarket"> <span class="coinSpan">150 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                     <li id="ship3Market">
                         <button class="minusBtn">-</button>
-                        <span class="articleNameSpan">Nave da 3</span> <span class="coinSpan">200 <img class="coin"
-                                alt="coin" src="./assets/coin.png"></span>
+                        <span class="articleNameSpan">Nave da 3</span><img src="./assets/info.png" alt="info nave da 3"
+                            class="infoIconMarket"> <span class="coinSpan">200 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                     <li id="ship4Market">
                         <button class="minusBtn">-</button>
-                        <span class="articleNameSpan">Nave da 4</span> <span class="coinSpan">250 <img class="coin"
-                                alt="coin" src="./assets/coin.png"></span>
+                        <span class="articleNameSpan">Nave da 4</span><img src="./assets/info.png" alt="info nave da 4"
+                            class="infoIconMarket"> <span class="coinSpan">250 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
 
@@ -51,14 +54,16 @@
                 <ul>
                     <li id="airDefenseMarket">
                         <button class="minusBtn">-</button>
-                        <span class="articleNameSpan">Contraerea</span> <span class="coinSpan">200 <img class="coin"
+                        <span class="articleNameSpan">Contraerea</span><img src="./assets/info.png"
+                            alt="info contraerea" class="infoIconMarket"> <span class="coinSpan">200 <img class="coin"
                                 alt="coin" src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                     <li id="jammerMarket">
                         <button class="minusBtn">-</button>
-                        <span class=" articleNameSpan">Jammer</span> <span class="coinSpan">150 <img class="coin"
-                                alt="coin" src="./assets/coin.png"></span>
+                        <span class=" articleNameSpan">Jammer</span><img src="./assets/info.png" alt="info jammer"
+                            class="infoIconMarket"> <span class="coinSpan">150 <img class="coin" alt="coin"
+                                src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                 </ul>
@@ -70,25 +75,29 @@
 
                     <li id="atomicMissileMarket">
                         <button class="minusBtn">-</button>
-                        <span class=" articleNameSpan">Missile Nucleare</span> <span class="coinSpan">200
+                        <span class=" articleNameSpan">Missile Nucleare</span><img src="./assets/info.png"
+                            alt="info missile nucleare" class="infoIconMarket"> <span class="coinSpan">200
                             <img class="coin" alt="coin" src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                     <li id="advancedMissileMarket">
                         <button class="minusBtn">-</button>
-                        <span class=" articleNameSpan">Missile avanzato</span> <span class="coinSpan">150
+                        <span class=" articleNameSpan">Missile avanzato</span> <img src="./assets/info.png"
+                            alt="info missile avanzato" class="infoIconMarket"> <span class="coinSpan">150
                             <img class="coin" alt="coin" src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                     <li id="alliedMissileMarket">
                         <button class="minusBtn">-</button>
-                        <span class=" articleNameSpan">Missile alleato</span> <span class="coinSpan">100
+                        <span class=" articleNameSpan">Missile alleato</span> <img src="./assets/info.png"
+                            alt="info missile alleato" class="infoIconMarket"> <span class="coinSpan">100
                             <img class="coin" alt="coin" src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
                     </li>
                 </ul>
             </section>
             <section class="marketSubSects" id="goldSect">
+                <img src="./assets/info.png" alt="info forziere" class="infoIconMarket">
                 <img style="height:80px;" src="./assets/money.png" alt="tesoro">
                 <h3 id="myMoney">600</h3>
             </section>
@@ -99,7 +108,8 @@
 
     <div id="matchDiv">
         <section id="magazzinoSect">
-            <span style="display: flex;     align-items: flex-start;    justify-content: flex-start; margin-bottom: 2vh;">
+            <span
+                style="display: flex;     align-items: flex-start;    justify-content: flex-start; margin-bottom: 2vh;">
                 <h2 style="padding:0 10px;">Magazzino</h2>
             </span>
 
@@ -232,6 +242,94 @@
     let plusBtnArray = document.getElementsByClassName("plusBtn")
     let minusBtnArray = document.getElementsByClassName("minusBtn")
 
+
+
+    let infoIconsArray = document.getElementsByClassName("infoIconMarket")
+
+    function infoMarketMsg() {
+        for (let i = 0; i < infoIconsArray.length; i++) {
+            let infoVal = infoIconsArray[i].alt.split("info ")[1]
+            switch (infoVal) {
+                case "nave da 2":
+
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è una semplice nave da 2 celle.")
+                        e.stopPropagation()
+                    }
+                    )
+                    break;
+                case "nave da 3":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+
+                        printScreenAssistantMessage("Questa è una semplice nave da 3 celle.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "nave da 4":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è una semplice nave da 4 celle.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+
+                case "contraerea":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle)")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "jammer":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile nucleare":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questo missile renderà inutilizzabile una porzione della mappa dell'avversario (2x2 celle) per tutta la guerra. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile avanzato":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un missile avanzato che non può essere deviato o neutralizzato. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "missile alleato":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è un missile alleato che verrà lanciato autonomamente sulla mappa nemica. Non inciderà sul tuo turno. Non va posizionato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+                case "forziere":
+                    infoIconsArray[i].addEventListener("click", (e) => {
+                        printScreenAssistantMessage("Questa è il tuo forziere. Qui puoi vedere le tue monete, spendibili nel mercato.")
+                        e.stopPropagation()
+
+                    })
+                    break;
+
+                default:
+                    console.log("there is a problem?")
+                    break;
+            }
+
+        }
+
+    }
+
+
+
+
+
     function buyNewArticle(id) {
         if (!stopMarket) {
             let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
@@ -308,8 +406,7 @@
             allNotDraggableElements.push(newNotDraggableElement)
 
         }
-        console.log(takenCellArray)
-        console.log(allArticlesPositions.concat(allNotDraggableElements))
+
     }
 
     readyBtn.addEventListener("click", amIReady)
@@ -473,7 +570,7 @@
     }
 
     function marketSubSectHandler() {
-        printScreenAssistantMessage("Questo è il mercato e ti permetterà di comprare e vendere oggetti, se hai abbastanza monete.");
+        printScreenAssistantMessage("Questo è il mercato: <br> potrai comprare e vendere oggetti, se hai abbastanza monete.");
     }
 
     function opponentPositionHandler() {
@@ -522,11 +619,11 @@
 
     }
 
-    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs(),makeShipsTurnable() })
+    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
     // window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions() })
-   // window.addEventListener("load", makeShipsTurnable)
+    // window.addEventListener("load", makeShipsTurnable)
     //window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
-    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs(),makeShipsTurnable() })
+    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
 
 
 
@@ -1652,8 +1749,8 @@
         lastDraggedElementIndex = elementIndex
         function onMouseMove(event) {
             if (isDragging) {
-                elementToDrag.style.left = event.clientX - offsetX + 'px';
-                elementToDrag.style.top = event.clientY - offsetY + 'px';
+                elementToDrag.style.left = event.clientX + 'px';
+                elementToDrag.style.top = event.clientY + 'px';
             }
         }
         function onMouseUp() {
@@ -1678,22 +1775,22 @@
         event.preventDefault();
     }
 
-   /* function hideOrShowMercato() {
-        if (mercatoSect.style.display == "" || mercatoSect.style.display == "block") {
-            mercatoSect.style.display = "none"
-        }
-        else if (mercatoSect.style.display == "none") {
-            mercatoSect.style.display = "block"
-            if (stopMarket) {
-                document.getElementsByClassName("marketSubSects")[0].style.backgroundColor = "#ff00008f"
-                document.getElementsByClassName("marketSubSects")[1].style.backgroundColor = "#ff00008f"
-                document.getElementsByClassName("marketSubSects")[2].style.backgroundColor = "#ff00008f"
-                document.getElementsByClassName("marketSubSects")[3].style.backgroundColor = "#ff00008f"
-            }
-        }
-    }
-
-    hideMercato.addEventListener("click", hideOrShowMercato)*/
+    /* function hideOrShowMercato() {
+         if (mercatoSect.style.display == "" || mercatoSect.style.display == "block") {
+             mercatoSect.style.display = "none"
+         }
+         else if (mercatoSect.style.display == "none") {
+             mercatoSect.style.display = "block"
+             if (stopMarket) {
+                 document.getElementsByClassName("marketSubSects")[0].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[1].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[2].style.backgroundColor = "#ff00008f"
+                 document.getElementsByClassName("marketSubSects")[3].style.backgroundColor = "#ff00008f"
+             }
+         }
+     }
+ 
+     hideMercato.addEventListener("click", hideOrShowMercato)*/
 
 
     let stopMarket = false
@@ -1702,7 +1799,7 @@
         makeMagazzinoDraggable();
         endMarketBtn.style.display = "none";
         stopMarket = true;
-        document.getElementById("marketDiv").style.display="none"
+        document.getElementById("marketDiv").style.display = "none"
         //hideOrShowMercato();
         removeListenerMsgOpenMarket()
         printScreenAssistantMessage("Ricorda che, dopo il trascinamento, la nave ricadrà nella cella ricoperta dalla sua estremità superiore sinistra. ")
@@ -1858,6 +1955,12 @@
         height: 30px;
     }
 
+    .infoIconMarket {
+        width: 20px;
+        height: 20px;
+        align-self: center
+    }
+
     .articleNameSpan {
         width: 50%;
         display: flex;
@@ -1916,7 +2019,7 @@
         height: 100%;
         background: url(./assets/ship-158847_1280.png);
         background-color: rgba(48, 0, 223, 0.903);
-       /* background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
+        /* background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;*/
     }
@@ -2114,17 +2217,20 @@
         #marketDiv {
             width: auto;
         }
-        #magazzinoSect{
+
+        #magazzinoSect {
             height: auto;
             flex-direction: column;
             background-color: rgba(255, 255, 255, 0.368);
 
         }
-        #myArmyList{
+
+        #myArmyList {
             flex-direction: column;
             height: auto;
         }
-        #myArmyList li{
+
+        #myArmyList li {
             height: 40px;
         }
 
