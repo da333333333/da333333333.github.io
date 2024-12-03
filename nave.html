@@ -15,7 +15,8 @@
         <span id="mercatoSpan">
             <span style="display: flex;">
                 <h2 style="padding-right: 20px;">Mercato</h2>
-                <button id="hideMercato">Nascondi</button>
+                <button id="endMarketBtn">Chiudi mercato</button>
+
             </span>
         </span>
         <section id="mercatoSect">
@@ -100,7 +101,6 @@
         <section id="magazzinoSect">
             <span style="display: flex;     align-items: flex-start;    justify-content: flex-start; margin-bottom: 2vh;">
                 <h2 style="padding:0 10px;">Magazzino</h2>
-                <button id="endMarketBtn">Chiudi mercato</button>
             </span>
 
             <ul id="myArmyList">
@@ -237,6 +237,7 @@
             let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
             if (newMyMoney < 0) {
                 alert("Non hai abbastanza monete")
+                printScreenAssistantMessage("Non hai abbastanza monete per finalizzare questo acquisto.")
             }
             else {
                 myArmyList.innerHTML += articlesInventory[id].li
@@ -248,6 +249,7 @@
         }
         else {
             alert("Il mercato è ormai chiuso")
+            printScreenAssistantMessage("Non è possibile riaprire il mercato ormai.")
         }
     }
 
@@ -267,11 +269,13 @@
                 //makeMagazzinoDraggable()
             }
             else {
-                alert("Puoi vendere solo gli articoli che hai comprato")
+                alert("Puoi vendere solo gli oggetti che hai comprato")
+                printScreenAssistantMessage("Non puoi vendere gli oggetti che costituiscono la squadra base.")
             }
         }
         else {
             alert("Il mercato è ormai chiuso")
+            printScreenAssistantMessage("Non è possibile riaprire il mercato.")
         }
     }
 
@@ -287,7 +291,7 @@
         let allMyArticles = document.getElementsByClassName("draggableElement");
         for (let i = 0; i < allMyArticles.length; i++) {
             if (allMyArticles[i].style.position !== "absolute" && !allMyArticles[i].classList.contains("not_visible")) {
-                alert("Qualcosa non è ancora stato posizionato. Forse si tratta di " + allMyArticles[i].src.split("assets/")[1].split(".png")[0]);
+                printScreenAssistantMessage("Qualcosa non è ancora stato posizionato. Forse si tratta di " + allMyArticles[i].src.split("assets/")[1].split(".png")[0]);
                 return;
             }
         }
@@ -515,11 +519,16 @@
     function setScreenAssistantPosition() {
         myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
         printScreenAssistantMessage("Benvenuto,<br> In questo momento, se clicchi su un oggetto, cercherò di darti delle informazioni.")
+
     }
 
-    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
+    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs(),makeShipsTurnable() })
     // window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions() })
-    window.addEventListener("load", makeShipsTurnable)
+   // window.addEventListener("load", makeShipsTurnable)
+    //window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
+    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs(),makeShipsTurnable() })
+
+
 
     function logCoordinates(event, grid) {
         var xClick = event.clientX + window.scrollX;
@@ -1669,7 +1678,7 @@
         event.preventDefault();
     }
 
-    function hideOrShowMercato() {
+   /* function hideOrShowMercato() {
         if (mercatoSect.style.display == "" || mercatoSect.style.display == "block") {
             mercatoSect.style.display = "none"
         }
@@ -1684,7 +1693,7 @@
         }
     }
 
-    hideMercato.addEventListener("click", hideOrShowMercato)
+    hideMercato.addEventListener("click", hideOrShowMercato)*/
 
 
     let stopMarket = false
@@ -1693,9 +1702,10 @@
         makeMagazzinoDraggable();
         endMarketBtn.style.display = "none";
         stopMarket = true;
-        hideOrShowMercato();
+        document.getElementById("marketDiv").style.display="none"
+        //hideOrShowMercato();
         removeListenerMsgOpenMarket()
-        printScreenAssistantMessage("Hai chiuso il mercato: il gioco inizia. Buona fortuna!")
+        printScreenAssistantMessage("Ricorda che, dopo il trascinamento, la nave ricadrà nella cella ricoperta dalla sua estremità superiore sinistra. ")
     })
 
     opponentPositionsImg.addEventListener('click', (event) => logCoordinates(event, "opponentGrid"))
@@ -1858,6 +1868,8 @@
         display: flex;
         height: 100px;
         margin: 10px 0;
+        background-color: rgba(255, 255, 255, 0.1);
+
 
     }
 
@@ -1902,9 +1914,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
+        background: url(./assets/ship-158847_1280.png);
+        background-color: rgba(48, 0, 223, 0.903);
+       /* background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
         background-size: 400% 400%;
-        animation: gradientAnimation 15s ease infinite;
+        animation: gradientAnimation 15s ease infinite;*/
     }
 
     @keyframes gradientAnimation {
@@ -1921,10 +1935,7 @@
         }
     }
 
-#endMarketBtn{
-    height: 30px;
-    width: 120px;
-}
+
 
     .myArmyImg {
         box-shadow: 3px -3px 1px 2px #00000061;
@@ -2106,6 +2117,8 @@
         #magazzinoSect{
             height: auto;
             flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.368);
+
         }
         #myArmyList{
             flex-direction: column;
