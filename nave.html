@@ -98,8 +98,8 @@
 
     <div id="matchDiv">
         <section id="magazzinoSect">
-            <span style="display: flex;     justify-content: center; margin-bottom: 2vh;">
-                <h2 style="padding-right: 20px;">Magazzino</h2>
+            <span style="display: flex;     align-items: flex-start;    justify-content: flex-start; margin-bottom: 2vh;">
+                <h2 style="padding:0 10px;">Magazzino</h2>
                 <button id="endMarketBtn">Chiudi mercato</button>
             </span>
 
@@ -1738,6 +1738,7 @@
 
 
 
+
     .coin {
         width: 30px;
     }
@@ -1747,7 +1748,7 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
         height: 160px;
     }
 
@@ -1920,7 +1921,10 @@
         }
     }
 
-
+#endMarketBtn{
+    height: 30px;
+    width: 120px;
+}
 
     .myArmyImg {
         box-shadow: 3px -3px 1px 2px #00000061;
@@ -2069,5 +2073,48 @@
     #YAxisSpanAdv,
     #XAxisSpanAdv {
         color: #ff4e2f
+    }
+
+    @media screen and (min-width: 3000px) and (max-width: 12800px) {
+        #gridsSect {
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #myPositionImg {
+            width: 300px;
+        }
+
+        .gridSpan {
+            width: 300px;
+        }
+
+        #mercatoSect {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            top: auto;
+            height: auto;
+            left: auto
+        }
+
+        #marketDiv {
+            width: auto;
+        }
+        #magazzinoSect{
+            height: auto;
+            flex-direction: column;
+        }
+        #myArmyList{
+            flex-direction: column;
+            height: auto;
+        }
+        #myArmyList li{
+            height: 40px;
+        }
+
+
     }
 </style>
