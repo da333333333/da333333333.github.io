@@ -220,9 +220,19 @@
                 </span>
             </span>
         </section>
-        <section>
+        <section style="display: flex">
             <p id="myScreenAssistant"></p>
+            <form id="newMatchConsole">
+                <label for="myName">Scegli un nome:</label>
+                <input type="text" id="myName" name="myName" placeholder="Nome" required>
+                <label for="IDMatch">ID partita (se non ospiti):</label>
+                <input type="text" id="IDMatch" name="IDMatch" placeholder="ID partita - opzionale">
+                <button type="submit">Partecipa</button>
+                <button type="button" id="hostButton">Ospita</button>
+            </form>
+
         </section>
+
     </div>
 </body>
 
@@ -616,14 +626,16 @@
     function setScreenAssistantPosition() {
         myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
         printScreenAssistantMessage("Benvenuto,<br> In questo momento, se clicchi su un oggetto, cercherò di darti delle informazioni.")
-
+    }
+    function setNewMatchConsolePosition() {
+        newMatchConsole.style.marginLeft = opponentPositionsImgLeft-myPositionsImgLeft-300 + "px"
     }
 
-    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
+    window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), setNewMatchConsolePosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
     // window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions() })
     // window.addEventListener("load", makeShipsTurnable)
     //window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), openMarketScreenMsgs() })
-    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
+    window.addEventListener('resize', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), setNewMatchConsolePosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
 
 
 
@@ -1897,6 +1909,26 @@
         padding: 10px;
         box-sizing: border-box;
     }
+    #newMatchConsole{
+        height: 20vh;
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.521);
+        font-size: larger;
+        color: #ff0000ad;
+        padding: 3px 10px;
+        box-sizing: border-box;
+        box-shadow: 1px -1px 20px 8px #ff0000ad;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+    }
+    #newMatchConsole label{
+        font-size: medium;
+
+    }
+    form{
+        display: flex;
+    flex-direction: column;
+    }
 
     .turnObjImg {
         width: 30px;
@@ -2018,7 +2050,7 @@
         width: 100%;
         height: 100%;
         background: url(./assets/ship-158847_1280.png);
-        background-color: rgba(48, 0, 223, 0.903);
+        background-color: rgb(46, 40, 68);
         /* background: linear-gradient(33deg, #496e6c, #0058b0, #000204, #0058b0, #00264d);
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;*/
