@@ -787,88 +787,100 @@
         }
         var xClick = event.clientX + window.scrollX;
         var yClick = event.clientY + window.scrollY;
-        if (grid == "opponentGrid") { //to calculate y
-            if (yClick < (gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "A"
-            }
-            else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "B"
-            }
-            else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "C"
-            }
-            else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "D"
-            }
-            else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "E"
-            }
-            else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "F"
-            }
-            else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "G"
-            }
-            else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "H"
-            }
-            else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "I"
-            }
-            else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell = "L"
-            }
-        }
+        
 
         if (grid == "opponentGrid") { //to calculate x
             if (xClick < (gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "1"
-                circleBombAnimation()
+                calculateClickedCell = "A"
             }
             else if (xClick < (2 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "2"
-                circleBombAnimation()
+                calculateClickedCell = "B"
             }
             else if (xClick < (3 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "3"
-                circleBombAnimation()
+                calculateClickedCell = "C"
             }
             else if (xClick < (4 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "4"
-                circleBombAnimation()
+                calculateClickedCell = "D"
             }
             else if (xClick < (5 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "5"
-                circleBombAnimation()
+                calculateClickedCell = "E"
             }
             else if (xClick < (6 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "6"
-                circleBombAnimation()
+                calculateClickedCell = "F"
             }
             else if (xClick < (7 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "7"
-                circleBombAnimation()
+                calculateClickedCell+= "G"
             }
             else if (xClick < (8 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "8"
-                circleBombAnimation()
+                calculateClickedCell = "H"
             }
             else if (xClick < (9 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell += "9"
-                circleBombAnimation()
+                calculateClickedCell = "I"
             }
             else if (xClick < (10 * gridStep + opponentPositionsImgLeft)) {
+                calculateClickedCell = "L"
+            }
+            if (grid == "opponentGrid") { //to calculate y
+            if (yClick < (gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "1"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "2"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "3"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "4"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "5"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "6"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "7"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "8"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
+                calculateClickedCell += "9"
+                circleBombAnimation()
+
+            }
+            else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
                 calculateClickedCell += "10"
                 circleBombAnimation()
+
             }
+        }
         }
 
         function circleBombAnimation() {console.log("klffffffòa")
-            let yBombed = calculateClickedCell.slice(1)
-            let xBombed = calculateClickedCell[0]
+        let xBombed = calculateClickedCell[0]; 
+        let yBombed = calculateClickedCell.slice(1)
             let theoreticalXBombed //for bombing animation purpose
             let theoreticalYBombed //for bombing animation purpose
             let bombedCell
+            console.log(xBombed,yBombed+" ECCOOOOOOOOOOOOO")
             switch (xBombed) {
                 case "A":
                     theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
@@ -1753,6 +1765,7 @@
                 IDMatch: IDMatch,
                 bombedCell: bombedCell
             };
+            console.log(bombedCell)
             fetch('http://localhost:3001/api/turnEnds', {
                 method: 'POST',
                 headers: {
