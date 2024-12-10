@@ -165,7 +165,7 @@
                     <span class="spanLetterAxis">G</span>
                     <span class="spanLetterAxis">H</span>
                     <span class="spanLetterAxis">I</span>
-                    <span class="spanLetterAxis">L</span>
+                    <span class="spanLetterAxis">J</span>
                 </span>
                 <span id="myYAxisSpan">
                     <span class="spanLetterAxis">1</span>
@@ -195,7 +195,7 @@
                     <span class="spanLetterAxis">G</span>
                     <span class="spanLetterAxis">H</span>
                     <span class="spanLetterAxis">I</span>
-                    <span class="spanLetterAxis">L</span>
+                    <span class="spanLetterAxis">J</span>
                 </span>
                 <span id="YAxisSpanAdv">
                     <span class="spanLetterAxis">1</span>
@@ -251,7 +251,8 @@
 
     let infoIconsArray = document.getElementsByClassName("infoIconMarket")
 
-    function joinedAMatch(IDMatch, myName) {console.log("a")
+    function joinedAMatch(IDMatch, myName) {
+        console.log("a")
         marketDiv.style.opacity = "1"
         readyBtn.style.display = "block"
         document.getElementById("IDMatch").value = IDMatch
@@ -272,7 +273,8 @@
 
     }
 
-    hostButton.addEventListener('click', function (event) {console.log("sa")
+    hostButton.addEventListener('click', function (event) {
+        console.log("sa")
         const myName = document.getElementById('myName').value;
         const IDMatch = document.getElementById('IDMatch').value;
         document.getElementById('IDMatch').value = "";
@@ -348,7 +350,8 @@
         }
     });
 
-    function infoMarketMsg() {console.log("asaaa")
+    function infoMarketMsg() {
+        console.log("asaaa")
         for (let i = 0; i < infoIconsArray.length; i++) {
             let infoVal = infoIconsArray[i].alt.split("info ")[1]
             switch (infoVal) {
@@ -432,7 +435,8 @@
 
 
 
-    function buyNewArticle(id) {console.log("aww")
+    function buyNewArticle(id) {
+        console.log("aww")
         if (!stopMarket) {
             let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
             if (newMyMoney < 0) {
@@ -453,7 +457,8 @@
         }
     }
 
-    function sellArticle(id) {console.log("qqqa")
+    function sellArticle(id) {
+        console.log("qqqa")
         if (!stopMarket) {
             let arrayThisArticle = document.getElementsByClassName(id)
             if (arrayThisArticle.length > 0) {
@@ -480,7 +485,8 @@
     }
 
 
-    function activateMarket() {console.log("qqqqa")
+    function activateMarket() {
+        console.log("qqqqa")
         for (let i = 0; i < plusBtnArray.length; i++) {
             plusBtnArray[i].addEventListener("click", () => { buyNewArticle(plusBtnArray[i].parentNode.id.split("Market")[0]) })
             minusBtnArray[i].addEventListener("click", () => { sellArticle(minusBtnArray[i].parentNode.id.split("Market")[0]) })
@@ -488,7 +494,8 @@
     }
     activateMarket()
     let allNotDraggableElements = []
-    function amIReady() {console.log("abbb")
+    function amIReady() {
+        console.log("abbb")
         let allMyArticles = document.getElementsByClassName("draggableElement");
         for (let i = 0; i < allMyArticles.length; i++) {
             if (allMyArticles[i].style.position !== "absolute" && !allMyArticles[i].classList.contains("not_visible")) {
@@ -625,7 +632,8 @@
     };
 
 
-    function calculateBombsPositions() {console.log("werwera")
+    function calculateBombsPositions() {
+        console.log("werwera")
         myPositionsImgLeft = myPositionsImg.getBoundingClientRect().left + window.scrollX
         myPositionsImgTop = myPositionsImg.getBoundingClientRect().top + window.scrollY
         opponentPositionsImgLeft = opponentPositionsImg.getBoundingClientRect().left + window.scrollX;
@@ -633,7 +641,8 @@
         gridStep = 300 / 10
     }
 
-    function turnThisShip(ship) {console.log("zzza")
+    function turnThisShip(ship) {
+        console.log("zzza")
         let verticalShip = ship.parentNode.childNodes[3];
         let horizontalShip = ship.parentNode.childNodes[5];
         let wasVerticalShipNotVisible = verticalShip.classList.contains("not_visible");
@@ -652,14 +661,16 @@
             horizontalShip.classList.add("not_visible")
         }
     }
-    function makeShipsTurnable() {console.log("eeeeea")
+    function makeShipsTurnable() {
+        console.log("eeeeea")
         for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
             let thisShip = document.getElementsByClassName("turnObjImg")[i]
             thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
         }
     }
 
-    function calculateAxisPositions() {console.log("a222")
+    function calculateAxisPositions() {
+        console.log("a222")
         myXAxisSpan.style.top = (myPositionsImgTop - 30) + "px"
         myXAxisSpan.style.left = (myPositionsImgLeft) + "px"
         XAxisSpanAdv.style.top = (opponentPositionsImgTop - 30) + "px"
@@ -671,7 +682,8 @@
         YAxisSpanAdv.style.left = (opponentPositionsImgLeft - 30) + "px"
     }
 
-    function printScreenAssistantMessage(message) {console.log("23a")
+    function printScreenAssistantMessage(message) {
+        console.log("23a")
         if (myScreenAssistant.textContent != message) {
             myScreenAssistant.style.backgroundColor = "green"
             myScreenAssistant.innerHTML = message
@@ -682,7 +694,8 @@
         }
     }
 
-    function infoObj(obj) {console.log("a2322")
+    function infoObj(obj) {
+        console.log("a2322")
         let objName = (obj.src.split("assets/")[1].split(".png")[0])
         if (objName == "ship2" || objName == "ship2vert") {
             printScreenAssistantMessage("Questa è una nave da 2 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
@@ -716,23 +729,28 @@
 
     }
 
-    function infoObjHandler(event) {console.log("a222")
+    function infoObjHandler(event) {
+        console.log("a222")
         infoObj(event.target);
     }
 
-    function marketSubSectHandler() {console.log("affff")
+    function marketSubSectHandler() {
+        console.log("affff")
         printScreenAssistantMessage("Questo è il mercato: <br> potrai comprare e vendere oggetti, se hai abbastanza monete.");
     }
 
-    function opponentPositionHandler() {console.log("ccccccca")
+    function opponentPositionHandler() {
+        console.log("ccccccca")
         printScreenAssistantMessage("Questa è la griglia nemica che dovrai attaccare.");
     }
 
-    function myPositionHandler() {console.log("zzazaa")
+    function myPositionHandler() {
+        console.log("zzazaa")
         printScreenAssistantMessage("Questa è la tua griglia. Quando vuoi, chiudi il mercato e inizia a posizionare gli elementi.");
     }
 
-    function openMarketScreenMsgs() {console.log("klòa")
+    function openMarketScreenMsgs() {
+        console.log("klòa")
         if (!stopMarket) {
             let myArmyImgArray = document.getElementsByClassName("myArmyImg");
             let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
@@ -748,7 +766,8 @@
         }
     }
 
-    function removeListenerMsgOpenMarket() {console.log("kddddlòa")
+    function removeListenerMsgOpenMarket() {
+        console.log("kddddlòa")
         let myArmyImgArray = document.getElementsByClassName("myArmyImg");
         let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
 
@@ -764,11 +783,13 @@
     }
 
 
-    function setScreenAssistantPosition() {console.log("qklòa")
+    function setScreenAssistantPosition() {
+        console.log("qklòa")
         myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
         printScreenAssistantMessage("Benvenuto,<br> Qui potrai leggere messaggi importanti ed avere informazioni su oggetti.")
     }
-    function setNewMatchConsolePosition() {console.log("k222lòa")
+    function setNewMatchConsolePosition() {
+        console.log("k222lòa")
         newMatchConsole.style.marginLeft = opponentPositionsImgLeft - myPositionsImgLeft - 300 + "px"
     }
 
@@ -780,14 +801,15 @@
 
 
 
-    function logCoordinates(event, grid) {console.log("kl213123123òa")
+    function logCoordinates(event, grid) {
+        console.log("kl213123123òa")
         if (!isMyTurn) {
             printScreenAssistantMessage("Non è ancora il tuo turno.")
             return
         }
         var xClick = event.clientX + window.scrollX;
         var yClick = event.clientY + window.scrollY;
-        
+
 
         if (grid == "opponentGrid") { //to calculate x
             if (xClick < (gridStep + opponentPositionsImgLeft)) {
@@ -809,7 +831,7 @@
                 calculateClickedCell = "F"
             }
             else if (xClick < (7 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell+= "G"
+                calculateClickedCell += "G"
             }
             else if (xClick < (8 * gridStep + opponentPositionsImgLeft)) {
                 calculateClickedCell = "H"
@@ -818,161 +840,162 @@
                 calculateClickedCell = "I"
             }
             else if (xClick < (10 * gridStep + opponentPositionsImgLeft)) {
-                calculateClickedCell = "L"
+                calculateClickedCell = "J"
             }
             if (grid == "opponentGrid") { //to calculate y
-            if (yClick < (gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "1"
-                circleBombAnimation()
+                if (yClick < (gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "1"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "2"
-                circleBombAnimation()
+                }
+                else if (yClick < (2 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "2"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "3"
-                circleBombAnimation()
+                }
+                else if (yClick < (3 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "3"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "4"
-                circleBombAnimation()
+                }
+                else if (yClick < (4 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "4"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "5"
-                circleBombAnimation()
+                }
+                else if (yClick < (5 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "5"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "6"
-                circleBombAnimation()
+                }
+                else if (yClick < (6 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "6"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "7"
-                circleBombAnimation()
+                }
+                else if (yClick < (7 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "7"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "8"
-                circleBombAnimation()
+                }
+                else if (yClick < (8 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "8"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "9"
-                circleBombAnimation()
+                }
+                else if (yClick < (9 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "9"
+                    circleBombAnimation()
 
-            }
-            else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
-                calculateClickedCell += "10"
-                circleBombAnimation()
+                }
+                else if (yClick < (10 * gridStep + opponentPositionsImgTop)) {
+                    calculateClickedCell += "10"
+                    circleBombAnimation()
 
+                }
             }
         }
-        }
 
-        function circleBombAnimation() {console.log("klffffffòa")
-        let xBombed = calculateClickedCell[0]; 
-        let yBombed = calculateClickedCell.slice(1)
+        function circleBombAnimation() {
+            console.log("klffffffòa")
+            let xBombed = calculateClickedCell[0];
+            let yBombed = calculateClickedCell.slice(1)
             let theoreticalXBombed //for bombing animation purpose
             let theoreticalYBombed //for bombing animation purpose
             let bombedCell
-            console.log(xBombed,yBombed+" ECCOOOOOOOOOOOOO")
+            console.log(xBombed, yBombed + " ECCOOOOOOOOOOOOO")
             switch (xBombed) {
                 case "A":
-                    theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "A"
                     break;
                 case "B":
-                    theoreticalYBombed = gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "B"
                     break;
                 case "C":
-                    theoreticalYBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "C"
                     break;
                 case "D":
-                    theoreticalYBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "D"
                     break;
                 case "E":
-                    theoreticalYBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgTop;
+                    theoreticalXBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgLeft;
                     bombedCell = "E"
                     break;
                 case "F":
-                    theoreticalYBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "F"
                     break;
                 case "G":
-                    theoreticalYBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "G"
                     break;
                 case "H":
-                    theoreticalYBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "H"
                     break;
                 case "I":
-                    theoreticalYBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    theoreticalXBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgLeft
                     bombedCell = "I"
                     break;
-                case "L":
-                    theoreticalYBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgTop
-                    bombedCell = "L"
+                case "J":
+                    theoreticalXBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell = "J"
                     break;
                 default:
                     alert("Valore di xBombed non valido: " + xBombed);
             }
             switch (yBombed) {
                 case "1":
-                    theoreticalXBombed = gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "1"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "2":
-                    theoreticalXBombed = gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "2"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "3":
-                    theoreticalXBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "3"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "4":
-                    theoreticalXBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "4"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "5":
-                    theoreticalXBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "5"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "6":
-                    theoreticalXBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "6"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "7":
-                    theoreticalXBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "7"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "8":
-                    theoreticalXBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "8"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "9":
-                    theoreticalXBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "9"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "10":
-                    theoreticalXBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    theoreticalYBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgTop
                     bombedCell += "10"
                     turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
@@ -992,12 +1015,14 @@
 
     let draggableElement;
 
-    function makeMagazzinoDraggable() {console.log("klòccccccccccca")
+    function makeMagazzinoDraggable() {
+        console.log("klòccccccccccca")
         draggableElementArray = document.getElementsByClassName("draggableElement");
         for (let i = 0; i < draggableElementArray.length; i++) {
             //if(myArmyImgArray[i].style.position==""){
             let draggedYet = false
-            draggableElementArray[i].addEventListener("mousedown", function (e) {console.log("klòzzzzzzzzza")
+            draggableElementArray[i].addEventListener("mousedown", function (e) {
+                console.log("klòzzzzzzzzza")
 
                 if (!draggedYet) { dragFunction(i, e) }
                 draggedYet = true
@@ -1009,7 +1034,8 @@
 
 
 
-    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {console.log("klòaaaaa")
+    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {
+        console.log("klòaaaaa")
         let elementToDragWidth = elementToDrag.width
         let isElementTooFarRight
         elementToDragRight = elementToDragLeft + elementToDragWidth
@@ -1067,12 +1093,13 @@
         else if ((isElementTooFarRight && elementToDragWidth == 30) || (elementToDragLeft < myPositionsImgLeft + 300)) {
             elementToDrag.style.left = (myPositionsImgLeft + 270) + "px"
             elementToDrag.style.boxShadow = "none"
-            newShipTakenPositions.x = "L"
+            newShipTakenPositions.x = "J"
         }
     }
 
 
-    function restartDrag(event) {console.log("klasdasdòa")
+    function restartDrag(event) {
+        console.log("klasdasdòa")
 
         if (freeCell == false) {
             console.log("restart " + freeCell)
@@ -1090,7 +1117,8 @@
 
 
 
-    function calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii) {console.log("kssssssssssslòa")
+    function calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii) {
+        console.log("kssssssssssslòa")
         for (let i = 0; i < newShipTakenPositions.length; i++) {
             let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
             if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
@@ -1104,8 +1132,29 @@
     }
 
 
-    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {console.log("kl422òa")
-        let elementToDragHeight=elementToDrag.height
+    function calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositionsY) {
+        console.log("ECCOLO      ", newShipTakenPositions, newShipTakenPositionsY)
+        console.log(newShipTakenPositions.height, newShipTakenPositions)
+        for (let i = 0; i < newShipTakenPositions.height; i++) {
+            let nextY = parseInt(newShipTakenPositionsY) + i
+            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
+                freeCell = false
+            }
+            else {
+                freeCell = true
+                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
+                console.log(newShipTakenPositions.positions)
+            }
+
+        }
+    }
+
+
+
+
+    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {
+        console.log("kl422òa")
+        let elementToDragHeight = elementToDrag.height
         let isElementTooFarDown
         //let elementToDragBottom = elementToDragLeft + objWidth
         let myGridBottom = myPositionsImgTop + 300
@@ -1119,9 +1168,9 @@
                     newShipTakenPositions.positions = []
 
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                    
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
-                    
+
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle posizionate con successo per questa nave ha la stessa lunghezza delle celle della nave (se tutte le nave è posizionata per intero)
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1129,80 +1178,67 @@
                     else {
                         freeCell = false
                         restartDrag(event)
-                    }}}
-                
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 1
-                    newShipTakenPositions.y = "1"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-
-                    for (let i = 0; i < newShipTakenPositions.length; i++) {
-                        let nextY = parseInt(newShipTakenPositions.y) + i
-                        if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                            freeCell = false
-                        }
-                        else {
-                            freeCell = true
-                            newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                        }
                     }
-                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                }
+            }
+
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 1
+                newShipTakenPositions.y = "1"
+                console.log(newShipTakenPositions.x)
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.height) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     } else {
                         freeCell = false
                         restartDrag(event)
                     }
-                }}
+                }
+            }
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 60)) {
+            elementToDrag.style.top = myPositionsImgTop + 30 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 2
+                newShipTakenPositions.y = "2"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+                    }
+                }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 2
+                newShipTakenPositions.y = "2"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.height) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    } else {
+                        freeCell = false
+                        restartDrag(event)
+                    }
+                }
             }
 
-            else if (elementToDragTop < (myPositionsImgTop + 60)) {
-                elementToDrag.style.top = myPositionsImgTop + 30 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 2
-                    newShipTakenPositions.y = "2"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                   
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                            calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
-                        
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-                        }}
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 2
-                    newShipTakenPositions.y = "2"    
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []               
-                      for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                }}
-            
         }
 
         else if (elementToDragTop < (myPositionsImgTop + 90)) {
-            
+
             elementToDrag.style.top = myPositionsImgTop + 60 + "px"
             elementToDrag.style.boxShadow = "none"
             if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 3
@@ -1210,7 +1246,7 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1221,31 +1257,23 @@
                     }
 
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 3
-                    newShipTakenPositions.y = "3"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 3
+                newShipTakenPositions.y = "3"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.height) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    } else {
+                        freeCell = false
+                        restartDrag(event)
                     }
                 }
             }
         }
+
 
         else if (elementToDragTop < (myPositionsImgTop + 120)) {
             elementToDrag.style.top = myPositionsImgTop + 90 + "px"
@@ -1255,8 +1283,8 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
-                    
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1268,31 +1296,23 @@
                     }
 
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 4
-                    newShipTakenPositions.y = "4"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 4
+                newShipTakenPositions.y = "4"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.height) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    } else {
+                        freeCell = false
+                        restartDrag(event)
                     }
                 }
             }
         }
+
         else if (elementToDragTop < (myPositionsImgTop + 150)) {
 
             elementToDrag.style.top = myPositionsImgTop + 120 + "px"
@@ -1302,7 +1322,7 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1312,37 +1332,26 @@
                         restartDrag(event)
 
                     }
-
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 5
-                    newShipTakenPositions.y = "5"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 5
+                newShipTakenPositions.y = "5"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.height) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    } else {
+                        freeCell = false
+                        restartDrag(event)
                     }
                 }
+
             }
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 180)||(isElementTooFarDown && elementToDragHeight == 150)) {
-            
-
+        else if (elementToDragTop < (myPositionsImgTop + 180) || (isElementTooFarDown && elementToDragHeight == 150)) {
             elementToDrag.style.top = myPositionsImgTop + 150 + "px"
             elementToDrag.style.boxShadow = "none"
             if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 6
@@ -1350,8 +1359,8 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
-                    
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1363,32 +1372,25 @@
                     }
 
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 6
-                    newShipTakenPositions.y = "6"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                    }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 6
+                newShipTakenPositions.y = "6"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                }
+                if (newShipTakenPositions.positions.length == newShipTakenPositions.height) { //if array of accepted position (freeCells)== ship's height 
+                    takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                    shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                } else {
+                    freeCell = false
+                    restartDrag(event)
                 }
             }
         }
-        else if (elementToDragTop < (myPositionsImgTop + 210)||(isElementTooFarDown && elementToDragHeight == 120)) {
+
+
+        else if (elementToDragTop < (myPositionsImgTop + 210) || (isElementTooFarDown && elementToDragHeight == 120)) {
 
             elementToDrag.style.top = myPositionsImgTop + 180 + "px"
             elementToDrag.style.boxShadow = "none"
@@ -1397,8 +1399,8 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
-                    
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1408,35 +1410,27 @@
                         restartDrag(event)
 
                     }
-
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 7
-                    newShipTakenPositions.y = "7"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                    }
                 }
             }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 7
+                newShipTakenPositions.y = "7"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                }
+                if (newShipTakenPositions.positions.length == newShipTakenPositions.height) { //if array of accepted position (freeCells)== ship's height 
+                    takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                    shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                } else {
+                    freeCell = false
+                    restartDrag(event)
+                }
+            }
+
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 240)||(isElementTooFarDown && elementToDragHeight == 90)) {
+
+        else if (elementToDragTop < (myPositionsImgTop + 240) || (isElementTooFarDown && elementToDragHeight == 90)) {
 
             elementToDrag.style.top = myPositionsImgTop + 210 + "px"
             elementToDrag.style.boxShadow = "none"
@@ -1445,9 +1439,9 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
 
-                    
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1459,33 +1453,27 @@
                     }
 
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 8
-                    newShipTakenPositions.y = "8"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                    }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 8
+                newShipTakenPositions.y = "8"
+                console.log(newShipTakenPositions.x)
+
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                }
+                if (newShipTakenPositions.positions.length == newShipTakenPositions.height) { //if array of accepted position (freeCells)== ship's height 
+                    takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                    shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                } else {
+                    freeCell = false
+                    restartDrag(event)
                 }
             }
-        }
-        else if (elementToDragTop < (myPositionsImgTop + 270)||(isElementTooFarDown && elementToDragHeight == 60)) {
 
+        }
+
+        else if (elementToDragTop < (myPositionsImgTop + 270) || (isElementTooFarDown && elementToDragHeight == 60)) {
             elementToDrag.style.top = myPositionsImgTop + 240 + "px"
             elementToDrag.style.boxShadow = "none"
             if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 9
@@ -1493,9 +1481,9 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
 
-                    
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1507,33 +1495,27 @@
                     }
 
                 }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 9
-                    newShipTakenPositions.y = "9"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                    }
+            }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 9
+                newShipTakenPositions.y = "9"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
                 }
+                if (newShipTakenPositions.positions.length == newShipTakenPositions.height) { //if array of accepted position (freeCells)== ship's height 
+                    takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                    shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                } else {
+
+                    freeCell = false
+                    restartDrag(event)
+                }
+
             }
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance)||(isElementTooFarDown && elementToDragHeight == 30)) {
+
+        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance) || (isElementTooFarDown && elementToDragHeight == 30)) {
 
             elementToDrag.style.top = myPositionsImgTop + 270 + "px"
             elementToDrag.style.boxShadow = "none"
@@ -1542,9 +1524,9 @@
                 if (newShipTakenPositions.x !== undefined) {
                     newShipTakenPositions.positions = []
                     let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        calculateOrizontalObjCells(newShipTakenPositionsXInAsii)
+                    calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
 
-                    
+
                     if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                         takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                         shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1554,38 +1536,30 @@
                         restartDrag(event)
 
                     }
-
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 10
-                    newShipTakenPositions.y = "10"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
-                                restartDrag(event)
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
-                    }
                 }
             }
+            else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 10
+                newShipTakenPositions.y = "10"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    calculateVerticalObjCells(newShipTakenPositions, newShipTakenPositions.y)
+                }
+                if (newShipTakenPositions.positions.length == newShipTakenPositions.height) { //if array of accepted position (freeCells)== ship's height 
+                    takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                    shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                } else {
+                    freeCell = false
+                    restartDrag(event)
+                }
+            }
+
         }
     }
+
     let allArticlesPositions = []
 
-    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {console.log("k123213lòa")
+    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {
+        console.log("k123213lòa")
         let objHorizontalCells = elementToDrag.width / 30
         let objVerticalCells = elementToDrag.height / 30
         let type
@@ -1619,8 +1593,8 @@
             newShipTakenPositions = {
                 type: type,
                 direction: "vertical",
-                length: objVerticalCells,
-                height: objHorizontalCells,
+                length: objHorizontalCells,
+                height: objVerticalCells,
                 positions: []
             }
         }
@@ -1632,7 +1606,8 @@
     let turnObjImgArray = "notDoneYet"
     let lastDraggedElementIndex
 
-    function dragFunction(elementIndex, event) {console.log("klff333òa")
+    function dragFunction(elementIndex, event) {
+        console.log("klff333òa")
 
         const elementToDrag = draggableElementArray[elementIndex];
         elementToDrag.style.position = "absolute";
@@ -1649,12 +1624,14 @@
         let isDragging = true;
         lastDraggedElementIndex = elementIndex
         function onMouseMove(event) {
-            if (isDragging) {console.log("ksdflòa")
+            if (isDragging) {
+                console.log("ksdflòa")
                 elementToDrag.style.left = event.clientX + 'px';
                 elementToDrag.style.top = event.clientY + 'px';
             }
         }
-        function onMouseUp() {console.log("ksdfsdsslòa")
+        function onMouseUp() {
+            console.log("ksdfsdsslòa")
             let elementToDragLeft = parseFloat(elementToDrag.style.left)
             let elementToDragTop = parseFloat(elementToDrag.style.top)
             let elementToDragWidth = elementToDrag.offsetWidth
@@ -1664,10 +1641,13 @@
             let onMouseUptolerance = 10
             if (elementToDragLeft > (myPositionsImgLeft - onMouseUptolerance) && elementToDragRight < (myPositionsImgLeft + 300 + onMouseUptolerance) && elementToDragTop > myPositionsImgTop - onMouseUptolerance && elementToDragBottom < (myPositionsImgTop + 300 + onMouseUptolerance)) {
                 isDragging = false; //aggiungere la consizione "se la cella è libera"
+                console.log("è dentro")
                 document.removeEventListener('mousemove', onMouseMove);
                 document.removeEventListener('mouseup', onMouseUp);
                 calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, elementToDragWidth, onMouseUptolerance, elementToDragRight, elementToDragBottom)
             }
+            console.log("è fuori")
+
         }
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
@@ -1709,7 +1689,8 @@
     opponentPositionsImg.addEventListener('click', (event) => logCoordinates(event, "opponentGrid"))
     myPositionsImg.addEventListener('click', (event) => logCoordinates(event, "myGrid"))
 
-    function turnStarts() {console.log("ksdflaaaaaaaaaaòa")
+    function turnStarts() {
+        console.log("ksdflaaaaaaaaaaòa")
         const data = {
             IDMatch: effectiveIDMatch,
             myName: myName.value
@@ -1747,7 +1728,8 @@
             })
     }
 
-    function turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed) {console.log("ks424dflòa")
+    function turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed) {
+        console.log("ks424dflòa")
         if (!localStorage.getItem("tokenGND")) {
             alert("Problema di autentificazione: purtroppo la partita è da rifare");
             return
@@ -1777,6 +1759,8 @@
                 .then(response => {
                     return response.json().then(responseBody => {
                         if (response.ok) {
+
+
                             isMyTurn = false
                             console.log(response)
 
@@ -1784,6 +1768,7 @@
                             printScreenAssistantMessage(responseToPrint)
                             interval = setInterval(turnStarts, 1500);
                             if (responseToPrint.includes("Complimenti")) {
+                                console.log("aa", theoreticalXBombed, theoreticalYBombed)
                                 const circleBomb = document.createElement('div');
                                 circleBomb.style.width = '30px';
                                 circleBomb.style.height = '30px';
@@ -1792,23 +1777,10 @@
                                 circleBomb.style.position = 'absolute';
                                 circleBomb.style.top = (theoreticalYBombed - 15) + "px"
                                 circleBomb.style.left = (theoreticalXBombed - 15) + "px"
-                                circleBomb.id = "circleBomb"
                                 document.body.appendChild(circleBomb);
                                 circleBomb.className = "imBombingAnimation"
                             }
-                            else if (responseToPrint.includes("intercettato")) {
-                                const circleBomb = document.createElement('div');
-                                circleBomb.style.width = '30px';
-                                circleBomb.style.height = '30px';
-                                circleBomb.style.backgroundColor = 'black';
-                                circleBomb.style.borderRadius = '50%';
-                                circleBomb.style.position = 'absolute';
-                                circleBomb.style.top = (theoreticalYBombed - 15) + "px"
-                                circleBomb.style.left = (theoreticalXBombed - 15) + "px"
-                                circleBomb.id = "circleBomb"
-                                document.body.appendChild(circleBomb);
-                                circleBomb.className = "imBombingAnimationAirDefense"
-                            }
+
 
 
                             else if (responseBody.divertedShotCell) {
@@ -1821,7 +1793,6 @@
                                 circleBomb.style.position = 'absolute';
                                 circleBomb.style.top = (theoreticalYBombed - 15) + "px"
                                 circleBomb.style.left = (theoreticalXBombed - 15) + "px"
-                                circleBomb.id = "circleBomb"
                                 document.body.appendChild(circleBomb);
                                 circleBomb.className = "imBombingAnimationJammer"
                             }
@@ -1836,7 +1807,6 @@
                                 circleBomb.style.position = 'absolute';
                                 circleBomb.style.top = (theoreticalYBombed - 15) + "px"
                                 circleBomb.style.left = (theoreticalXBombed - 15) + "px"
-                                circleBomb.id = "circleBomb"
                                 document.body.appendChild(circleBomb);
                                 circleBomb.className = "imBombingAnimationJammerFail"
                             }
