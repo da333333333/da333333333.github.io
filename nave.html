@@ -75,7 +75,7 @@
 
                     <li id="atomicMissileMarket">
                         <button class="minusBtn">-</button>
-                        <span class=" articleNameSpan">Missile Nucleare</span><img src="./assets/info.png"
+                        <span class=" articleNameSpan">Missile nucleare</span><img src="./assets/info.png"
                             alt="info missile nucleare" class="infoIconMarket"> <span class="coinSpan">200
                             <img class="coin" alt="coin" src="./assets/coin.png"></span>
                         <button class="plusBtn">+</button>
@@ -144,18 +144,7 @@
                         alt="ship5vert">
                     <img class="myArmyImg draggableElement horizontal5Ship" src="./assets/ship5.png" alt="ship5">
                 </li>
-                <li>
-                    <img class="myArmyImg draggableElement armyObj" src="./assets/airDefense2.png" alt="air defense">
-                </li>
-                <li>
-                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicBomb.png" alt="atomic bomb">
-                </li>
-                <li>
-                    <img class="myArmyImg draggableElement armyObj" src="./assets/jammer.png" alt="jammer">
-                </li>
-                <li>
-                    <img class="myArmyImg not_draggable armyObj" src="./assets/alliedMissile.png" alt="allied missile">
-                </li>
+
             </ul>
 
         </section>
@@ -163,7 +152,7 @@
             <span class="gridSpan">
                 <span class="activeTurn" id="myGridSpan">
                     <h2 class="gridTitle">Le tue posizioni</h2>
-                    <button id="readyBtn">Pronto!</button>
+                    <button style="display:none" id="readyBtn">Pronto!</button>
                 </span>
                 <img class="positionsImg" id="myPositionsImg" src="./assets/grid.png" alt="grid">
                 <span id="myXAxisSpan">
@@ -192,7 +181,9 @@
                 </span>
             </span>
             <span class="gridSpan">
-                <h2 class="gridTitle">Le posizioni nemiche</h2>
+                <span id="opponentGridSpan">
+                    <h2 id="opponentPositionsH2" class="gridTitle">Le posizioni nemiche</h2>
+                </span>
                 <img class="positionsImg" id="opponentPositionsImg" src="./assets/grid.png" alt="grid">
                 <span id="XAxisSpanAdv">
                     <span class="spanLetterAxis">A</span>
@@ -224,9 +215,9 @@
             <p id="myScreenAssistant"></p>
             <form id="newMatchConsole">
                 <label for="myName">Scegli un nome:</label>
-                <input type="text" id="myName" name="myName" placeholder="Nome" required>
-                <label for="IDMatch">ID partita (se non ospiti):</label>
-                <input type="text" id="IDMatch" name="IDMatch" placeholder="ID partita - opzionale">
+                <input type="text" id="myName" name="myName" placeholder="Nome (massimo 15 caratteri)" required>
+                <label for="IDMatch">ID partita (se partecipi):</label>
+                <input type="number" id="IDMatch" name="IDMatch" placeholder="ID partita - opzionale" required>
                 <button type="submit">Partecipa</button>
                 <button type="button" id="hostButton">Ospita</button>
             </form>
@@ -248,15 +239,116 @@
     let shipsPositionsCells = []
     let takenCellArray = []
     let freeCell = true
+    let effectiveIDMatch
+    isMyTurn = false
+    let myOpponentName
 
     let plusBtnArray = document.getElementsByClassName("plusBtn")
     let minusBtnArray = document.getElementsByClassName("minusBtn")
+    let interval
 
 
 
     let infoIconsArray = document.getElementsByClassName("infoIconMarket")
 
-    function infoMarketMsg() {
+    function joinedAMatch(IDMatch, myName) {console.log("a")
+        marketDiv.style.opacity = "1"
+        readyBtn.style.display = "block"
+        document.getElementById("IDMatch").value = IDMatch
+        document.getElementById("IDMatch").style.backgroundColor = "green"
+        document.getElementById("IDMatch").style.color = "#ffe4bb"
+        document.getElementById("IDMatch").style.fontWeight = "700"
+        document.getElementById("IDMatch").style.letterSpacing = "2px"
+        document.getElementById("IDMatch").addEventListener("click", () => { printScreenAssistantMessage("Ora non puoi modificare l'id perché sei in una partita.") })
+        document.getElementById("myName").value = myName
+        document.getElementById("myName").style.backgroundColor = "green"
+        document.getElementById("myName").style.letterSpacing = "2px"
+        document.getElementById("myName").addEventListener("click", () => { printScreenAssistantMessage("Ora non puoi modificare il nome perché sei in una partita.") })
+        document.getElementById("myName").style.color = "#ffe4bb"
+        document.getElementById("myName").style.fontWeight = "700"
+        document.getElementById("myName").setAttribute('readonly', true)
+        document.getElementById("IDMatch").setAttribute('readonly', true)
+
+
+    }
+
+    hostButton.addEventListener('click', function (event) {console.log("sa")
+        const myName = document.getElementById('myName').value;
+        const IDMatch = document.getElementById('IDMatch').value;
+        document.getElementById('IDMatch').value = "";
+
+        if (myName != "" && myName.length < 16) {
+            const data = {
+                myName: myName,
+            };
+            fetch('http://localhost:3001/api/connect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => {
+                    return response.json().then(responseBody => {
+                        if (response.ok) {
+                            localStorage.setItem('tokenGND', responseBody.token)
+                            printScreenAssistantMessage(responseBody.message);
+                            effectiveIDMatch = responseBody.message.split("The id is ")[1].replace(".", "")
+                            joinedAMatch(effectiveIDMatch, myName)
+
+                        } else {
+                            printScreenAssistantMessage(responseBody.error);
+                            throw new Error('Network response was not ok: ' + responseBody.error);
+                        }
+                    });
+                });
+        } else {
+            alert("Errore nel formulario")
+            printScreenAssistantMessage("Il formulario non è completato correttamente. Ricorda che il nome non può superare 15 caratteri");
+        }
+    });
+
+    newMatchConsole.addEventListener('submit', function (event) { //if click to join a match
+        event.preventDefault();
+        const IDMatch = document.getElementById('IDMatch').value;
+        const myName = document.getElementById('myName').value;
+        effectiveIDMatch = IDMatch
+        console.log("saa")
+        if (myName != "" && myName.length < 16 && IDMatch != "" && !isNaN(IDMatch)) {
+            const data = {
+                IDMatch: IDMatch,
+                myName: myName,
+            };
+
+
+            fetch('http://localhost:3001/api/connect', {
+                method: 'POST',
+                headers: {
+
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => {
+                    return response.json().then(responseBody => {
+                        if (response.ok) {
+                            localStorage.setItem('tokenGND', responseBody.token)
+                            printScreenAssistantMessage(responseBody.message);
+                            joinedAMatch(IDMatch, myName)
+
+                        } else {
+                            printScreenAssistantMessage(responseBody.error);
+                            throw new Error('Network response was not ok: ' + responseBody.error);
+                        }
+                    });
+                });
+        } else {
+            alert("Errore nel formulario")
+            printScreenAssistantMessage("Il formulario non è completato correttamente. Ricorda che il nome non può superare 15 caratteri");
+        }
+    });
+
+    function infoMarketMsg() {console.log("asaaa")
         for (let i = 0; i < infoIconsArray.length; i++) {
             let infoVal = infoIconsArray[i].alt.split("info ")[1]
             switch (infoVal) {
@@ -286,14 +378,14 @@
 
                 case "contraerea":
                     infoIconsArray[i].addEventListener("click", (e) => {
-                        printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle)")
+                        printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (5x5 celle)")
                         e.stopPropagation()
 
                     })
                     break;
                 case "jammer":
                     infoIconsArray[i].addEventListener("click", (e) => {
-                        printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
+                        printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (3x3 celle).")
                         e.stopPropagation()
 
                     })
@@ -340,7 +432,7 @@
 
 
 
-    function buyNewArticle(id) {
+    function buyNewArticle(id) {console.log("aww")
         if (!stopMarket) {
             let newMyMoney = parseInt(myMoney.textContent) - articlesInventory[id].price
             if (newMyMoney < 0) {
@@ -361,7 +453,7 @@
         }
     }
 
-    function sellArticle(id) {
+    function sellArticle(id) {console.log("qqqa")
         if (!stopMarket) {
             let arrayThisArticle = document.getElementsByClassName(id)
             if (arrayThisArticle.length > 0) {
@@ -388,14 +480,15 @@
     }
 
 
-    function activateMarket() {
+    function activateMarket() {console.log("qqqqa")
         for (let i = 0; i < plusBtnArray.length; i++) {
             plusBtnArray[i].addEventListener("click", () => { buyNewArticle(plusBtnArray[i].parentNode.id.split("Market")[0]) })
             minusBtnArray[i].addEventListener("click", () => { sellArticle(minusBtnArray[i].parentNode.id.split("Market")[0]) })
         }
     }
     activateMarket()
-    function amIReady() {
+    let allNotDraggableElements = []
+    function amIReady() {console.log("abbb")
         let allMyArticles = document.getElementsByClassName("draggableElement");
         for (let i = 0; i < allMyArticles.length; i++) {
             if (allMyArticles[i].style.position !== "absolute" && !allMyArticles[i].classList.contains("not_visible")) {
@@ -404,7 +497,7 @@
             }
         }
         let myNotDraggablesArtsArray = document.getElementsByClassName("not_draggable")
-        let allNotDraggableElements = []
+
         for (let i = 0; i < myNotDraggablesArtsArray.length; i++) {
             let newNotDraggableElement = {
                 type: myNotDraggablesArtsArray[i].src.split("assets/")[1].split(".png")[0],
@@ -414,16 +507,65 @@
                 positions: ["special"]
             }
             allNotDraggableElements.push(newNotDraggableElement)
-
         }
+        console.log(shipsPositionsCells)//array all  draggable elements positions
+        console.log(allArticlesPositions) //array oggetti  draggable elements data
+        console.log(allNotDraggableElements) //array oggetti not draggable elements data
 
+
+
+        const data = {
+            allDraggableElementsPositions: shipsPositionsCells,
+            allDraggableElementsData: allArticlesPositions,
+            allNotDraggableElementsData: allNotDraggableElements,
+            IDMatch: effectiveIDMatch,
+            myName: myName.value
+        };
+        if (!localStorage.getItem("tokenGND")) {
+            alert("Problema di autentificazione: purtroppo la partita è da rifare");
+            return
+        }
+        const token = localStorage.getItem('tokenGND')
+        fetch('http://localhost:3001/api/startMatch', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => {
+                return response.json().then(responseBody => {
+                    if (response.ok) {
+                        printScreenAssistantMessage(responseBody.message);
+                        myOpponentName = responseBody.opponent
+                        opponentPositionsH2.innerText = "Le posizioni di " + myOpponentName
+                        readyBtn.style.display = "none"
+                        if (document.getElementById("myScreenAssistant").textContent.includes("è il tuo turno")) {
+                            isMyTurn = true
+                            if (!myGridSpan.classList.contains("activeTurn")) {
+                                myGridSpan.classList.add("activeTurn");
+                                opponentGridSpan.classList.remove("activeTurn");
+                            }
+                        }
+                        else {
+                            isMyTurn = false
+                            if (myGridSpan.classList.contains("activeTurn")) {
+                                myGridSpan.classList.remove("activeTurn");
+                                opponentGridSpan.classList.add("activeTurn");
+                                interval = setInterval(turnStarts, 1500);
+                            }
+                        }
+
+                    } else {
+                        printScreenAssistantMessage(responseBody.error);
+                        throw new Error('Network response was not ok: ' + responseBody.error);
+                    }
+                });
+            });
     }
 
     readyBtn.addEventListener("click", amIReady)
-
-
-
-
 
     const articlesInventory = {
         ship2: {
@@ -465,7 +607,7 @@
         atomicMissile: {
             price: 200,
             li: `<li class="atomicMissile">
-                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicMissile.png" alt="atomic missile">
+                    <img class="myArmyImg not_draggable armyObj" src="./assets/atomicBomb.png" alt="atomic missile">
                 </li>`
         },
         advancedMissile: {
@@ -483,7 +625,7 @@
     };
 
 
-    function calculateBombsPositions() {
+    function calculateBombsPositions() {console.log("werwera")
         myPositionsImgLeft = myPositionsImg.getBoundingClientRect().left + window.scrollX
         myPositionsImgTop = myPositionsImg.getBoundingClientRect().top + window.scrollY
         opponentPositionsImgLeft = opponentPositionsImg.getBoundingClientRect().left + window.scrollX;
@@ -491,7 +633,7 @@
         gridStep = 300 / 10
     }
 
-    function turnThisShip(ship) {
+    function turnThisShip(ship) {console.log("zzza")
         let verticalShip = ship.parentNode.childNodes[3];
         let horizontalShip = ship.parentNode.childNodes[5];
         let wasVerticalShipNotVisible = verticalShip.classList.contains("not_visible");
@@ -510,14 +652,14 @@
             horizontalShip.classList.add("not_visible")
         }
     }
-    function makeShipsTurnable() {
+    function makeShipsTurnable() {console.log("eeeeea")
         for (let i = 0; i < document.getElementsByClassName("turnObjImg").length; i++) {
             let thisShip = document.getElementsByClassName("turnObjImg")[i]
             thisShip.addEventListener("click", () => { turnThisShip(thisShip) })
         }
     }
 
-    function calculateAxisPositions() {
+    function calculateAxisPositions() {console.log("a222")
         myXAxisSpan.style.top = (myPositionsImgTop - 30) + "px"
         myXAxisSpan.style.left = (myPositionsImgLeft) + "px"
         XAxisSpanAdv.style.top = (opponentPositionsImgTop - 30) + "px"
@@ -529,7 +671,7 @@
         YAxisSpanAdv.style.left = (opponentPositionsImgLeft - 30) + "px"
     }
 
-    function printScreenAssistantMessage(message) {
+    function printScreenAssistantMessage(message) {console.log("23a")
         if (myScreenAssistant.textContent != message) {
             myScreenAssistant.style.backgroundColor = "green"
             myScreenAssistant.innerHTML = message
@@ -540,9 +682,8 @@
         }
     }
 
-    function infoObj(obj) {
+    function infoObj(obj) {console.log("a2322")
         let objName = (obj.src.split("assets/")[1].split(".png")[0])
-        console.log(objName)
         if (objName == "ship2" || objName == "ship2vert") {
             printScreenAssistantMessage("Questa è una nave da 2 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
 
@@ -557,13 +698,13 @@
             printScreenAssistantMessage("Questa è una nave da 5 celle. Puoi usare la freccia verde per girarla. Prima di posizionarla devi chiudere il mercato.")
         }
         if (objName == "airDefense2") {
-            printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (3x3 celle).")
+            printScreenAssistantMessage("Questa difesa aerea userà i suoi due colpi per neutralizzare i missili convenzionali diretti verso le tue navi vicine (5x5 celle).")
         }
         if (objName == "atomicBomb") {
             printScreenAssistantMessage("Questo missile renderà inutilizzabile una porzione della mappa dell'avversario (2x2 celle) per tutta la guerra. Non va posizionato.")
         }
         if (objName == "jammer") {
-            printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (4x4 celle).")
+            printScreenAssistantMessage("Questa è un jammer può deviare i missili nemici che vengono lanciati nelle sue vicinanze (3x3 celle).")
         }
         if (objName == "alliedMissile") {
             printScreenAssistantMessage("Questa è un missile alleato che verrà lanciato autonomamente sulla mappa nemica. Non inciderà sul tuo turno. Non va posizionato.")
@@ -575,23 +716,23 @@
 
     }
 
-    function infoObjHandler(event) {
+    function infoObjHandler(event) {console.log("a222")
         infoObj(event.target);
     }
 
-    function marketSubSectHandler() {
+    function marketSubSectHandler() {console.log("affff")
         printScreenAssistantMessage("Questo è il mercato: <br> potrai comprare e vendere oggetti, se hai abbastanza monete.");
     }
 
-    function opponentPositionHandler() {
+    function opponentPositionHandler() {console.log("ccccccca")
         printScreenAssistantMessage("Questa è la griglia nemica che dovrai attaccare.");
     }
 
-    function myPositionHandler() {
+    function myPositionHandler() {console.log("zzazaa")
         printScreenAssistantMessage("Questa è la tua griglia. Quando vuoi, chiudi il mercato e inizia a posizionare gli elementi.");
     }
 
-    function openMarketScreenMsgs() {
+    function openMarketScreenMsgs() {console.log("klòa")
         if (!stopMarket) {
             let myArmyImgArray = document.getElementsByClassName("myArmyImg");
             let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
@@ -607,7 +748,7 @@
         }
     }
 
-    function removeListenerMsgOpenMarket() {
+    function removeListenerMsgOpenMarket() {console.log("kddddlòa")
         let myArmyImgArray = document.getElementsByClassName("myArmyImg");
         let marketSubSectsArray = document.getElementsByClassName("marketSubSects");
 
@@ -623,12 +764,12 @@
     }
 
 
-    function setScreenAssistantPosition() {
+    function setScreenAssistantPosition() {console.log("qklòa")
         myScreenAssistant.style.marginLeft = myPositionsImgLeft + "px"
-        printScreenAssistantMessage("Benvenuto,<br> In questo momento, se clicchi su un oggetto, cercherò di darti delle informazioni.")
+        printScreenAssistantMessage("Benvenuto,<br> Qui potrai leggere messaggi importanti ed avere informazioni su oggetti.")
     }
-    function setNewMatchConsolePosition() {
-        newMatchConsole.style.marginLeft = opponentPositionsImgLeft-myPositionsImgLeft-300 + "px"
+    function setNewMatchConsolePosition() {console.log("k222lòa")
+        newMatchConsole.style.marginLeft = opponentPositionsImgLeft - myPositionsImgLeft - 300 + "px"
     }
 
     window.addEventListener('load', () => { calculateBombsPositions(), calculateAxisPositions(), setScreenAssistantPosition(), setNewMatchConsolePosition(), infoMarketMsg(), openMarketScreenMsgs(), makeShipsTurnable() })
@@ -639,7 +780,11 @@
 
 
 
-    function logCoordinates(event, grid) {
+    function logCoordinates(event, grid) {console.log("kl213123123òa")
+        if (!isMyTurn) {
+            printScreenAssistantMessage("Non è ancora il tuo turno.")
+            return
+        }
         var xClick = event.clientX + window.scrollX;
         var yClick = event.clientY + window.scrollY;
         if (grid == "opponentGrid") { //to calculate y
@@ -718,41 +863,52 @@
             }
         }
 
-        function circleBombAnimation() {
+        function circleBombAnimation() {console.log("klffffffòa")
             let yBombed = calculateClickedCell.slice(1)
             let xBombed = calculateClickedCell[0]
             let theoreticalXBombed //for bombing animation purpose
             let theoreticalYBombed //for bombing animation purpose
+            let bombedCell
             switch (xBombed) {
                 case "A":
                     theoreticalYBombed = gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "A"
                     break;
                 case "B":
                     theoreticalYBombed = gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "B"
                     break;
                 case "C":
                     theoreticalYBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "C"
                     break;
                 case "D":
                     theoreticalYBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "D"
                     break;
                 case "E":
                     theoreticalYBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgTop;
+                    bombedCell = "E"
                     break;
                 case "F":
                     theoreticalYBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "F"
                     break;
                 case "G":
                     theoreticalYBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "G"
                     break;
                 case "H":
                     theoreticalYBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "H"
                     break;
                 case "I":
                     theoreticalYBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "I"
                     break;
                 case "L":
                     theoreticalYBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgTop
+                    bombedCell = "L"
                     break;
                 default:
                     alert("Valore di xBombed non valido: " + xBombed);
@@ -760,33 +916,53 @@
             switch (yBombed) {
                 case "1":
                     theoreticalXBombed = gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "1"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "2":
                     theoreticalXBombed = gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "2"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "3":
                     theoreticalXBombed = 2 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "3"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "4":
                     theoreticalXBombed = 3 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "4"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "5":
                     theoreticalXBombed = 4 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "5"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "6":
                     theoreticalXBombed = 5 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "6"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "7":
                     theoreticalXBombed = 6 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "7"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "8":
                     theoreticalXBombed = 7 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "8"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "9":
                     theoreticalXBombed = 8 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "9"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 case "10":
                     theoreticalXBombed = 9 * gridStep + gridStep / 2 + opponentPositionsImgLeft
+                    bombedCell += "10"
+                    turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed)
                     break;
                 default:
                     Alert("Valore di yBombed non valido: " + yBombed);
@@ -794,20 +970,7 @@
 
 
 
-            const circleBomb = document.createElement('div');
-            circleBomb.style.width = '30px';
-            circleBomb.style.height = '30px';
-            circleBomb.style.backgroundColor = 'black';
-            circleBomb.style.borderRadius = '50%';
-            circleBomb.style.position = 'absolute';
-            circleBomb.style.top = (theoreticalYBombed - 15) + "px"
-            circleBomb.style.left = (theoreticalXBombed - 15) + "px"
 
-
-
-            circleBomb.id = "circleBomb"
-            document.body.appendChild(circleBomb);
-            circleBomb.className = "imBombingAnimation"
 
         }
     }
@@ -817,13 +980,12 @@
 
     let draggableElement;
 
-    function makeMagazzinoDraggable() {
+    function makeMagazzinoDraggable() {console.log("klòccccccccccca")
         draggableElementArray = document.getElementsByClassName("draggableElement");
-        console.log(draggableElementArray)
         for (let i = 0; i < draggableElementArray.length; i++) {
             //if(myArmyImgArray[i].style.position==""){
             let draggedYet = false
-            draggableElementArray[i].addEventListener("mousedown", function (e) {
+            draggableElementArray[i].addEventListener("mousedown", function (e) {console.log("klòzzzzzzzzza")
 
                 if (!draggedYet) { dragFunction(i, e) }
                 draggedYet = true
@@ -835,214 +997,79 @@
 
 
 
-    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {
-        let checkAgain = false
+    function calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions) {console.log("klòaaaaa")
+        let elementToDragWidth = elementToDrag.width
+        let isElementTooFarRight
+        elementToDragRight = elementToDragLeft + elementToDragWidth
+        let myGridRight = myPositionsImgLeft + 300
+        elementToDragRight > myGridRight ? isElementTooFarRight = true : isElementTooFarRight = false
+
+
         if (elementToDragLeft < (myPositionsImgLeft + 30)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = myPositionsImgLeft + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in A
-                    newShipTakenPositions.x = "A"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in A
-                    newShipTakenPositions.x = "A"
-                }
-
-            }
+            elementToDrag.style.left = myPositionsImgLeft + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "A"
         }
-
         else if (elementToDragLeft < (myPositionsImgLeft + 60)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 30) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in B
-                    newShipTakenPositions.x = "B"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in B
-                    newShipTakenPositions.x = "B"
-                }
-            }
-        }
+            elementToDrag.style.left = (myPositionsImgLeft + 30) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "B"
 
+        }
         else if (elementToDragLeft < (myPositionsImgLeft + 90)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 60) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in C
-                    newShipTakenPositions.x = "C"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in C
-                    newShipTakenPositions.x = "C"
-                }
-            }
+            elementToDrag.style.left = (myPositionsImgLeft + 60) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "C"
         }
-
         else if (elementToDragLeft < (myPositionsImgLeft + 120)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 90) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in D
-                    newShipTakenPositions.x = "D"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in D
-                    newShipTakenPositions.x = "D"
-                }
-            }
-        }
 
+            elementToDrag.style.left = (myPositionsImgLeft + 90) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "D"
+        }
         else if (elementToDragLeft < (myPositionsImgLeft + 150)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 120) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in E
-                    newShipTakenPositions.x = "E"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in E
-                    newShipTakenPositions.x = "E"
-                }
-            }
+            elementToDrag.style.left = (myPositionsImgLeft + 120) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "E"
         }
-
-        else if (elementToDragLeft < (myPositionsImgLeft + 180)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 150) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in F
-                    newShipTakenPositions.x = "F"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in F
-                    newShipTakenPositions.x = "F"
-                }
-            }
+        else if ((isElementTooFarRight && elementToDragWidth == 150) || (elementToDragLeft < myPositionsImgLeft + 180)) {
+            elementToDrag.style.left = (myPositionsImgLeft + 150) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "F"
         }
-
-        else if (elementToDragLeft < (myPositionsImgLeft + 210)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 180) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in G
-                    newShipTakenPositions.x = "G"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in G
-                    newShipTakenPositions.x = "G"
-                }
-            }
+        else if ((isElementTooFarRight && elementToDragWidth == 120) || (elementToDragLeft < myPositionsImgLeft + 210)) {
+            elementToDrag.style.left = (myPositionsImgLeft + 180) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "G"
         }
-
-        else if (elementToDragLeft < (myPositionsImgLeft + 240)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 210) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in H
-                    newShipTakenPositions.x = "H"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in H
-                    newShipTakenPositions.x = "H"
-                }
-            }
+        else if ((isElementTooFarRight && elementToDragWidth == 90) || (elementToDragLeft < myPositionsImgLeft + 240)) {
+            elementToDrag.style.left = (myPositionsImgLeft + 210) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "H"
         }
-
-        else if (elementToDragLeft < (myPositionsImgLeft + 270)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 240) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in I
-                    newShipTakenPositions.x = "I"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in I
-                    newShipTakenPositions.x = "I"
-                }
-            }
+        else if ((isElementTooFarRight && elementToDragWidth == 60) || (elementToDragLeft < myPositionsImgLeft + 270)) {
+            elementToDrag.style.left = (myPositionsImgLeft + 240) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "I"
         }
-
-        else if (elementToDragLeft < (myPositionsImgLeft + 300 + onMouseUptolerance)) {
-            while (elementToDragRight > (myPositionsImgLeft + 300)) {
-                elementToDrag.style.left = (elementToDrag.style.left - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsX(elementToDrag, elementToDragLeft, onMouseUptolerance, elementToDragRight, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.left = (myPositionsImgLeft + 270) + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in L
-                    newShipTakenPositions.x = "L"
-                }
-                else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in L
-                    newShipTakenPositions.x = "L"
-                }
-            }
+        else if ((isElementTooFarRight && elementToDragWidth == 30) || (elementToDragLeft < myPositionsImgLeft + 300)) {
+            elementToDrag.style.left = (myPositionsImgLeft + 270) + "px"
+            elementToDrag.style.boxShadow = "none"
+            newShipTakenPositions.x = "L"
         }
-
-
-
     }
-    function restartDrag(event) {
+
+
+    function restartDrag(event) {console.log("klasdasdòa")
+
         if (freeCell == false) {
+            console.log("restart " + freeCell)
+            let lastAddedShipType = allArticlesPositions[allArticlesPositions.length - 1].type //user tried to put the last element inside a not free cell. Remove it from array (allArticlePositions)
+            const indices = allArticlesPositions.map((ship, index) => ship.type === lastAddedShipType ? index : -1).filter(index => index !== -1);
+            if (indices.length > 0) {
+                const lastIndex = indices[indices.length - 1];
+                allArticlesPositions.splice(lastIndex, 1);
+            }
             dragFunction(lastDraggedElementIndex, event);
             freeCell = true
             document.removeEventListener("mousemove", restartDrag)
@@ -1051,100 +1078,83 @@
 
 
 
-    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {
-        let checkAgain = false
-        if (elementToDragTop < (myPositionsImgTop + 30)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
+    function calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii) {console.log("kssssssssssslòa")
+        for (let i = 0; i < newShipTakenPositions.length; i++) {
+            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
+            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
+                freeCell = false
             }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
+            else {
+                freeCell = true
+                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
             }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 1
-                    newShipTakenPositions.y = "1"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
+        }
+    }
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
+
+    function calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions) {console.log("kl422òa")
+        let elementToDragHeight=elementToDrag.height
+        let isElementTooFarDown
+        //let elementToDragBottom = elementToDragLeft + objWidth
+        let myGridBottom = myPositionsImgTop + 300
+        elementToDragBottom > myGridBottom ? isElementTooFarDown = true : isElementTooFarBottom = false
+        if (elementToDragTop < (myPositionsImgTop + 30)) {
+            elementToDrag.style.top = myPositionsImgTop + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 1
+                newShipTakenPositions.y = "1"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                    
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle posizionate con successo per questa nave ha la stessa lunghezza delle celle della nave (se tutte le nave è posizionata per intero)
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
-                }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+                    }}}
+                
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 1
                     newShipTakenPositions.y = "1"
                     if (newShipTakenPositions.x !== undefined) {
                         newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextY = parseInt(newShipTakenPositions.y) + i
-                            if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
-                                freeCell = false
 
-
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
-                            }
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        } else {
+                    for (let i = 0; i < newShipTakenPositions.length; i++) {
+                        let nextY = parseInt(newShipTakenPositions.y) + i
+                        if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
                             freeCell = false
-                            restartDrag(event)
+                        }
+                        else {
+                            freeCell = true
+                            newShipTakenPositions.positions.push(newShipTakenPositions.x + nextY)
                         }
                     }
-                }
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
+                    } else {
+                        freeCell = false
+                        restartDrag(event)
+                    }
+                }}
             }
-        }
 
-        else if (elementToDragTop < (myPositionsImgTop + 60)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
+            else if (elementToDragTop < (myPositionsImgTop + 60)) {
                 elementToDrag.style.top = myPositionsImgTop + 30 + "px"
                 elementToDrag.style.boxShadow = "none"
                 if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 2
                     newShipTakenPositions.y = "2"
                     if (newShipTakenPositions.x !== undefined) {
                         newShipTakenPositions.positions = []
+                   
                         let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
-
-                        }
+                            calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                        
                         if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
                             takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
                             shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
@@ -1152,15 +1162,13 @@
                         else {
                             freeCell = false
                             restartDrag(event)
-
-                        }
-                    }
+                        }}
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 2
-                    newShipTakenPositions.y = "2"
+                    newShipTakenPositions.y = "2"    
                     if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
+                        newShipTakenPositions.positions = []               
+                      for (let i = 0; i < newShipTakenPositions.length; i++) {
                             let nextY = parseInt(newShipTakenPositions.y) + i
                             if (takenCellArray.includes(newShipTakenPositions.x + nextY)) {
                                 freeCell = false
@@ -1177,47 +1185,29 @@
                             freeCell = false
                             restartDrag(event)
                         }
-                    }
-                }
-            }
+                }}
+            
         }
 
         else if (elementToDragTop < (myPositionsImgTop + 90)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 60 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 3
-                    newShipTakenPositions.y = "3"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
-
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-                        }
+            
+            elementToDrag.style.top = myPositionsImgTop + 60 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 3
+                newShipTakenPositions.y = "3"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 3
                     newShipTakenPositions.y = "3"
@@ -1246,42 +1236,25 @@
         }
 
         else if (elementToDragTop < (myPositionsImgTop + 120)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 90 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 4
-                    newShipTakenPositions.y = "4"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
-
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-
-                        }
+            elementToDrag.style.top = myPositionsImgTop + 90 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 4
+                newShipTakenPositions.y = "4"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 4
                     newShipTakenPositions.y = "4"
@@ -1309,42 +1282,25 @@
             }
         }
         else if (elementToDragTop < (myPositionsImgTop + 150)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 120 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 5
-                    newShipTakenPositions.y = "5"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-
-                        }
+            elementToDrag.style.top = myPositionsImgTop + 120 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 5
+                newShipTakenPositions.y = "5"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 5
                     newShipTakenPositions.y = "5"
@@ -1372,46 +1328,28 @@
             }
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 180)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 150 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 6
-                    newShipTakenPositions.y = "6"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
+        else if (elementToDragTop < (myPositionsImgTop + 180)||(isElementTooFarDown && elementToDragHeight == 150)) {
+            
 
-
-
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
-
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-
-                        }
+            elementToDrag.style.top = myPositionsImgTop + 150 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 6
+                newShipTakenPositions.y = "6"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 6
                     newShipTakenPositions.y = "6"
@@ -1438,43 +1376,27 @@
                 }
             }
         }
-        else if (elementToDragTop < (myPositionsImgTop + 210)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 180 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 7
-                    newShipTakenPositions.y = "7"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
+        else if (elementToDragTop < (myPositionsImgTop + 210)||(isElementTooFarDown && elementToDragHeight == 120)) {
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
-
-                        }
+            elementToDrag.style.top = myPositionsImgTop + 180 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 7
+                newShipTakenPositions.y = "7"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 7
                     newShipTakenPositions.y = "7"
@@ -1502,43 +1424,28 @@
             }
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 240)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 210 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 8
-                    newShipTakenPositions.y = "8"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
+        else if (elementToDragTop < (myPositionsImgTop + 240)||(isElementTooFarDown && elementToDragHeight == 90)) {
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
+            elementToDrag.style.top = myPositionsImgTop + 210 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 8
+                newShipTakenPositions.y = "8"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
 
-                        }
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 8
                     newShipTakenPositions.y = "8"
@@ -1565,43 +1472,28 @@
                 }
             }
         }
-        else if (elementToDragTop < (myPositionsImgTop + 270)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 240 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 9
-                    newShipTakenPositions.y = "9"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
+        else if (elementToDragTop < (myPositionsImgTop + 270)||(isElementTooFarDown && elementToDragHeight == 60)) {
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
+            elementToDrag.style.top = myPositionsImgTop + 240 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 9
+                newShipTakenPositions.y = "9"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositions, newShipTakenPositionsXInAsii)
 
-                        }
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 9
                     newShipTakenPositions.y = "9"
@@ -1629,43 +1521,28 @@
             }
         }
 
-        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance)) {
-            while (elementToDragBottom > (myPositionsImgTop + 300)) {
-                elementToDrag.style.top = (elementToDrag.style.top - 10) + "px"
-                checkAgain = true
-            }
-            if (checkAgain) {
-                calculateShipsPositionsY(elementToDrag, elementToDragTop, onMouseUptolerance, elementToDragBottom, newShipTakenPositions)
-            }
-            else if (!checkAgain) {
-                elementToDrag.style.top = myPositionsImgTop + 270 + "px"
-                elementToDrag.style.boxShadow = "none"
-                if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 10
-                    newShipTakenPositions.y = "10"
-                    if (newShipTakenPositions.x !== undefined) {
-                        newShipTakenPositions.positions = []
-                        let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
-                        for (let i = 0; i < newShipTakenPositions.length; i++) {
-                            let nextX = String.fromCharCode(newShipTakenPositionsXInAsii + i)
-                            if (takenCellArray.includes(nextX + newShipTakenPositions.y)) {
-                                freeCell = false
-                            }
-                            else {
-                                freeCell = true
-                                newShipTakenPositions.positions.push(nextX + newShipTakenPositions.y)
-                            }
+        else if (elementToDragTop < (myPositionsImgTop + 300 + onMouseUptolerance)||(isElementTooFarDown && elementToDragHeight == 30)) {
 
-                        }
-                        if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
-                            takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
-                            shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
-                        }
-                        else {
-                            freeCell = false
-                            restartDrag(event)
+            elementToDrag.style.top = myPositionsImgTop + 270 + "px"
+            elementToDrag.style.boxShadow = "none"
+            if (newShipTakenPositions.direction == "horizontal") { // horizontal ship starting in 10
+                newShipTakenPositions.y = "10"
+                if (newShipTakenPositions.x !== undefined) {
+                    newShipTakenPositions.positions = []
+                    let newShipTakenPositionsXInAsii = newShipTakenPositions.x.toUpperCase().charCodeAt(0)
+                        calculateOrizontalObjCells(newShipTakenPositionsXInAsii)
 
-                        }
+                    
+                    if (newShipTakenPositions.positions.length == newShipTakenPositions.length) {//se l'array formato dalle celle libere per questa nave ha la stessa lunghezza delle celle della nave
+                        takenCellArray = takenCellArray.concat(newShipTakenPositions.positions)
+                        shipsPositionsCells = shipsPositionsCells.concat(newShipTakenPositions.positions)
                     }
+                    else {
+                        freeCell = false
+                        restartDrag(event)
+
+                    }
+
                 }
                 else if (newShipTakenPositions.direction == "vertical") { // vertical ship starting in 10
                     newShipTakenPositions.y = "10"
@@ -1696,7 +1573,7 @@
     }
     let allArticlesPositions = []
 
-    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {
+    function calculateShipsPositions(elementToDrag, elementToDragLeft, elementToDragTop, onMouseUptolerance, elementToDragRight, elementToDragBottom) {console.log("k123213lòa")
         let objHorizontalCells = elementToDrag.width / 30
         let objVerticalCells = elementToDrag.height / 30
         let type
@@ -1743,7 +1620,7 @@
     let turnObjImgArray = "notDoneYet"
     let lastDraggedElementIndex
 
-    function dragFunction(elementIndex, event) {
+    function dragFunction(elementIndex, event) {console.log("klff333òa")
 
         const elementToDrag = draggableElementArray[elementIndex];
         elementToDrag.style.position = "absolute";
@@ -1756,16 +1633,16 @@
             }
         }
         //let offsetX = event.clientX - elementToDrag.getBoundingClientRect().left;
-       // let offsetY = event.clientY - elementToDrag.getBoundingClientRect().top - window.scrollY;
+        // let offsetY = event.clientY - elementToDrag.getBoundingClientRect().top - window.scrollY;
         let isDragging = true;
         lastDraggedElementIndex = elementIndex
         function onMouseMove(event) {
-            if (isDragging) {
+            if (isDragging) {console.log("ksdflòa")
                 elementToDrag.style.left = event.clientX + 'px';
                 elementToDrag.style.top = event.clientY + 'px';
             }
         }
-        function onMouseUp() {
+        function onMouseUp() {console.log("ksdfsdsslòa")
             let elementToDragLeft = parseFloat(elementToDrag.style.left)
             let elementToDragTop = parseFloat(elementToDrag.style.top)
             let elementToDragWidth = elementToDrag.offsetWidth
@@ -1820,6 +1697,150 @@
     opponentPositionsImg.addEventListener('click', (event) => logCoordinates(event, "opponentGrid"))
     myPositionsImg.addEventListener('click', (event) => logCoordinates(event, "myGrid"))
 
+    function turnStarts() {console.log("ksdflaaaaaaaaaaòa")
+        const data = {
+            IDMatch: effectiveIDMatch,
+            myName: myName.value
+        };
+        if (!localStorage.getItem("tokenGND")) { alert("Problema di autentificazione: purtroppo la partita è da rifare"); return }
+        const token = localStorage.getItem('tokenGND')
+        fetch('http://localhost:3001/api/turnStarts', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => {
+                return response.json().then(responseBody => {
+                    if (response.ok) {
+
+                        if (responseBody.message == ("Not your turn.")) {
+                            printScreenAssistantMessage("Non è ancora il tuo turno.");
+
+                        }
+                        if (responseBody.message != "Not your turn.") {
+                            isMyTurn = true
+                            printScreenAssistantMessage(responseBody.message);
+                            clearInterval(interval)
+                        }
+
+                    }
+                    else {
+                        console.log(responseBody.message)
+
+                    }
+                })
+            })
+    }
+
+    function turnEnds(bombedCell, theoreticalXBombed, theoreticalYBombed) {console.log("ks424dflòa")
+        if (!localStorage.getItem("tokenGND")) {
+            alert("Problema di autentificazione: purtroppo la partita è da rifare");
+            return
+        }
+        const token = localStorage.getItem('tokenGND')
+
+        const myName = document.getElementById('myName').value;
+        const IDMatch = document.getElementById('IDMatch').value;
+
+        console.log(myName, IDMatch);
+
+        if (myName != "" && myName.length < 16) {
+            const data = {
+                myName: myName,
+                IDMatch: IDMatch,
+                bombedCell: bombedCell
+            };
+            fetch('http://localhost:3001/api/turnEnds', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => {
+                    return response.json().then(responseBody => {
+                        if (response.ok) {
+                            isMyTurn = false
+                            console.log(response)
+
+                            let responseToPrint = responseBody.message
+                            printScreenAssistantMessage(responseToPrint)
+                            interval = setInterval(turnStarts, 1500);
+                            if (responseToPrint.includes("Complimenti")) {
+                                const circleBomb = document.createElement('div');
+                                circleBomb.style.width = '30px';
+                                circleBomb.style.height = '30px';
+                                circleBomb.style.backgroundColor = 'black';
+                                circleBomb.style.borderRadius = '50%';
+                                circleBomb.style.position = 'absolute';
+                                circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+                                circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+                                circleBomb.id = "circleBomb"
+                                document.body.appendChild(circleBomb);
+                                circleBomb.className = "imBombingAnimation"
+                            }
+                            else if (responseToPrint.includes("intercettato")) {
+                                const circleBomb = document.createElement('div');
+                                circleBomb.style.width = '30px';
+                                circleBomb.style.height = '30px';
+                                circleBomb.style.backgroundColor = 'black';
+                                circleBomb.style.borderRadius = '50%';
+                                circleBomb.style.position = 'absolute';
+                                circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+                                circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+                                circleBomb.id = "circleBomb"
+                                document.body.appendChild(circleBomb);
+                                circleBomb.className = "imBombingAnimationAirDefense"
+                            }
+
+
+                            else if (responseBody.divertedShotCell) {
+                                console.log(" il jammer ha deviato in " + divertedShotCell)
+                                const circleBomb = document.createElement('div');
+                                circleBomb.style.width = '30px';
+                                circleBomb.style.height = '30px';
+                                circleBomb.style.backgroundColor = 'black';
+                                circleBomb.style.borderRadius = '50%';
+                                circleBomb.style.position = 'absolute';
+                                circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+                                circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+                                circleBomb.id = "circleBomb"
+                                document.body.appendChild(circleBomb);
+                                circleBomb.className = "imBombingAnimationJammer"
+                            }
+
+                            else if (responseToPrint == "Un jammer nemico è riuscito a deviare con successo il tuo colpo.") {
+                                console.log(" il jammer ha deviato in ")
+                                const circleBomb = document.createElement('div');
+                                circleBomb.style.width = '30px';
+                                circleBomb.style.height = '30px';
+                                circleBomb.style.backgroundColor = 'black';
+                                circleBomb.style.borderRadius = '50%';
+                                circleBomb.style.position = 'absolute';
+                                circleBomb.style.top = (theoreticalYBombed - 15) + "px"
+                                circleBomb.style.left = (theoreticalXBombed - 15) + "px"
+                                circleBomb.id = "circleBomb"
+                                document.body.appendChild(circleBomb);
+                                circleBomb.className = "imBombingAnimationJammerFail"
+                            }
+
+
+                        } else {
+                            printScreenAssistantMessage(responseBody.message);
+                            throw new Error('Network response was not ok: ' + responseBody.error);
+                        }
+                    });
+                });
+        } else {
+            console.log("Qualcosa è andato storto R")
+
+        }
+    }
+
 </script>
 
 <style>
@@ -1853,6 +1874,84 @@
 
     .imBombingAnimation {
         animation: imBombingAnimationKeyframes 1.6s forwards;
+    }
+
+    @keyframes imBombingAnimationFailsKeyframes {
+        0% {
+            background-color: rgb(255, 255, 255);
+
+
+        }
+
+        20% {
+            background-color: rgb(85, 142, 255);
+            box-shadow: 0px 0px 10px 6px rgb(255, 170, 0)
+        }
+
+        50% {
+            background-color: rgb(13, 0, 255);
+            box-shadow: 0px 0px 20px 26px rgb(255, 170, 0)
+        }
+
+        100% {
+            background-color: rgb(0, 0, 0);
+        }
+    }
+
+    @keyframes imBombingAnimationAirDefenceKeyframes {
+        0% {
+            background-color: rgb(255, 255, 255);
+
+
+        }
+
+        20% {
+            background-color: rgb(255, 0, 0);
+            box-shadow: 0px 0px 10px 6px rgb(255, 170, 0)
+        }
+
+        50% {
+            background-color: rgb(84, 0, 17);
+            box-shadow: 0px 0px 20px 26px rgb(255, 170, 0)
+        }
+
+        100% {
+            background-color: rgb(106, 0, 0);
+        }
+    }
+
+    @keyframes imBombingAnimationJammersKeyframes {
+        0% {
+            background-color: rgb(255, 255, 255);
+
+
+        }
+
+        20% {
+            background-color: rgb(30, 182, 0);
+            box-shadow: 0px 0px 10px 6px rgb(255, 170, 0)
+        }
+
+        50% {
+            background-color: rgb(33, 134, 0);
+            box-shadow: 0px 0px 20px 26px rgb(255, 170, 0)
+        }
+
+        100% {
+            background-color: rgb(0, 245, 53);
+        }
+    }
+
+    .imBombingAnimationFail {
+        animation: imBombingAnimationFailKeyframes 1.6s forwards;
+    }
+
+    .imBombingAnimationJammer {
+        animation: imBombingAnimationJammerKeyframes 1.6s forwards;
+    }
+
+    .imBombingAnimationAirDefense {
+        animation: imBombingAnimationAirDefenseKeyframes 1.6s forwards;
     }
 
 
@@ -1909,7 +2008,8 @@
         padding: 10px;
         box-sizing: border-box;
     }
-    #newMatchConsole{
+
+    #newMatchConsole {
         height: 20vh;
         width: 300px;
         background-color: rgba(0, 0, 0, 0.521);
@@ -1921,13 +2021,15 @@
         margin-block-start: 1em;
         margin-block-end: 1em;
     }
-    #newMatchConsole label{
+
+    #newMatchConsole label {
         font-size: medium;
 
     }
-    form{
+
+    form {
         display: flex;
-    flex-direction: column;
+        flex-direction: column;
     }
 
     .turnObjImg {
@@ -1958,6 +2060,7 @@
     }
 
     .activeTurn {
+        width: 300px;
         border-radius: 20px;
         box-shadow: 0px 0px 30px 30px blue;
     }
@@ -2044,6 +2147,8 @@
 
 
     body {
+        user-select: none;
+
         margin: 0;
         top: 0;
         left: 0;
@@ -2186,6 +2291,7 @@
     #marketDiv {
         width: 80px;
         background-color: #0058b0;
+        opacity: 0;
     }
 
     #myXAxisSpan,
@@ -2233,6 +2339,10 @@
         }
 
         .gridSpan {
+            width: 300px;
+        }
+
+        .gridSpan span {
             width: 300px;
         }
 
