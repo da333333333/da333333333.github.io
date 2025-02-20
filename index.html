@@ -216,7 +216,7 @@
                               remove them, use a calculator, or utilize a feature to calculate in real-time the total
                               cost of the items they are
                               purchasing as they are removed from the list. Users can also save interesting items
-                              locally.
+                              locally. The user can also ask <strong>OpenAI</strong> to suggest a recipe, using the ingredients from the list.
                               <strong>Backend</strong> side, I created a <strong>NoSQL</strong> database using
                               <strong>MongoDB</strong>
                               and I used <strong>Node.js</strong>, <strong>npm</strong>, <strong>express</strong>,
@@ -317,9 +317,9 @@
       // change cart database------------------------------------------------------------------------
       let allCardsInfo = {
             shoppingListSite: {
-                  'description': [originalShoppingListDescription, "The shopping list", "The user can select a color or enable 'automatic mode', which automatically chooses an appropriate color based on the item category if possible.", "The user can save an item considered a good deal by also adding a brief description", "The user can leave a message on the sticky note present in each group shopping list, read it, or modify it.", "There is a calculator available for the user"],
-                  'src': ['./media/shoppingList/shoppingList.gif', './media/shoppingList/shoppingList.png', './media/shoppingList/shoppingListColors.png', './media/shoppingList/shoppingListSave.png', './media/shoppingList/shoppingListMessage.png', './media/shoppingList/shoppingListCalc.png'],
-                  'alt': ['video shopping list website', 'site mobile version', 'how to select a color', 'how to save an item', 'how to send or read a message', 'where to find the calculator']
+                  'description': [originalShoppingListDescription, "The shopping list", "The user can select a color or enable 'automatic mode', which automatically chooses an appropriate color based on the item category if possible.", "The user can save an item considered a good deal by also adding a brief description", "The user can leave a message on the sticky note present in each group shopping list, read it, or modify it.", "There is a calculator available for the user", "AI suggests a recipe according to the user's list."],
+                  'src': ['./media/shoppingList/shoppingList.gif', './media/shoppingList/shoppingList.png', './media/shoppingList/shoppingListColors.png', './media/shoppingList/shoppingListSave.png', './media/shoppingList/shoppingListMessage.png', './media/shoppingList/shoppingListCalc.png', './media/shoppingList/aiRecipe.png'],
+                  'alt': ['video shopping list website', 'site mobile version', 'how to select a color', 'how to save an item', 'how to send or read a message', 'where to find the calculator',"AI suggests a recipe according to the user's list."]
             },
             travelSite: {
                   'description': [originalTravelDescription, "Desktop version", 'Mobile version'],
